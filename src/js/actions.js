@@ -24,194 +24,203 @@ export class ActionMap {
     render() {
         this.pitch.clearDataLayer();
         const g = this.pitch.getGroup();
-
         this.defineMarkers();
 
         this.events.forEach(ev => {
-            const type = ev.type.displayName;
+            const type = ev.type?.displayName;
             
-            // Catégories
             const isGoal = type === 'Goal';
             const isShot = ['MissedShots', 'SavedShot', 'ShotOnPost'].includes(type);
             const isDribble = type === 'TakeOn';
             const isDefense = ['Tackle', 'Interception', 'Clearance', 'BallRecovery'].includes(type);
 
-            // Filtrage visuel
             if (isGoal && !this.options.showGoals) return;
             if (isShot && !this.options.showShots) return;
             if (isDribble && !this.options.showDribbles) return;
             if (isDefense && !this.options.showDefensive) return;
 
-            // Conversion coordonnées de départ
             const [startX, startY] = this.pitch.toPixels(ev.x, ev.y);
 
-            // --- TIRS & BUTS ---
             if (isGoal || isShot) {
                 this.drawShotVector(g, ev, startX, startY, isGoal);
-            } 
-            // --- DRIBBLES ---
-            else if (isDribble) {
-                const isSuccess = ev.outcomeType.value === 1;
-                g.append('rect')
-                    .attr('x', startX - 5).attr('y', startY - 5)
-                    .attr('width', 10).attr('height', 10)
-                    .attr('fill', isSuccess ? '#22c55e' : '#ef4444')
-                    .attr('stroke', 'black').attr('stroke-width', 1.5)
-                    .attr('transform', `rotate(45, ${startX}, ${startY})`)
-                    .style('cursor', 'pointer')
-                    .on('mouseover', (e) => this.showTooltip(e, ev, isSuccess ? 'Dribble Réussi' : 'Dribble Raté'))
-                    .on('mouseout', () => this.hideTooltip());
-            }
-            // --- DÉFENSE ---
-            else if (isDefense) {
-                 const symbol = d3.symbol().type(d3.symbolTriangle).size(120);
-                 g.append('path')
-                    .attr('d', symbol)
-                    .attr('transform', `translate(${startX},${startY})`)
-                    .attr('fill', '#8b5cf6')
-                    .attr('stroke', 'black').attr('stroke-width', 1)
-                    .style('cursor', 'pointer')
-                    .on('mouseover', (e) => this.showTooltip(e, ev, type))
-                    .on('mouseout', () => this.hideTooltip());
+            } else if (isDribble) {
+                this.drawDribble(g, ev, startX, startY);
+            } else if (isDefense) {
+                this.drawDefensiveAction(g, ev, startX, startY, type);
             }
         });
     }
 
-    /**
-     * Helper pour extraire la valeur d'un qualifieur de manière sécurisée
-     */
-    getQualifierValue(event, name) {
-        // CORRECTION MAJEURE ICI : on cherche dans q.type.displayName
-        const q = event.qualifiers?.find(q => q.type?.displayName === name);
-        return q ? parseFloat(q.value) : null;
-    }
-
     drawShotVector(g, ev, startX, startY, isGoal) {
-        // 1. Détermination de la cible X (Longueur)
-        // PAR DÉFAUT : C'est la ligne de but adverse (100)
         let targetXVal = 100;
-        
-        // CAS PARTICULIER : Tir contré (BlockedX existe)
-        const blockedX = this.getQualifierValue(ev, 'BlockedX');
-        if (blockedX !== null) {
-            targetXVal = blockedX;
-        }
-
-        // 2. Détermination de la cible Y (Largeur)
-        // PAR DÉFAUT : On cherche GoalMouthY
         let targetYVal = this.getQualifierValue(ev, 'GoalMouthY');
         
-        // SI ABSENT (Tir contré ou non cadré sans data précise) :
-        if (targetYVal === null) {
-            // On regarde s'il y a un BlockedY
-            targetYVal = this.getQualifierValue(ev, 'BlockedY');
-            // Sinon, on tire "tout droit" (fallback)
-            if (targetYVal === null) targetYVal = ev.y; 
+        const blockedX = this.getQualifierValue(ev, 'BlockedX');
+        const blockedY = this.getQualifierValue(ev, 'BlockedY');
+        
+        if (blockedX !== null) {
+            targetXVal = blockedX;
+            targetYVal = blockedY !== null ? blockedY : ev.y;
         }
+        
+        if (targetYVal === null) targetYVal = ev.y;
 
-        // Conversion en pixels
         const [endX, endY] = this.pitch.toPixels(targetXVal, targetYVal);
 
-        // 3. Style Visuel
-        const color = isGoal ? '#FFD700' : (ev.type.displayName === 'SavedShot' ? '#ffffff' : '#ff0055');
-        const width = isGoal ? 4 : 3;
-        const opacity = 1;
+        // Style selon le type
+        let color, width, strokeDash;
+        
+        if (isGoal) {
+            color = '#fbbf24'; // Or
+            width = 5;
+            strokeDash = 'none';
+        } else if (ev.type?.displayName === 'SavedShot') {
+            color = '#3b82f6'; // Bleu
+            width = 3;
+            strokeDash = 'none';
+        } else if (blockedX !== null) {
+            color = '#8b5cf6'; // Violet (bloqué)
+            width = 3;
+            strokeDash = '5,5';
+        } else {
+            color = '#ef4444'; // Rouge (raté)
+            width = 3;
+            strokeDash = 'none';
+        }
 
-        // 4. Dessin du Vecteur
-        g.append('line')
+        // Ligne de tir
+        const line = g.append('line')
             .attr('x1', startX).attr('y1', startY)
             .attr('x2', endX).attr('y2', endY)
             .attr('stroke', color)
             .attr('stroke-width', width)
+            .attr('stroke-dasharray', strokeDash)
             .attr('marker-end', `url(#arrow-${isGoal ? 'goal' : 'shot'})`)
-            .attr('opacity', opacity)
-            .style('pointer-events', 'visibleStroke')
+            .style('cursor', 'pointer');
+
+        // Zone de survol
+        g.append('line')
+            .attr('x1', startX).attr('y1', startY)
+            .attr('x2', endX).attr('y2', endY)
+            .attr('stroke', 'transparent')
+            .attr('stroke-width', 15)
+            .style('cursor', 'pointer')
             .on('mouseover', (e) => {
-                d3.select(e.target).attr('stroke-width', width + 2);
-                this.showTooltip(e, ev, isGoal ? 'BUT !' : 'Tir');
+                line.attr('stroke-width', width + 2).attr('stroke', 'white');
+                this.showShotTooltip(e, ev, isGoal);
             })
-            .on('mouseout', (e) => {
-                d3.select(e.target).attr('stroke-width', width);
+            .on('mouseout', () => {
+                line.attr('stroke-width', width).attr('stroke', color);
                 this.hideTooltip();
             });
 
-        // 5. Point de départ
+        // Point de départ
         g.append('circle')
             .attr('cx', startX).attr('cy', startY)
-            .attr('r', 4.5)
+            .attr('r', isGoal ? 6 : 5)
             .attr('fill', color)
-            .attr('stroke', 'black')
-            .attr('stroke-width', 1.5)
+            .attr('stroke', isGoal ? 'white' : '#1e293b')
+            .attr('stroke-width', 2)
             .style('pointer-events', 'none');
     }
 
-    defineMarkers() {
-        const defs = this.pitch.svg.select('defs').empty() ? this.pitch.svg.append('defs') : this.pitch.svg.select('defs');
+    drawDribble(g, ev, startX, startY) {
+        const isSuccess = ev.outcomeType?.value === 1;
+        const color = isSuccess ? '#22c55e' : '#ef4444';
         
-        const createMarker = (id, color) => {
-            if(defs.select(`#${id}`).empty()) {
-                defs.append('marker')
-                    .attr('id', id)
-                    .attr('viewBox', '0 0 10 10')
-                    .attr('refX', 7).attr('refY', 5)
-                    .attr('markerWidth', 5).attr('markerHeight', 5)
-                    .attr('orient', 'auto')
-                    .append('path')
-                    .attr('d', 'M 0 0 L 10 5 L 0 10 z')
-                    .attr('fill', color);
-            }
-        };
-        createMarker('arrow-goal', '#FFD700');
-        createMarker('arrow-shot', '#ff0055');
+        const rect = g.append('rect')
+            .attr('x', startX - 6).attr('y', startY - 6)
+            .attr('width', 12).attr('height', 12)
+            .attr('fill', color)
+            .attr('stroke', 'white')
+            .attr('stroke-width', 2)
+            .attr('transform', `rotate(45, ${startX}, ${startY})`)
+            .style('cursor', 'pointer');
+
+        rect.on('mouseover', (e) => {
+            rect.attr('width', 14).attr('height', 14).attr('x', startX - 7).attr('y', startY - 7);
+            this.showTooltip(e, ev, isSuccess ? 'Dribble Réussi ✓' : 'Dribble Raté ✗');
+        })
+        .on('mouseout', () => {
+            rect.attr('width', 12).attr('height', 12).attr('x', startX - 6).attr('y', startY - 6);
+            this.hideTooltip();
+        });
     }
 
-    showTooltip(event, data, label) {
-        // Extraction corrigée avec getQualifierValue
+    drawDefensiveAction(g, ev, startX, startY, type) {
+        const colors = {
+            'Tackle': '#8b5cf6',
+            'Interception': '#06b6d4',
+            'Clearance': '#f59e0b',
+            'BallRecovery': '#10b981'
+        };
+        
+        const color = colors[type] || '#8b5cf6';
+        const isSuccess = ev.outcomeType?.value === 1;
+        
+        const symbol = d3.symbol()
+            .type(d3.symbolTriangle)
+            .size(isSuccess ? 150 : 100);
+        
+        const path = g.append('path')
+            .attr('d', symbol)
+            .attr('transform', `translate(${startX},${startY})`)
+            .attr('fill', color)
+            .attr('stroke', 'white')
+            .attr('stroke-width', 1.5)
+            .attr('opacity', isSuccess ? 1 : 0.6)
+            .style('cursor', 'pointer');
+
+        path.on('mouseover', (e) => {
+            path.attr('transform', `translate(${startX},${startY}) scale(1.2)`);
+            this.showTooltip(e, ev, type + (isSuccess ? ' ✓' : ' ✗'));
+        })
+        .on('mouseout', () => {
+            path.attr('transform', `translate(${startX},${startY})`);
+            this.hideTooltip();
+        });
+    }
+
+    getQualifierValue(event, name) {
+        const q = event.qualifiers?.find(q => q.type?.displayName === name);
+        return q ? parseFloat(q.value) : null;
+    }
+
+    showShotTooltip(event, data, isGoal) {
         const gmY = this.getQualifierValue(data, 'GoalMouthY');
         const gmZ = this.getQualifierValue(data, 'GoalMouthZ');
         
-        // Recherche de la partie du corps (qui est aussi un qualifieur de type displayName)
-        // Note: RightFoot/LeftFoot sont souvent juste des tags sans valeur, il faut vérifier l'existence
-        let bodyPart = '';
-        const bodyQualifiers = ['RightFoot', 'LeftFoot', 'Head', 'OtherBodyPart'];
-        const foundBody = data.qualifiers?.find(q => bodyQualifiers.includes(q.type?.displayName));
-        if (foundBody) bodyPart = foundBody.type.displayName;
+        const bodyParts = ['RightFoot', 'LeftFoot', 'Head', 'OtherBodyPart'];
+        const foundBody = data.qualifiers?.find(q => bodyParts.includes(q.type?.displayName));
+        const bodyPart = foundBody ? foundBody.type.displayName : '';
+        
+        const shotType = data.type?.displayName === 'SavedShot' ? 'Tir Cadré' : 
+                        data.type?.displayName === 'ShotOnPost' ? 'Sur le Poteau' : 
+                        isGoal ? 'BUT ⚽' : 'Tir Non Cadré';
 
-        let content = `<div style="text-align:center; font-weight:bold; margin-bottom:5px;">${label}</div>`;
-        content += `<div style="font-size:0.85em; color:#ccc;">Minute: ${data.minute}' <span style="color:#aaa">•</span> ${bodyPart}</div>`;
+        let content = `<div style="text-align:center; font-weight:bold; margin-bottom:5px; color:${isGoal ? '#fbbf24' : '#fff'}">${shotType}</div>`;
+        content += `<div style="font-size:0.85em; color:#94a3b8;">Minute: ${data.minute}' ${bodyPart ? '• ' + bodyPart : ''}</div>`;
 
-        // --- MINI-CAGE (VUE DE FACE) ---
+        // Mini-cage
         if (gmY !== null && gmZ !== null) {
             const W = 160, H = 60;
-            
-            // Constantes Géométriques pour Mapping
-            const postL = 44.6; // Poteau Gauche (~45%)
-            const postR = 55.4; // Poteau Droit (~55%)
+            const postL = 44.6, postR = 55.4;
             const range = postR - postL;
-
-            // Mapping X (Position latérale)
             const ballX = 10 + ((gmY - postL) / range) * (W - 20);
-
-            // Mapping Y (Hauteur Z)
-            // Z goes from 0 (Sol) to ~45-50 (Barre)
-            const zMax = 45; 
-            // Inversion Y pour SVG (0 en haut)
+            const zMax = 45;
             const ballY = (H - 5) - ((gmZ / zMax) * (H - 10));
-
-            const ballColor = label.includes('BUT') ? '#FFD700' : '#ff0055';
+            const ballColor = isGoal ? '#fbbf24' : '#ef4444';
 
             content += `
-                <div style="margin-top:10px; background:#222; padding:5px; border-radius:4px; border:1px solid #444;">
-                    <svg width="${W}" height="${H}" style="display:block; margin:auto; background:rgba(255,255,255,0.05)">
+                <div style="margin-top:10px; background:#1a1f35; padding:5px; border-radius:4px;">
+                    <svg width="${W}" height="${H}" style="display:block; margin:auto;">
                         <line x1="10" y1="${H}" x2="10" y2="5" stroke="white" stroke-width="3"/>
                         <line x1="${W-10}" y1="${H}" x2="${W-10}" y2="5" stroke="white" stroke-width="3"/>
                         <line x1="10" y1="5" x2="${W-10}" y2="5" stroke="white" stroke-width="3"/>
-                        
-                        <line x1="0" y1="${H}" x2="${W}" y2="${H}" stroke="#888" stroke-width="1"/>
-                        
-                        <circle cx="${ballX}" cy="${ballY}" r="5" fill="${ballColor}" stroke="white" stroke-width="1"/>
+                        <line x1="0" y1="${H}" x2="${W}" y2="${H}" stroke="#475569" stroke-width="1"/>
+                        <circle cx="${ballX}" cy="${ballY}" r="6" fill="${ballColor}" stroke="white" stroke-width="2"/>
                     </svg>
-                    <div style="font-size:0.7em; color:#777; margin-top:2px; text-align:center">Vue gardien</div>
+                    <div style="font-size:0.7em; color:#64748b; text-align:center">Vue gardien</div>
                 </div>
             `;
         }
@@ -219,7 +228,7 @@ export class ActionMap {
         this.tooltip.innerHTML = content;
         this.tooltip.style.display = 'block';
         
-        const tipW = 200; 
+        const tipW = 200;
         let left = event.pageX + 15;
         if (left + tipW > window.innerWidth) left = event.pageX - tipW - 15;
         
@@ -227,7 +236,39 @@ export class ActionMap {
         this.tooltip.style.top = (event.pageY - 20) + 'px';
     }
 
+    showTooltip(event, data, label) {
+        this.tooltip.innerHTML = `<strong>${label}</strong><br>Minute: ${data.minute}'`;
+        this.tooltip.style.display = 'block';
+        this.tooltip.style.left = (event.pageX + 15) + 'px';
+        this.tooltip.style.top = (event.pageY - 15) + 'px';
+    }
+
     hideTooltip() {
         this.tooltip.style.display = 'none';
+    }
+
+    defineMarkers() {
+        const defs = this.pitch.svg.select('defs').empty() 
+            ? this.pitch.svg.append('defs') 
+            : this.pitch.svg.select('defs');
+        
+        const createMarker = (id, color) => {
+            if (defs.select(`#${id}`).empty()) {
+                defs.append('marker')
+                    .attr('id', id)
+                    .attr('viewBox', '0 0 10 10')
+                    .attr('refX', 7)
+                    .attr('refY', 5)
+                    .attr('markerWidth', 5)
+                    .attr('markerHeight', 5)
+                    .attr('orient', 'auto')
+                    .append('path')
+                    .attr('d', 'M 0 0 L 10 5 L 0 10 z')
+                    .attr('fill', color);
+            }
+        };
+        
+        createMarker('arrow-goal', '#fbbf24');
+        createMarker('arrow-shot', '#ef4444');
     }
 }

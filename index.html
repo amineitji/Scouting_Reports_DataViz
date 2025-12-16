@@ -1,178 +1,198 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Scouting Dashboard v3</title>
-    <link rel="stylesheet" href="src/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pro Scouting Dashboard v4</title>
+    <link rel="stylesheet" href="src/css/style.css" />
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://d3js.org/d3-contour.v4.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        .sub-filters {
-            background: #0f172a;
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px solid #334155;
-            margin-top: 8px;
-            animation: fadeIn 0.3s ease;
-        }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .toggle-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            color: #cbd5e1;
-            cursor: pointer;
-        }
-        .toggle-row:last-child { margin-bottom: 0; }
-        .toggle-row:hover { color: white; }
-        
-        .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:8px; }
-        
-        /* Checkbox custom style */
-        input[type="checkbox"] {
-            accent-color: #3b82f6;
-            cursor: pointer;
-            width: 16px; height: 16px;
-        }
-    </style>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="app-container">
-        <aside class="sidebar">
-            <div class="brand">
-                <i class="fas fa-futbol"></i> SCOUTING<span>VIZ</span>
-            </div>
-            
-            <div class="control-group">
-                <label><i class="fas fa-file-import"></i> Rapport</label>
-                <select id="fileSelect"></select>
-            </div>
+      <aside class="sidebar">
+        <div class="brand">
+          <i class="fas fa-futbol"></i> SCOUTING<span>PRO</span>
+        </div>
 
-            <div class="control-group">
-                <label><i class="far fa-clock"></i> Période (Min: <span id="time-val">0-90</span>)</label>
-                <div class="slider-container">
-                    <input type="range" id="time-min" min="0" max="100" value="0">
-                    <input type="range" id="time-max" min="0" max="100" value="100">
-                </div>
-            </div>
+        <div class="control-group">
+          <label><i class="fas fa-file-import"></i> Rapport</label>
+          <select id="fileSelect"></select>
+        </div>
 
-            <div class="control-group">
-                <label><i class="fas fa-filter"></i> Filtres Globaux</label>
-                <div class="checkbox-group">
-                    <label class="toggle-row">
-                        <span><i class="fas fa-check-circle"></i> Actions Réussies</span>
-                        <input type="checkbox" id="filter-success" checked>
-                    </label>
-                    <label class="toggle-row">
-                        <span><i class="fas fa-times-circle"></i> Actions Ratées</span>
-                        <input type="checkbox" id="filter-failed" checked>
-                    </label>
-                </div>
-            </div>
+        <div class="control-group">
+          <label
+            ><i class="far fa-clock"></i> Période (<span id="time-val"
+              >0-90</span
+            >
+            min)</label
+          >
+          <div class="slider-container">
+            <input type="range" id="time-min" min="0" max="100" value="0" />
+            <input type="range" id="time-max" min="0" max="100" value="100" />
+          </div>
+        </div>
 
-            <div class="control-group">
-                <label><i class="fas fa-map-marker-alt"></i> Zones</label>
-                <div class="zone-selector">
-                    <button class="zone-btn active" data-zone="all">Tout</button>
-                    <button class="zone-btn" data-zone="def">Déf</button>
-                    <button class="zone-btn" data-zone="mid">Mil</button>
-                    <button class="zone-btn" data-zone="att">Att</button>
-                </div>
-            </div>
+        <div class="control-group">
+          <label><i class="fas fa-filter"></i> Filtres</label>
+          <div class="checkbox-group">
+            <label class="toggle-row">
+              <span
+                ><i class="fas fa-check-circle" style="color: #22c55e"></i>
+                Réussies</span
+              >
+              <input type="checkbox" id="filter-success" checked />
+            </label>
+            <label class="toggle-row">
+              <span
+                ><i class="fas fa-times-circle" style="color: #ef4444"></i>
+                Ratées</span
+              >
+              <input type="checkbox" id="filter-failed" checked />
+            </label>
+          </div>
+        </div>
 
-            <div class="control-group">
-                <label><i class="fas fa-layer-group"></i> Options de Vue</label>
-                
-                <div id="filters-passes" class="sub-filters" style="display:none;">
-                    <label class="toggle-row" title="Passes Clés et Décisives">
-                        <span><span class="dot" style="background:#fbbf24"></span> Clés / Décisives</span>
-                        <input type="checkbox" id="opt-keypass" checked>
-                    </label>
-                    <label class="toggle-row">
-                        <span><span class="dot" style="background:#3b82f6"></span> Réussies</span>
-                        <input type="checkbox" id="opt-pass-success" checked>
-                    </label>
-                    <label class="toggle-row">
-                        <span><span class="dot" style="background:#ef4444"></span> Ratées</span>
-                        <input type="checkbox" id="opt-pass-fail" checked>
-                    </label>
-                </div>
+        <div class="control-group">
+          <label><i class="fas fa-map-marker-alt"></i> Zones Terrain</label>
+          <div class="zone-selector">
+            <button class="zone-btn active" data-zone="all">Tout</button>
+            <button class="zone-btn" data-zone="def">Déf</button>
+            <button class="zone-btn" data-zone="mid">Mil</button>
+            <button class="zone-btn" data-zone="att">Att</button>
+          </div>
+        </div>
 
-                <div id="filters-actions" class="sub-filters" style="display:none;">
-                    <label class="toggle-row">
-                        <span><i class="fas fa-star" style="color:#FFD700; width:15px"></i> Buts</span>
-                        <input type="checkbox" id="opt-goal" checked>
-                    </label>
-                    <label class="toggle-row">
-                        <span><i class="fas fa-circle" style="color:#fff; width:15px"></i> Tirs</span>
-                        <input type="checkbox" id="opt-shot" checked>
-                    </label>
-                    <label class="toggle-row">
-                        <span><i class="fas fa-square" style="color:#4CAF50; width:15px"></i> Dribbles</span>
-                        <input type="checkbox" id="opt-dribble" checked>
-                    </label>
-                    <label class="toggle-row">
-                        <span><i class="fas fa-shield-alt" style="color:#8b5cf6; width:15px"></i> Défense</span>
-                        <input type="checkbox" id="opt-defense" checked>
-                    </label>
-                </div>
-                
-                <div id="filters-none" class="sub-filters" style="display:none; color:#64748b; font-size:0.8rem; text-align:center;">
-                    Aucune option supplémentaire pour cette vue.
-                </div>
-            </div>
+        <div class="control-group">
+          <label><i class="fas fa-layer-group"></i> Options Vue</label>
+          <div id="filters-passes" class="sub-filters" style="display: none">
+            <label class="toggle-row">
+              <span
+                ><span class="dot" style="background: #fbbf24"></span>
+                Clés/Décisives</span
+              >
+              <input type="checkbox" id="opt-keypass" checked />
+            </label>
+            <label class="toggle-row">
+              <span
+                ><span class="dot" style="background: #3b82f6"></span>
+                Réussies</span
+              >
+              <input type="checkbox" id="opt-pass-success" checked />
+            </label>
+            <label class="toggle-row">
+              <span
+                ><span class="dot" style="background: #ef4444"></span>
+                Ratées</span
+              >
+              <input type="checkbox" id="opt-pass-fail" checked />
+            </label>
+          </div>
 
-            <div class="player-summary" id="sidebar-summary"></div>
-        </aside>
+          <div id="filters-actions" class="sub-filters" style="display: none">
+            <label class="toggle-row">
+              <span
+                ><i class="fas fa-star" style="color: #ffd700"></i> Buts</span
+              >
+              <input type="checkbox" id="opt-goal" checked />
+            </label>
+            <label class="toggle-row">
+              <span
+                ><i class="fas fa-circle" style="color: #fff"></i> Tirs</span
+              >
+              <input type="checkbox" id="opt-shot" checked />
+            </label>
+            <label class="toggle-row">
+              <span
+                ><i class="fas fa-square" style="color: #4caf50"></i>
+                Dribbles</span
+              >
+              <input type="checkbox" id="opt-dribble" checked />
+            </label>
+            <label class="toggle-row">
+              <span
+                ><i class="fas fa-shield-alt" style="color: #8b5cf6"></i>
+                Défense</span
+              >
+              <input type="checkbox" id="opt-defense" checked />
+            </label>
+          </div>
+        </div>
 
-        <main class="main-content">
-            <header class="top-bar">
-                <div id="player-header">
-                    <h1>Chargement...</h1>
-                </div>
-                
-                <div class="kpi-row" id="kpi-container"></div>
-                
-                <button id="rotate-btn" class="icon-btn" title="Pivoter le terrain" style="background:#1e293b; border:1px solid #334155; color:white; padding:10px; border-radius:6px; cursor:pointer;">
-                    <i class="fas fa-sync-alt"></i>
+        <div class="control-group">
+          <label><i class="fas fa-chart-bar"></i> Statistiques Filtrées</label>
+          <div id="sidebar-summary" class="stats-summary"></div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="top-bar">
+          <div id="player-header">
+            <h1>Chargement...</h1>
+          </div>
+
+          <div class="kpi-row" id="kpi-container"></div>
+        </header>
+
+        <div class="dashboard-grid">
+          <div class="card pitch-card">
+            <div class="card-header">
+              <h3>Analyse Terrain</h3>
+              <div class="tabs">
+                <button class="tab active" data-view="heatmap">
+                  <i class="fas fa-fire"></i> Heatmap
                 </button>
-            </header>
-
-            <div class="dashboard-grid">
-                <div class="card pitch-card">
-                    <div class="card-header">
-                        <h3>Analyse Terrain</h3>
-                        <div class="tabs">
-                            <button class="tab active" data-view="heatmap">Heatmap</button>
-                            <button class="tab" data-view="passes">Passes</button>
-                            <button class="tab" data-view="actions">Actions</button>
-                        </div>
-                    </div>
-                    <div class="card-body relative">
-                        <div id="viz-container"></div>
-                    </div>
-                </div>
-
-                <div class="card stats-card">
-                    <div class="card-header">
-                        <h3>Profil Performance</h3>
-                    </div>
-                    <div class="card-body">
-                        <div id="radar-chart"></div>
-                    </div>
-                </div>
+                <button class="tab" data-view="passes">
+                  <i class="fas fa-project-diagram"></i> Passes
+                </button>
+                <button class="tab" data-view="actions">
+                  <i class="fas fa-bolt"></i> Actions
+                </button>
+              </div>
             </div>
-        </main>
+            <div class="card-body">
+              <div id="viz-container"></div>
+            </div>
+          </div>
+
+          <div class="stats-column">
+            <div class="card radar-card">
+              <div class="card-header">
+                <h3><i class="fas fa-chart-area"></i> Profil Performance</h3>
+              </div>
+              <div class="card-body">
+                <div id="radar-chart"></div>
+              </div>
+            </div>
+
+            <div class="card metrics-card">
+              <div class="card-header">
+                <h3><i class="fas fa-list-ul"></i> Métriques Détaillées</h3>
+              </div>
+              <div class="card-body">
+                <div id="detailed-metrics"></div>
+              </div>
+            </div>
+
+            <div class="card timeline-card">
+              <div class="card-header">
+                <h3><i class="fas fa-clock"></i> Timeline Match</h3>
+              </div>
+              <div class="card-body">
+                <div id="timeline-chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
 
     <div id="tooltip" class="tooltip"></div>
 
     <script type="module" src="src/js/main.js"></script>
-</body>
+  </body>
 </html>
