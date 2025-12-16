@@ -7,66 +7,65 @@ from bs4 import BeautifulSoup
 import re
 import json
 import time
-import os
+
+try:
+    from scraper.image_scraper import PlayerImageScraper
+except ImportError:
+    try:
+        from image_scraper import PlayerImageScraper
+    except:
+        PlayerImageScraper = None
 
 class WhoScoredScraper:
     def __init__(self, url):
         self.url = url
         self.driver = None
+        self.image_scraper = PlayerImageScraper() if PlayerImageScraper else None
         
     def _init_driver(self):
         opts = Options()
         opts.add_argument('--headless')
         opts.add_argument('--no-sandbox')
         opts.add_argument('--disable-dev-shm-usage')
-        opts.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
+        opts.add_argument('--disable-gpu')
+        opts.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
         
         self.driver = webdriver.Chrome(options=opts)
-        self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
         
     def _extract_json(self, html):
         regex = r'(?<=require\.config\.params\["args"\].=.)[\s\S]*?;'
         match = re.search(regex, html)
-        
-        if not match:
-            return None
-            
+        if not match: return None
         txt = match.group(0)
-        txt = txt.replace('matchId', '"matchId"')
-        txt = txt.replace('matchCentreData', '"matchCentreData"')
-        txt = txt.replace('matchCentreEventTypeJson', '"matchCentreEventTypeJson"')
-        txt = txt.replace('formationIdNameMappings', '"formationIdNameMappings"')
-        txt = txt.replace('};', '}')
-        
-        try:
-            return json.loads(txt)
-        except:
-            return None
+        txt = txt.replace('matchId', '"matchId"').replace('matchCentreData', '"matchCentreData"').replace('matchCentreEventTypeJson', '"matchCentreEventTypeJson"').replace('formationIdNameMappings', '"formationIdNameMappings"').replace('};', '}')
+        try: return json.loads(txt)
+        except: return None
     
-    def scrape_match(self):
+    def scrape_url(self):
+        if '/players/' in self.url:
+            return self.scrape_season()
+        else:
+            data = self.scrape_single_match_page(self.url)
+            return [data] if data else []
+
+    def scrape_single_match_page(self, url):
         self._init_driver()
         try:
-            self.driver.get(self.url)
-            WebDriverWait(self.driver, 15).until(
-                EC.presence_of_element_located((By.ID, "layout-wrapper"))
-            )
-            html = self.driver.page_source
-            return self._extract_json(html)
+            self.driver.get(url)
+            WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((By.ID, "layout-wrapper")))
+            return self._extract_json(self.driver.page_source)
+        except Exception: return None
         finally:
-            if self.driver:
-                self.driver.quit()
+            if self.driver: self.driver.quit()
     
     def scrape_season(self):
         self._init_driver()
-        all_data = []
-        
+        all_matches_data = []
         try:
             self.driver.get(self.url)
             time.sleep(3)
-            
             soup = BeautifulSoup(self.driver.page_source, 'html.parser')
             base = 'https://fr.whoscored.com' if 'fr.whoscored' in self.url else 'https://www.whoscored.com'
-            
             match_urls = set()
             for link in soup.find_all('a', href=True):
                 href = link['href']
@@ -75,121 +74,84 @@ class WhoScoredScraper:
                         url = base + href if not href.startswith('http') else href
                         url = url.replace("/Show/", "/Live/")
                         match_urls.add(url)
+            self.driver.quit()
             
-            for i, murl in enumerate(match_urls):
-                print(f"Scraping match {i+1}/{len(match_urls)}...")
-                self.driver.get(murl)
-                WebDriverWait(self.driver, 10).until(
-                    EC.presence_of_element_located((By.ID, "layout-wrapper"))
-                )
-                data = self._extract_json(self.driver.page_source)
-                if data:
-                    all_data.append(data)
+            match_list = list(match_urls)
+            for i, murl in enumerate(match_list):
+                data = self.scrape_single_match_page(murl)
+                if data: all_matches_data.append(data)
                 time.sleep(1)
-                
-            return all_data
-        finally:
-            if self.driver:
-                self.driver.quit()
-    
-    def extract_player_data(self, data, player_name):
-        if isinstance(data, list):
-            return self._aggregate_season(data, player_name)
-        return self._extract_match(data, player_name)
-    
-    def _extract_match(self, data, player_name):
-        mc = data.get('matchCentreData', {})
-        player_id = None
-        
-        for pid, name in mc.get('playerIdNameDictionary', {}).items():
-            if name.lower() == player_name.lower():
-                player_id = pid
-                break
-        
-        if not player_id:
-            return None
-        
-        events = [e for e in mc.get('events', []) if e.get('playerId') == int(player_id)]
-        
-        player_info = None
-        for team in ['home', 'away']:
-            for p in mc.get(team, {}).get('players', []):
-                if p.get('playerId') == int(player_id):
-                    player_info = p
-                    break
-        
-        return {
+            return all_matches_data
+        except:
+            if self.driver: self.driver.quit()
+            return []
+
+    def extract_player_data(self, matches_raw_data, player_name):
+        final_data = {
             'player_name': player_name,
-            'playerId': int(player_id),
-            'stats': player_info.get('stats', {}) if player_info else {},
-            'events': events,
-            'match_info': {
-                'home': mc.get('home', {}).get('name'),
-                'away': mc.get('away', {}).get('name')
-            }
-        }
-    
-    def _aggregate_season(self, data_list, player_name):
-        all_events = []
-        agg_stats = {}
-        player_id = None
-        
-        for match in data_list:
-            mc = match.get('matchCentreData', {})
-            
-            pid = None
-            for p, n in mc.get('playerIdNameDictionary', {}).items():
-                if n.lower() == player_name.lower():
-                    pid = p
-                    break
-            
-            if not pid:
-                continue
-            
-            if not player_id:
-                player_id = pid
-            
-            events = [e for e in mc.get('events', []) if e.get('playerId') == int(pid)]
-            all_events.extend(events)
-            
-            for team in ['home', 'away']:
-                for p in mc.get(team, {}).get('players', []):
-                    if p.get('playerId') == int(pid):
-                        for k, v in p.get('stats', {}).items():
-                            if isinstance(v, (int, float)):
-                                agg_stats[k] = agg_stats.get(k, 0) + v
-        
-        return {
-            'player_name': player_name,
-            'playerId': int(player_id) if player_id else 0,
-            'stats': agg_stats,
-            'events': all_events,
-            'total_matches': len(data_list)
+            'player_image_url': None,
+            'total_matches': 0,
+            'teams_played_for': [],
+            'matches_list': [],
+            'events': []
         }
 
-if __name__ == "__main__":
-    import sys
-    
-    if len(sys.argv) < 3:
-        print("Usage: python whoscored_scraper.py <url> <player_name>")
-        sys.exit(1)
-    
-    url = sys.argv[1]
-    player_name = sys.argv[2]
-    
-    scraper = WhoScoredScraper(url)
-    
-    if '/players/' in url:
-        data = scraper.scrape_season()
-    else:
-        data = scraper.scrape_match()
-    
-    player_data = scraper.extract_player_data(data, player_name)
-    
-    os.makedirs('../data', exist_ok=True)
-    output = f"../data/{player_name.replace(' ', '_')}.json"
-    
-    with open(output, 'w', encoding='utf-8') as f:
-        json.dump(player_data, f, ensure_ascii=False, indent=2)
-    
-    print(f"✅ Données exportées: {output}")
+        if self.image_scraper:
+            final_data['player_image_url'] = self.image_scraper.get_profile_image_url(player_name)
+
+        processed_matches = 0
+        for match_json in matches_raw_data:
+            if not match_json: continue
+            mc = match_json.get('matchCentreData', {})
+            
+            player_id = None
+            for pid, name in mc.get('playerIdNameDictionary', {}).items():
+                if name.lower() == player_name.lower():
+                    player_id = pid
+                    break
+            
+            if not player_id: continue
+
+            processed_matches += 1
+            pid_int = int(player_id)
+            
+            match_info = {
+                'matchId': mc.get('matchId'),
+                'date': mc.get('timeStamp'),
+                'competition': mc.get('commonName'),
+                'score': mc.get('score'),
+                'homeTeam': mc.get('home', {}).get('name'),
+                'awayTeam': mc.get('away', {}).get('name')
+            }
+            
+            player_team_id = None
+            opponent_team_name = "Unknown"
+            
+            for p in mc.get('home', {}).get('players', []):
+                if p.get('playerId') == pid_int:
+                    player_team_id = mc.get('home', {}).get('teamId')
+                    final_data['teams_played_for'].append(mc.get('home', {}).get('name'))
+                    opponent_team_name = mc.get('away', {}).get('name')
+                    break
+            
+            if not player_team_id:
+                for p in mc.get('away', {}).get('players', []):
+                    if p.get('playerId') == pid_int:
+                        player_team_id = mc.get('away', {}).get('teamId')
+                        final_data['teams_played_for'].append(mc.get('away', {}).get('name'))
+                        opponent_team_name = mc.get('home', {}).get('name')
+                        break
+            
+            match_info['opponent'] = opponent_team_name
+            final_data['matches_list'].append(match_info)
+
+            raw_events = [e for e in mc.get('events', []) if e.get('playerId') == pid_int]
+            for ev in raw_events:
+                ev['matchId'] = match_info['matchId']
+                ev['matchDate'] = match_info['date']
+                ev['opponent'] = match_info['opponent']
+                final_data['events'].append(ev)
+
+        final_data['total_matches'] = processed_matches
+        final_data['teams_played_for'] = list(set(final_data['teams_played_for']))
+        return final_data

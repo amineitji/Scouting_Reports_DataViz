@@ -1,17 +1,19 @@
+/**
+ * actions.js
+ * Visualisation des actions (tirs, dribbles, actions défensives)
+ */
 import { Pitch } from './pitch.js';
 
 export class ActionMap {
     constructor(svgId, events) {
         this.pitch = new Pitch(svgId);
         this.events = events;
-        
         this.options = {
             showShots: true,
             showGoals: true,
             showDribbles: true,
             showDefensive: true
         };
-        
         this.tooltip = document.getElementById('tooltip');
         this.render();
     }
@@ -23,252 +25,261 @@ export class ActionMap {
 
     render() {
         this.pitch.clearDataLayer();
+        
+        if (!this.events || this.events.length === 0) {
+            this.showEmptyMessage();
+            return;
+        }
+
         const g = this.pitch.getGroup();
-        this.defineMarkers();
+
+        // Grouper les événements par type
+        const eventsByType = {
+            goals: [],
+            shots: [],
+            dribbles: [],
+            defensive: []
+        };
 
         this.events.forEach(ev => {
             const type = ev.type?.displayName;
             
-            const isGoal = type === 'Goal';
-            const isShot = ['MissedShots', 'SavedShot', 'ShotOnPost'].includes(type);
-            const isDribble = type === 'TakeOn';
-            const isDefense = ['Tackle', 'Interception', 'Clearance', 'BallRecovery'].includes(type);
-
-            if (isGoal && !this.options.showGoals) return;
-            if (isShot && !this.options.showShots) return;
-            if (isDribble && !this.options.showDribbles) return;
-            if (isDefense && !this.options.showDefensive) return;
-
-            const [startX, startY] = this.pitch.toPixels(ev.x, ev.y);
-
-            if (isGoal || isShot) {
-                this.drawShotVector(g, ev, startX, startY, isGoal);
-            } else if (isDribble) {
-                this.drawDribble(g, ev, startX, startY);
-            } else if (isDefense) {
-                this.drawDefensiveAction(g, ev, startX, startY, type);
+            if (type === 'Goal' && this.options.showGoals) {
+                eventsByType.goals.push(ev);
+            } else if (['MissedShots', 'SavedShot', 'ShotOnPost'].includes(type) && this.options.showShots) {
+                eventsByType.shots.push(ev);
+            } else if (type === 'TakeOn' && this.options.showDribbles) {
+                eventsByType.dribbles.push(ev);
+            } else if (['Tackle', 'Interception', 'Clearance', 'BallRecovery'].includes(type) && this.options.showDefensive) {
+                eventsByType.defensive.push(ev);
             }
         });
+
+        // Dessiner chaque type d'action
+        this.drawGoals(g, eventsByType.goals);
+        this.drawShots(g, eventsByType.shots);
+        this.drawDribbles(g, eventsByType.dribbles);
+        this.drawDefensive(g, eventsByType.defensive);
+
+        // Légende
+        this.addLegend(g);
     }
 
-    drawShotVector(g, ev, startX, startY, isGoal) {
-        let targetXVal = 100;
-        let targetYVal = this.getQualifierValue(ev, 'GoalMouthY');
-        
-        const blockedX = this.getQualifierValue(ev, 'BlockedX');
-        const blockedY = this.getQualifierValue(ev, 'BlockedY');
-        
-        if (blockedX !== null) {
-            targetXVal = blockedX;
-            targetYVal = blockedY !== null ? blockedY : ev.y;
-        }
-        
-        if (targetYVal === null) targetYVal = ev.y;
+    drawGoals(g, goals) {
+        goals.forEach(goal => {
+            const [x, y] = this.pitch.toPixels(goal.x, goal.y);
 
-        const [endX, endY] = this.pitch.toPixels(targetXVal, targetYVal);
+            // Cercle externe animé
+            g.append('circle')
+                .attr('cx', x)
+                .attr('cy', y)
+                .attr('r', 12)
+                .attr('fill', 'none')
+                .attr('stroke', '#eab308')
+                .attr('stroke-width', 2)
+                .attr('opacity', 0.6);
 
-        // Style selon le type
-        let color, width, strokeDash;
-        
-        if (isGoal) {
-            color = '#fbbf24'; // Or
-            width = 5;
-            strokeDash = 'none';
-        } else if (ev.type?.displayName === 'SavedShot') {
-            color = '#3b82f6'; // Bleu
-            width = 3;
-            strokeDash = 'none';
-        } else if (blockedX !== null) {
-            color = '#8b5cf6'; // Violet (bloqué)
-            width = 3;
-            strokeDash = '5,5';
-        } else {
-            color = '#ef4444'; // Rouge (raté)
-            width = 3;
-            strokeDash = 'none';
-        }
-
-        // Ligne de tir
-        const line = g.append('line')
-            .attr('x1', startX).attr('y1', startY)
-            .attr('x2', endX).attr('y2', endY)
-            .attr('stroke', color)
-            .attr('stroke-width', width)
-            .attr('stroke-dasharray', strokeDash)
-            .attr('marker-end', `url(#arrow-${isGoal ? 'goal' : 'shot'})`)
-            .style('cursor', 'pointer');
-
-        // Zone de survol
-        g.append('line')
-            .attr('x1', startX).attr('y1', startY)
-            .attr('x2', endX).attr('y2', endY)
-            .attr('stroke', 'transparent')
-            .attr('stroke-width', 15)
-            .style('cursor', 'pointer')
-            .on('mouseover', (e) => {
-                line.attr('stroke-width', width + 2).attr('stroke', 'white');
-                this.showShotTooltip(e, ev, isGoal);
-            })
-            .on('mouseout', () => {
-                line.attr('stroke-width', width).attr('stroke', color);
-                this.hideTooltip();
-            });
-
-        // Point de départ
-        g.append('circle')
-            .attr('cx', startX).attr('cy', startY)
-            .attr('r', isGoal ? 6 : 5)
-            .attr('fill', color)
-            .attr('stroke', isGoal ? 'white' : '#1e293b')
-            .attr('stroke-width', 2)
-            .style('pointer-events', 'none');
-    }
-
-    drawDribble(g, ev, startX, startY) {
-        const isSuccess = ev.outcomeType?.value === 1;
-        const color = isSuccess ? '#22c55e' : '#ef4444';
-        
-        const rect = g.append('rect')
-            .attr('x', startX - 6).attr('y', startY - 6)
-            .attr('width', 12).attr('height', 12)
-            .attr('fill', color)
-            .attr('stroke', 'white')
-            .attr('stroke-width', 2)
-            .attr('transform', `rotate(45, ${startX}, ${startY})`)
-            .style('cursor', 'pointer');
-
-        rect.on('mouseover', (e) => {
-            rect.attr('width', 14).attr('height', 14).attr('x', startX - 7).attr('y', startY - 7);
-            this.showTooltip(e, ev, isSuccess ? 'Dribble Réussi ✓' : 'Dribble Raté ✗');
-        })
-        .on('mouseout', () => {
-            rect.attr('width', 12).attr('height', 12).attr('x', startX - 6).attr('y', startY - 6);
-            this.hideTooltip();
+            // Cercle principal
+            const circle = g.append('circle')
+                .attr('cx', x)
+                .attr('cy', y)
+                .attr('r', 8)
+                .attr('fill', '#eab308')
+                .attr('stroke', 'white')
+                .attr('stroke-width', 2)
+                .style('cursor', 'pointer')
+                .on('mouseover', (event) => {
+                    circle.attr('r', 10);
+                    this.showTooltip(event, goal, 'But');
+                })
+                .on('mouseout', () => {
+                    circle.attr('r', 8);
+                    this.tooltip.style.display = 'none';
+                });
         });
     }
 
-    drawDefensiveAction(g, ev, startX, startY, type) {
-        const colors = {
-            'Tackle': '#8b5cf6',
-            'Interception': '#06b6d4',
-            'Clearance': '#f59e0b',
-            'BallRecovery': '#10b981'
-        };
-        
-        const color = colors[type] || '#8b5cf6';
-        const isSuccess = ev.outcomeType?.value === 1;
-        
-        const symbol = d3.symbol()
-            .type(d3.symbolTriangle)
-            .size(isSuccess ? 150 : 100);
-        
-        const path = g.append('path')
-            .attr('d', symbol)
-            .attr('transform', `translate(${startX},${startY})`)
-            .attr('fill', color)
-            .attr('stroke', 'white')
-            .attr('stroke-width', 1.5)
-            .attr('opacity', isSuccess ? 1 : 0.6)
-            .style('cursor', 'pointer');
+    drawShots(g, shots) {
+        shots.forEach(shot => {
+            const [x, y] = this.pitch.toPixels(shot.x, shot.y);
 
-        path.on('mouseover', (e) => {
-            path.attr('transform', `translate(${startX},${startY}) scale(1.2)`);
-            this.showTooltip(e, ev, type + (isSuccess ? ' ✓' : ' ✗'));
-        })
-        .on('mouseout', () => {
-            path.attr('transform', `translate(${startX},${startY})`);
-            this.hideTooltip();
+            const circle = g.append('circle')
+                .attr('cx', x)
+                .attr('cy', y)
+                .attr('r', 5)
+                .attr('fill', '#ef4444')
+                .attr('stroke', 'white')
+                .attr('stroke-width', 1.5)
+                .attr('opacity', 0.8)
+                .style('cursor', 'pointer')
+                .on('mouseover', (event) => {
+                    circle.attr('r', 7).attr('opacity', 1);
+                    this.showTooltip(event, shot, shot.typeFR || 'Tir');
+                })
+                .on('mouseout', () => {
+                    circle.attr('r', 5).attr('opacity', 0.8);
+                    this.tooltip.style.display = 'none';
+                });
         });
     }
 
-    getQualifierValue(event, name) {
-        const q = event.qualifiers?.find(q => q.type?.displayName === name);
-        return q ? parseFloat(q.value) : null;
+    drawDribbles(g, dribbles) {
+        dribbles.forEach(dribble => {
+            const [x, y] = this.pitch.toPixels(dribble.x, dribble.y);
+            const isSuccess = dribble.outcomeType?.value === 1;
+            const color = isSuccess ? '#22c55e' : '#f97316';
+
+            const rect = g.append('rect')
+                .attr('x', x - 5)
+                .attr('y', y - 5)
+                .attr('width', 10)
+                .attr('height', 10)
+                .attr('fill', color)
+                .attr('stroke', 'white')
+                .attr('stroke-width', 1.5)
+                .attr('opacity', 0.8)
+                .attr('transform', `rotate(45, ${x}, ${y})`)
+                .style('cursor', 'pointer')
+                .on('mouseover', (event) => {
+                    rect.attr('width', 12).attr('height', 12)
+                        .attr('x', x - 6).attr('y', y - 6)
+                        .attr('opacity', 1);
+                    this.showTooltip(event, dribble, 'Dribble');
+                })
+                .on('mouseout', () => {
+                    rect.attr('width', 10).attr('height', 10)
+                        .attr('x', x - 5).attr('y', y - 5)
+                        .attr('opacity', 0.8);
+                    this.tooltip.style.display = 'none';
+                });
+        });
     }
 
-    showShotTooltip(event, data, isGoal) {
-        const gmY = this.getQualifierValue(data, 'GoalMouthY');
-        const gmZ = this.getQualifierValue(data, 'GoalMouthZ');
+    drawDefensive(g, defensive) {
+        defensive.forEach(action => {
+            const [x, y] = this.pitch.toPixels(action.x, action.y);
+
+            const triangle = d3.symbol()
+                .type(d3.symbolTriangle)
+                .size(80);
+
+            const path = g.append('path')
+                .attr('d', triangle)
+                .attr('transform', `translate(${x}, ${y})`)
+                .attr('fill', '#8b5cf6')
+                .attr('stroke', 'white')
+                .attr('stroke-width', 1.5)
+                .attr('opacity', 0.8)
+                .style('cursor', 'pointer')
+                .on('mouseover', (event) => {
+                    path.attr('opacity', 1);
+                    const symbol = d3.symbol().type(d3.symbolTriangle).size(100);
+                    path.attr('d', symbol);
+                    this.showTooltip(event, action, action.typeFR || action.type?.displayName);
+                })
+                .on('mouseout', () => {
+                    path.attr('opacity', 0.8);
+                    path.attr('d', triangle);
+                    this.tooltip.style.display = 'none';
+                });
+        });
+    }
+
+    showTooltip(event, ev, label) {
+        this.tooltip.style.display = 'block';
+        this.tooltip.style.left = (event.pageX + 10) + 'px';
+        this.tooltip.style.top = (event.pageY - 10) + 'px';
         
-        const bodyParts = ['RightFoot', 'LeftFoot', 'Head', 'OtherBodyPart'];
-        const foundBody = data.qualifiers?.find(q => bodyParts.includes(q.type?.displayName));
-        const bodyPart = foundBody ? foundBody.type.displayName : '';
+        let content = `<strong>${label}</strong><br>Minute: ${ev.minute}'`;
         
-        const shotType = data.type?.displayName === 'SavedShot' ? 'Tir Cadré' : 
-                        data.type?.displayName === 'ShotOnPost' ? 'Sur le Poteau' : 
-                        isGoal ? 'BUT ⚽' : 'Tir Non Cadré';
-
-        let content = `<div style="text-align:center; font-weight:bold; margin-bottom:5px; color:${isGoal ? '#fbbf24' : '#fff'}">${shotType}</div>`;
-        content += `<div style="font-size:0.85em; color:#94a3b8;">Minute: ${data.minute}' ${bodyPart ? '• ' + bodyPart : ''}</div>`;
-
-        // Mini-cage
-        if (gmY !== null && gmZ !== null) {
-            const W = 160, H = 60;
-            const postL = 44.6, postR = 55.4;
-            const range = postR - postL;
-            const ballX = 10 + ((gmY - postL) / range) * (W - 20);
-            const zMax = 45;
-            const ballY = (H - 5) - ((gmZ / zMax) * (H - 10));
-            const ballColor = isGoal ? '#fbbf24' : '#ef4444';
-
-            content += `
-                <div style="margin-top:10px; background:#1a1f35; padding:5px; border-radius:4px;">
-                    <svg width="${W}" height="${H}" style="display:block; margin:auto;">
-                        <line x1="10" y1="${H}" x2="10" y2="5" stroke="white" stroke-width="3"/>
-                        <line x1="${W-10}" y1="${H}" x2="${W-10}" y2="5" stroke="white" stroke-width="3"/>
-                        <line x1="10" y1="5" x2="${W-10}" y2="5" stroke="white" stroke-width="3"/>
-                        <line x1="0" y1="${H}" x2="${W}" y2="${H}" stroke="#475569" stroke-width="1"/>
-                        <circle cx="${ballX}" cy="${ballY}" r="6" fill="${ballColor}" stroke="white" stroke-width="2"/>
-                    </svg>
-                    <div style="font-size:0.7em; color:#64748b; text-align:center">Vue gardien</div>
-                </div>
-            `;
+        if (ev.outcomeTypeFR) {
+            content += `<br>Résultat: ${ev.outcomeTypeFR}`;
         }
-
+        
         this.tooltip.innerHTML = content;
-        this.tooltip.style.display = 'block';
-        
-        const tipW = 200;
-        let left = event.pageX + 15;
-        if (left + tipW > window.innerWidth) left = event.pageX - tipW - 15;
-        
-        this.tooltip.style.left = left + 'px';
-        this.tooltip.style.top = (event.pageY - 20) + 'px';
     }
 
-    showTooltip(event, data, label) {
-        this.tooltip.innerHTML = `<strong>${label}</strong><br>Minute: ${data.minute}'`;
-        this.tooltip.style.display = 'block';
-        this.tooltip.style.left = (event.pageX + 15) + 'px';
-        this.tooltip.style.top = (event.pageY - 15) + 'px';
-    }
+    addLegend(g) {
+        const legendX = this.pitch.margin + 20;
+        const legendY = this.pitch.margin + 20;
 
-    hideTooltip() {
-        this.tooltip.style.display = 'none';
-    }
+        // Fond
+        g.append('rect')
+            .attr('x', legendX - 10)
+            .attr('y', legendY - 10)
+            .attr('width', 180)
+            .attr('height', 130)
+            .attr('fill', 'rgba(0, 0, 0, 0.7)')
+            .attr('rx', 8);
 
-    defineMarkers() {
-        const defs = this.pitch.svg.select('defs').empty() 
-            ? this.pitch.svg.append('defs') 
-            : this.pitch.svg.select('defs');
-        
-        const createMarker = (id, color) => {
-            if (defs.select(`#${id}`).empty()) {
-                defs.append('marker')
-                    .attr('id', id)
-                    .attr('viewBox', '0 0 10 10')
-                    .attr('refX', 7)
-                    .attr('refY', 5)
-                    .attr('markerWidth', 5)
-                    .attr('markerHeight', 5)
-                    .attr('orient', 'auto')
-                    .append('path')
-                    .attr('d', 'M 0 0 L 10 5 L 0 10 z')
-                    .attr('fill', color);
+        // Titre
+        g.append('text')
+            .attr('x', legendX)
+            .attr('y', legendY + 5)
+            .attr('fill', 'white')
+            .style('font-size', '12px')
+            .style('font-weight', '600')
+            .text('Types d\'actions');
+
+        const items = [
+            { y: 25, type: 'circle', color: '#eab308', text: 'Buts', size: 8 },
+            { y: 45, type: 'circle', color: '#ef4444', text: 'Tirs', size: 5 },
+            { y: 65, type: 'diamond', color: '#22c55e', text: 'Dribbles réussis', size: 8 },
+            { y: 85, type: 'triangle', color: '#8b5cf6', text: 'Actions défensives', size: 8 }
+        ];
+
+        items.forEach(item => {
+            const cx = legendX + 15;
+            const cy = legendY + item.y;
+
+            if (item.type === 'circle') {
+                g.append('circle')
+                    .attr('cx', cx)
+                    .attr('cy', cy)
+                    .attr('r', item.size)
+                    .attr('fill', item.color)
+                    .attr('stroke', 'white')
+                    .attr('stroke-width', 1.5);
+            } else if (item.type === 'diamond') {
+                g.append('rect')
+                    .attr('x', cx - item.size)
+                    .attr('y', cy - item.size)
+                    .attr('width', item.size * 2)
+                    .attr('height', item.size * 2)
+                    .attr('fill', item.color)
+                    .attr('stroke', 'white')
+                    .attr('stroke-width', 1.5)
+                    .attr('transform', `rotate(45, ${cx}, ${cy})`);
+            } else if (item.type === 'triangle') {
+                const triangle = d3.symbol().type(d3.symbolTriangle).size(80);
+                g.append('path')
+                    .attr('d', triangle)
+                    .attr('transform', `translate(${cx}, ${cy})`)
+                    .attr('fill', item.color)
+                    .attr('stroke', 'white')
+                    .attr('stroke-width', 1.5);
             }
-        };
+
+            // Texte
+            g.append('text')
+                .attr('x', cx + 20)
+                .attr('y', cy + 4)
+                .attr('fill', 'white')
+                .style('font-size', '11px')
+                .text(item.text);
+        });
+    }
+
+    showEmptyMessage() {
+        const g = this.pitch.getGroup();
         
-        createMarker('arrow-goal', '#fbbf24');
-        createMarker('arrow-shot', '#ef4444');
+        g.append('text')
+            .attr('x', this.pitch.width / 2)
+            .attr('y', this.pitch.height / 2)
+            .attr('text-anchor', 'middle')
+            .attr('fill', 'rgba(255, 255, 255, 0.5)')
+            .style('font-size', '18px')
+            .style('font-weight', '600')
+            .text('Aucune action à afficher');
     }
 }

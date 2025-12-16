@@ -1,0 +1,5738 @@
+{
+  "player_name": "Rayan Cherki",
+  "player_image_url": "https://img.a.transfermarkt.technology/portrait/big/607223-1672831487.jpg?lm=1",
+  "total_matches": 1,
+  "teams_played_for": [
+    "Man City"
+  ],
+  "matches_list": [
+    {
+      "matchId": null,
+      "date": "2025-12-15 12:07:15",
+      "competition": null,
+      "score": "0 : 3",
+      "homeTeam": "Crystal Palace",
+      "awayTeam": "Man City",
+      "opponent": "Crystal Palace"
+    }
+  ],
+  "events": [
+    {
+      "id": 2883255805.0,
+      "eventId": 6,
+      "minute": 0,
+      "second": 10,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 31.3,
+      "y": 58.1,
+      "expandedMinute": 0,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.47"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "65.2"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "40.3"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "10.6"
+        },
+        {
+          "type": {
+            "value": 3,
+            "displayName": "HeadPass"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        139,
+        36,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 40.3,
+      "endY": 65.2,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883255823.0,
+      "eventId": 8,
+      "minute": 0,
+      "second": 13,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 38.7,
+      "y": 62.6,
+      "expandedMinute": 0,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 61,
+        "displayName": "BallTouch"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883257137.0,
+      "eventId": 28,
+      "minute": 1,
+      "second": 59,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 62.7,
+      "y": 16.2,
+      "expandedMinute": 1,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "14.3"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "54.4"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "32.9"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.23"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 54.4,
+      "endY": 32.9,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883257217.0,
+      "eventId": 31,
+      "minute": 2,
+      "second": 9,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 74.9,
+      "y": 3.3,
+      "expandedMinute": 2,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.01"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "71.9"
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "16"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "3.2"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "3.9"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        120,
+        29,
+        35,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 71.9,
+      "endY": 3.9,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883257365.0,
+      "eventId": 34,
+      "minute": 2,
+      "second": 16,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 67.7,
+      "y": 17.4,
+      "expandedMinute": 2,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "55.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.23"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "15.8"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "12.5"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 55.8,
+      "endY": 15.8,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883258209.0,
+      "eventId": 50,
+      "minute": 3,
+      "second": 21,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 64.2,
+      "y": 12.7,
+      "expandedMinute": 3,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "20.3"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.88"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "45.9"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "19.9"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 45.9,
+      "endY": 20.3,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883258371.0,
+      "eventId": 54,
+      "minute": 3,
+      "second": 34,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 35.0,
+      "y": 33.1,
+      "expandedMinute": 3,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "26.1"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "9.4"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "34.0"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.08"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        215,
+        218
+      ],
+      "isTouch": true,
+      "endX": 26.1,
+      "endY": 34.0,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883258817.0,
+      "eventId": 59,
+      "minute": 4,
+      "second": 0,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 35.0,
+      "y": 18.6,
+      "expandedMinute": 4,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "14.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.38"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "49.3"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "30.3"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        215,
+        218
+      ],
+      "isTouch": true,
+      "endX": 14.1,
+      "endY": 49.3,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883261011.0,
+      "eventId": 90,
+      "minute": 6,
+      "second": 14,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 68.1,
+      "y": 23.1,
+      "expandedMinute": 6,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "7.2"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.45"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "33.6"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "68.9"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 68.9,
+      "endY": 33.6,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883265841.0,
+      "eventId": 125,
+      "minute": 11,
+      "second": 8,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 63.4,
+      "y": 4.6,
+      "expandedMinute": 11,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "52"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883266003.0,
+      "eventId": 126,
+      "minute": 11,
+      "second": 12,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 39.9,
+      "y": 7.6,
+      "expandedMinute": 11,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "35.5"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "26.4"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "45.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.75"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 35.5,
+      "endY": 45.8,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883267201.0,
+      "eventId": 139,
+      "minute": 12,
+      "second": 25,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 64.9,
+      "y": 86.6,
+      "expandedMinute": 12,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "58.8"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.03"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "74.9"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "10.2"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 58.8,
+      "endY": 74.9,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883268047.0,
+      "eventId": 146,
+      "minute": 13,
+      "second": 12,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 59.4,
+      "y": 68.6,
+      "expandedMinute": 13,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 61,
+        "displayName": "BallTouch"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        69
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883272639.0,
+      "eventId": 184,
+      "minute": 17,
+      "second": 20,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 29.6,
+      "y": 7.6,
+      "expandedMinute": 17,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "6.0"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "23.9"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.07"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "8.2"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        215,
+        218
+      ],
+      "isTouch": true,
+      "endX": 23.9,
+      "endY": 8.2,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883274989.0,
+      "eventId": 214,
+      "minute": 19,
+      "second": 48,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 30.0,
+      "y": 9.7,
+      "expandedMinute": 19,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 49,
+        "displayName": "BallRecovery"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [],
+      "satisfiedEventsTypes": [
+        93
+      ],
+      "isTouch": false,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883275051.0,
+      "eventId": 215,
+      "minute": 19,
+      "second": 48,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 29.9,
+      "y": 3.5,
+      "expandedMinute": 19,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.37"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "29.1"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "17.7"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "33.2"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        36,
+        37,
+        215,
+        218
+      ],
+      "isTouch": true,
+      "endX": 33.2,
+      "endY": 29.1,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883277039.0,
+      "eventId": 254,
+      "minute": 21,
+      "second": 59,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 63.4,
+      "y": 32.1,
+      "expandedMinute": 21,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "53.3"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.24"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "30.5"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "10.7"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 53.3,
+      "endY": 30.5,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883277137.0,
+      "eventId": 256,
+      "minute": 22,
+      "second": 1,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 59.4,
+      "y": 32.5,
+      "expandedMinute": 22,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "43.0"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.04"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "34.8"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "100.0"
+        },
+        {
+          "type": {
+            "value": 1,
+            "displayName": "Longball"
+          }
+        },
+        {
+          "type": {
+            "value": 155,
+            "displayName": "Chipped"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 4,
+            "displayName": "Throughball"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        120,
+        124,
+        128,
+        130,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 100.0,
+      "endY": 34.8,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883279657.0,
+      "eventId": 289,
+      "minute": 25,
+      "second": 10,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 44.7,
+      "y": 7.6,
+      "expandedMinute": 25,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "31.8"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "19.0"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.36"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "27.2"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        215,
+        218
+      ],
+      "isTouch": true,
+      "endX": 31.8,
+      "endY": 27.2,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883280081.0,
+      "eventId": 301,
+      "minute": 25,
+      "second": 39,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 68.1,
+      "y": 16.4,
+      "expandedMinute": 25,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "173"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883280109.0,
+      "eventId": 302,
+      "minute": 25,
+      "second": 41,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 76.5,
+      "y": 15.6,
+      "expandedMinute": 25,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "17.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "18.6"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.07"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "94.2"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 94.2,
+      "endY": 17.4,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883280315.0,
+      "eventId": 307,
+      "minute": 26,
+      "second": 0,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 69.3,
+      "y": 46.9,
+      "expandedMinute": 26,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "39.4"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.07"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "6.3"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "65.7"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 65.7,
+      "endY": 39.4,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883281017.0,
+      "eventId": 323,
+      "minute": 26,
+      "second": 57,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 61.3,
+      "y": 68.5,
+      "expandedMinute": 26,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "58.0"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "14.2"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "48.3"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.47"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 58.0,
+      "endY": 48.3,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883285013.0,
+      "eventId": 370,
+      "minute": 31,
+      "second": 58,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 72.1,
+      "y": 7.4,
+      "expandedMinute": 31,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 61,
+        "displayName": "BallTouch"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        69
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883286395.0,
+      "eventId": 380,
+      "minute": 33,
+      "second": 35,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 54.8,
+      "y": 58.3,
+      "expandedMinute": 33,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "223"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883286431.0,
+      "eventId": 381,
+      "minute": 33,
+      "second": 37,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 56.4,
+      "y": 61.4,
+      "expandedMinute": 33,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "224"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883286441.0,
+      "eventId": 382,
+      "minute": 33,
+      "second": 39,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 59.5,
+      "y": 62.7,
+      "expandedMinute": 33,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 49,
+        "displayName": "BallRecovery"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [],
+      "satisfiedEventsTypes": [
+        93
+      ],
+      "isTouch": false,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883286509.0,
+      "eventId": 383,
+      "minute": 33,
+      "second": 39,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 64.0,
+      "y": 71.8,
+      "expandedMinute": 33,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.09"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "94.8"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "17.7"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "71.8"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 71.8,
+      "endY": 94.8,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883286571.0,
+      "eventId": 385,
+      "minute": 33,
+      "second": 45,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 65.5,
+      "y": 83.0,
+      "expandedMinute": 33,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "72.2"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 155,
+            "displayName": "Chipped"
+          }
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "16.5"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "79.6"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.82"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        120,
+        29,
+        124,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 79.6,
+      "endY": 72.2,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883287279.0,
+      "eventId": 387,
+      "minute": 34,
+      "second": 30,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 29.8,
+      "y": 27.8,
+      "expandedMinute": 34,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 49,
+        "displayName": "BallRecovery"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [],
+      "satisfiedEventsTypes": [
+        93
+      ],
+      "isTouch": false,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883287289.0,
+      "eventId": 388,
+      "minute": 34,
+      "second": 30,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 33.3,
+      "y": 37.2,
+      "expandedMinute": 34,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "12.7"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "42.6"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "49.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.69"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        118,
+        120,
+        29,
+        36,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 42.6,
+      "endY": 49.1,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883290189.0,
+      "eventId": 409,
+      "minute": 37,
+      "second": 26,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 88.5,
+      "y": 18.8,
+      "expandedMinute": 37,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 20,
+            "displayName": "RightFoot"
+          }
+        },
+        {
+          "type": {
+            "value": 155,
+            "displayName": "Chipped"
+          }
+        },
+        {
+          "type": {
+            "value": 2,
+            "displayName": "Cross"
+          }
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.39"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "44.0"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "91.5"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "17.4"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        137,
+        124,
+        126,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 91.5,
+      "endY": 44.0,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883291121.0,
+      "eventId": 411,
+      "minute": 38,
+      "second": 26,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 73.9,
+      "y": 2.3,
+      "expandedMinute": 38,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "53.2"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "84.8"
+        },
+        {
+          "type": {
+            "value": 2,
+            "displayName": "Cross"
+          }
+        },
+        {
+          "type": {
+            "value": 5,
+            "displayName": "FreekickTaken"
+          }
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.25"
+        },
+        {
+          "type": {
+            "value": 20,
+            "displayName": "RightFoot"
+          }
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "36.5"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 1,
+            "displayName": "Longball"
+          }
+        },
+        {
+          "type": {
+            "value": 155,
+            "displayName": "Chipped"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        137,
+        124,
+        125,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 84.8,
+      "endY": 53.2,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883291409.0,
+      "eventId": 418,
+      "minute": 38,
+      "second": 43,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 71.2,
+      "y": 15.4,
+      "expandedMinute": 38,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 50,
+        "displayName": "Dispossessed"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "260"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        70
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883292601.0,
+      "eventId": 437,
+      "minute": 39,
+      "second": 53,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 77.5,
+      "y": 19.2,
+      "expandedMinute": 39,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "11.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.83"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "67.4"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "24.2"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 67.4,
+      "endY": 24.2,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883296213.0,
+      "eventId": 463,
+      "minute": 43,
+      "second": 10,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 28.7,
+      "y": 23.5,
+      "expandedMinute": 43,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 49,
+        "displayName": "BallRecovery"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [],
+      "satisfiedEventsTypes": [
+        93
+      ],
+      "isTouch": false,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883295827.0,
+      "eventId": 462,
+      "minute": 43,
+      "second": 11,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 25.5,
+      "y": 31.7,
+      "expandedMinute": 43,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 50,
+        "displayName": "Dispossessed"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "273"
+        },
+        {
+          "type": {
+            "value": 285,
+            "displayName": "Defensive"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        70
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883297925.0,
+      "eventId": 479,
+      "minute": 45,
+      "second": 7,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 31.9,
+      "y": 11.9,
+      "expandedMinute": 45,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.83"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "16.8"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "11.0"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "21.9"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        215,
+        218
+      ],
+      "isTouch": true,
+      "endX": 21.9,
+      "endY": 16.8,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883298343.0,
+      "eventId": 487,
+      "minute": 45,
+      "second": 35,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 41.2,
+      "y": 2.7,
+      "expandedMinute": 45,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "33.2"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.61"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "9.7"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "9.9"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        215,
+        218
+      ],
+      "isTouch": true,
+      "endX": 33.2,
+      "endY": 9.9,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883300083.0,
+      "eventId": 519,
+      "minute": 47,
+      "second": 4,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 74.5,
+      "y": 8.5,
+      "expandedMinute": 47,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "15.1"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "19.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.50"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "87.1"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 87.1,
+      "endY": 19.1,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883300315.0,
+      "eventId": 527,
+      "minute": 47,
+      "second": 22,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 76.8,
+      "y": 32.7,
+      "expandedMinute": 47,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "82.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "6.07"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "30.9"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "5.7"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 82.1,
+      "endY": 30.9,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883300799.0,
+      "eventId": 532,
+      "minute": 47,
+      "second": 46,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 58.0,
+      "y": 35.8,
+      "expandedMinute": 47,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "69.5"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "13.7"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.39"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "19.3"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 69.5,
+      "endY": 13.7,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883311539.0,
+      "eventId": 551,
+      "minute": 46,
+      "second": 8,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 99.5,
+      "y": 99.5,
+      "expandedMinute": 50,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "42.0"
+        },
+        {
+          "type": {
+            "value": 6,
+            "displayName": "CornerTaken"
+          }
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.44"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "40.0"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 2,
+            "displayName": "Cross"
+          }
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "88.8"
+        },
+        {
+          "type": {
+            "value": 20,
+            "displayName": "RightFoot"
+          }
+        },
+        {
+          "type": {
+            "value": 1,
+            "displayName": "Longball"
+          }
+        },
+        {
+          "type": {
+            "value": 155,
+            "displayName": "Chipped"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        137,
+        124,
+        126,
+        31,
+        33,
+        34,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 88.8,
+      "endY": 40.0,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883316099.0,
+      "eventId": 602,
+      "minute": 51,
+      "second": 27,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 43.0,
+      "y": 10.7,
+      "expandedMinute": 55,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "16.8"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "9.6"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "34.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.69"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 34.8,
+      "endY": 16.8,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883316407.0,
+      "eventId": 609,
+      "minute": 51,
+      "second": 45,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 70.5,
+      "y": 3.5,
+      "expandedMinute": 55,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "17.0"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "55.7"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.73"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "13.5"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 55.7,
+      "endY": 13.5,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883316675.0,
+      "eventId": 613,
+      "minute": 52,
+      "second": 3,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 65.1,
+      "y": 23.9,
+      "expandedMinute": 56,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "80.9"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "17.0"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.21"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "29.1"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 80.9,
+      "endY": 29.1,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883319995.0,
+      "eventId": 643,
+      "minute": 55,
+      "second": 29,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 69.4,
+      "y": 28.2,
+      "expandedMinute": 59,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 155,
+            "displayName": "Chipped"
+          }
+        },
+        {
+          "type": {
+            "value": 5,
+            "displayName": "FreekickTaken"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "90.1"
+        },
+        {
+          "type": {
+            "value": 210,
+            "displayName": "ShotAssist"
+          },
+          "value": "15"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "28.1"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "54.4"
+        },
+        {
+          "type": {
+            "value": 154,
+            "displayName": "IntentionalAssist"
+          }
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.69"
+        },
+        {
+          "type": {
+            "value": 11113,
+            "displayName": "KeyPass"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        123,
+        124,
+        132,
+        205,
+        40,
+        44,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 90.1,
+      "endY": 54.4,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883320877.0,
+      "eventId": 654,
+      "minute": 56,
+      "second": 29,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 62.4,
+      "y": 31.9,
+      "expandedMinute": 60,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 210,
+            "displayName": "ShotAssist"
+          },
+          "value": "15"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.98"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "26.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "12.3"
+        },
+        {
+          "type": {
+            "value": 154,
+            "displayName": "IntentionalAssist"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "73.6"
+        },
+        {
+          "type": {
+            "value": 11113,
+            "displayName": "KeyPass"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        123,
+        205,
+        40,
+        46,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 73.6,
+      "endY": 26.4,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883321159.0,
+      "eventId": 657,
+      "minute": 56,
+      "second": 42,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 75.2,
+      "y": 86.5,
+      "expandedMinute": 60,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "75.0"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.12"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "9.4"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "70.2"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 70.2,
+      "endY": 75.0,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883321233.0,
+      "eventId": 659,
+      "minute": 56,
+      "second": 46,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 72.5,
+      "y": 85.7,
+      "expandedMinute": 60,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "66.0"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "69.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.17"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "13.2"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 66.0,
+      "endY": 69.1,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883322731.0,
+      "eventId": 676,
+      "minute": 58,
+      "second": 0,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 63.5,
+      "y": 3.7,
+      "expandedMinute": 62,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 155,
+            "displayName": "Chipped"
+          }
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "42.1"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.38"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "68.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "26.6"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        124,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 68.4,
+      "endY": 42.1,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883325743.0,
+      "eventId": 707,
+      "minute": 61,
+      "second": 4,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 30.9,
+      "y": 31.3,
+      "expandedMinute": 65,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "9.6"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "30.5"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "21.8"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.20"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        38,
+        215,
+        218
+      ],
+      "isTouch": true,
+      "endX": 21.8,
+      "endY": 30.5,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883325949.0,
+      "eventId": 710,
+      "minute": 61,
+      "second": 16,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 40.3,
+      "y": 41.3,
+      "expandedMinute": 65,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.78"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "24.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "11.5"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "41.0"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        36,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 41.0,
+      "endY": 24.4,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883326353.0,
+      "eventId": 717,
+      "minute": 61,
+      "second": 39,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 35.6,
+      "y": 8.0,
+      "expandedMinute": 65,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "37.0"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.33"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "6.2"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "16.8"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        36,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 37.0,
+      "endY": 16.8,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883552209.0,
+      "eventId": 998,
+      "minute": 61,
+      "second": 43,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 57.0,
+      "y": 15.3,
+      "expandedMinute": 65,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        53
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883326401.0,
+      "eventId": 719,
+      "minute": 61,
+      "second": 46,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 58.1,
+      "y": 15.2,
+      "expandedMinute": 65,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 4,
+        "displayName": "Foul"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 13,
+            "displayName": "Foul"
+          }
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "467"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        63
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883327287.0,
+      "eventId": 721,
+      "minute": 62,
+      "second": 40,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 57.7,
+      "y": 13.3,
+      "expandedMinute": 66,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "1.8"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "15.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.33"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "58.1"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 5,
+            "displayName": "FreekickTaken"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        132,
+        36,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 58.1,
+      "endY": 15.8,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883331869.0,
+      "eventId": 747,
+      "minute": 68,
+      "second": 5,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 70.8,
+      "y": 31.8,
+      "expandedMinute": 72,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "509"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883331893.0,
+      "eventId": 748,
+      "minute": 68,
+      "second": 5,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 73.2,
+      "y": 39.7,
+      "expandedMinute": 72,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "77.4"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 210,
+            "displayName": "ShotAssist"
+          },
+          "value": "16"
+        },
+        {
+          "type": {
+            "value": 22,
+            "displayName": "RegularPlay"
+          }
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "53.2"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "10.2"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.12"
+        },
+        {
+          "type": {
+            "value": 154,
+            "displayName": "IntentionalAssist"
+          }
+        },
+        {
+          "type": {
+            "value": 11111,
+            "displayName": "IntentionalGoalAssist"
+          }
+        },
+        {
+          "type": {
+            "value": 11113,
+            "displayName": "KeyPass"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        92,
+        100,
+        119,
+        117,
+        30,
+        123,
+        205,
+        40,
+        46,
+        52,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 77.4,
+      "endY": 53.2,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883333181.0,
+      "eventId": 755,
+      "minute": 69,
+      "second": 46,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 46.4,
+      "y": 49.7,
+      "expandedMinute": 73,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 1,
+            "displayName": "Longball"
+          }
+        },
+        {
+          "type": {
+            "value": 155,
+            "displayName": "Chipped"
+          }
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "86.1"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "83.1"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "45.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.57"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        124,
+        127,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 83.1,
+      "endY": 86.1,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883333267.0,
+      "eventId": 758,
+      "minute": 69,
+      "second": 56,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 61.3,
+      "y": 73.6,
+      "expandedMinute": 73,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.83"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "69.5"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "58.1"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "4.4"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 58.1,
+      "endY": 69.5,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883333289.0,
+      "eventId": 760,
+      "minute": 69,
+      "second": 59,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 56.0,
+      "y": 65.8,
+      "expandedMinute": 73,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "6.7"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "59.3"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.25"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "57.3"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        36,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 59.3,
+      "endY": 57.3,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883333529.0,
+      "eventId": 769,
+      "minute": 70,
+      "second": 18,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 52.8,
+      "y": 10.5,
+      "expandedMinute": 74,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "515"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        53
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883333541.0,
+      "eventId": 770,
+      "minute": 70,
+      "second": 20,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 51.1,
+      "y": 11.3,
+      "expandedMinute": 74,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 61,
+        "displayName": "BallTouch"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883333747.0,
+      "eventId": 776,
+      "minute": 70,
+      "second": 39,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 66.4,
+      "y": 19.0,
+      "expandedMinute": 74,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "10.5"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "4.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.99"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "69.1"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 69.1,
+      "endY": 4.1,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883334989.0,
+      "eventId": 794,
+      "minute": 72,
+      "second": 10,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 41.2,
+      "y": 65.6,
+      "expandedMinute": 76,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "35.0"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "8.4"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "57.7"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.83"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 35.0,
+      "endY": 57.7,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883337323.0,
+      "eventId": 820,
+      "minute": 74,
+      "second": 43,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 63.8,
+      "y": 4.1,
+      "expandedMinute": 78,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "46.6"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.99"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "18.3"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "8.2"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 46.6,
+      "endY": 8.2,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883337541.0,
+      "eventId": 823,
+      "minute": 74,
+      "second": 52,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 44.3,
+      "y": 34.6,
+      "expandedMinute": 78,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "12.6"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "51.6"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.97"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "39.6"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 39.6,
+      "endY": 51.6,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883337721.0,
+      "eventId": 829,
+      "minute": 75,
+      "second": 9,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 64.7,
+      "y": 35.2,
+      "expandedMinute": 79,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 61,
+        "displayName": "BallTouch"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883338625.0,
+      "eventId": 835,
+      "minute": 76,
+      "second": 4,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 71.6,
+      "y": 23.0,
+      "expandedMinute": 80,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 4,
+        "displayName": "Foul"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 13,
+            "displayName": "Foul"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "575"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        63
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883339631.0,
+      "eventId": 836,
+      "minute": 77,
+      "second": 11,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 71.8,
+      "y": 26.4,
+      "expandedMinute": 81,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "78.1"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "7.2"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.42"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "30.7"
+        },
+        {
+          "type": {
+            "value": 5,
+            "displayName": "FreekickTaken"
+          }
+        },
+        {
+          "type": {
+            "value": 20,
+            "displayName": "RightFoot"
+          }
+        },
+        {
+          "type": {
+            "value": 2,
+            "displayName": "Cross"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        137,
+        126,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 78.1,
+      "endY": 30.7,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883339689.0,
+      "eventId": 837,
+      "minute": 77,
+      "second": 14,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 72.9,
+      "y": 25.4,
+      "expandedMinute": 81,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "65.7"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.29"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "11.4"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "38.0"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 65.7,
+      "endY": 38.0,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883339951.0,
+      "eventId": 843,
+      "minute": 77,
+      "second": 28,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 66.5,
+      "y": 11.9,
+      "expandedMinute": 81,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.02"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "15.4"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "51.9"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "14.6"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 51.9,
+      "endY": 14.6,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883340289.0,
+      "eventId": 847,
+      "minute": 77,
+      "second": 42,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 52.5,
+      "y": 59.6,
+      "expandedMinute": 81,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "13.1"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "45.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.15"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "43.3"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 45.8,
+      "endY": 43.3,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883344625.0,
+      "eventId": 874,
+      "minute": 81,
+      "second": 23,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 9.0,
+      "y": 43.6,
+      "expandedMinute": 85,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 12,
+        "displayName": "Clearance"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "14.3"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "34.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.85"
+        },
+        {
+          "type": {
+            "value": 15,
+            "displayName": "Head"
+          }
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "21.4"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        94,
+        95,
+        57,
+        215
+      ],
+      "isTouch": true,
+      "endX": 21.4,
+      "endY": 34.8,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883347305.0,
+      "eventId": 890,
+      "minute": 83,
+      "second": 52,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 35.5,
+      "y": 20.3,
+      "expandedMinute": 87,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 49,
+        "displayName": "BallRecovery"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [],
+      "satisfiedEventsTypes": [
+        93
+      ],
+      "isTouch": false,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883347357.0,
+      "eventId": 891,
+      "minute": 83,
+      "second": 57,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 55.7,
+      "y": 12.7,
+      "expandedMinute": 87,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 61,
+        "displayName": "BallTouch"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        69
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883347411.0,
+      "eventId": 893,
+      "minute": 83,
+      "second": 59,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 60.6,
+      "y": 15.8,
+      "expandedMinute": 87,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 4,
+        "displayName": "Foul"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 285,
+            "displayName": "Defensive"
+          }
+        },
+        {
+          "type": {
+            "value": 13,
+            "displayName": "Foul"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "656"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        64
+      ],
+      "isTouch": false,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883354531.0,
+      "eventId": 922,
+      "minute": 91,
+      "second": 7,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 34.2,
+      "y": 59.3,
+      "expandedMinute": 95,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.95"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "5.0"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "29.5"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "60.7"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        215,
+        218
+      ],
+      "isTouch": true,
+      "endX": 29.5,
+      "endY": 60.7,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883354847.0,
+      "eventId": 928,
+      "minute": 91,
+      "second": 28,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 52.3,
+      "y": 56.0,
+      "expandedMinute": 95,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 3,
+            "displayName": "HeadPass"
+          }
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "70.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.59"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "9.6"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "52.1"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        139,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 52.1,
+      "endY": 70.1,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    },
+    {
+      "id": 2883355775.0,
+      "eventId": 938,
+      "minute": 92,
+      "second": 29,
+      "teamId": 167,
+      "playerId": 386153,
+      "x": 71.8,
+      "y": 4.7,
+      "expandedMinute": 96,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.36"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "18.6"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "13.4"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "62.7"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 62.7,
+      "endY": 18.6,
+      "matchId": null,
+      "matchDate": "2025-12-15 12:07:15",
+      "opponent": "Crystal Palace"
+    }
+  ]
+}

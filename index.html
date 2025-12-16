@@ -3,25 +3,717 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pro Scouting Dashboard v4</title>
-    <link rel="stylesheet" href="src/css/style.css" />
+    <title>Pro Scouting Dashboard</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://d3js.org/d3-contour.v4.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+      :root {
+        --primary: #3b82f6;
+        --primary-dark: #2563eb;
+        --primary-light: #60a5fa;
+        --secondary: #64748b;
+        --success: #22c55e;
+        --danger: #ef4444;
+        --warning: #f59e0b;
+        --bg-main: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-elevated: #1e293b;
+        --bg-card: #334155;
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --border: #334155;
+        --border-light: #475569;
+        --pitch-green: #16a34a;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-main);
+        color: var(--text-primary);
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .app-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        height: 100vh;
+        gap: 0;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        background: var(--bg-secondary);
+        border-right: 1px solid var(--border);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        overflow-y: auto;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .sidebar::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .sidebar::-webkit-scrollbar-track {
+        background: var(--bg-main);
+      }
+
+      .sidebar::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 3px;
+      }
+
+      .sidebar::-webkit-scrollbar-thumb:hover {
+        background: var(--border-light);
+      }
+
+      .brand {
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .brand i {
+        color: var(--primary);
+        font-size: 1.75rem;
+      }
+
+      .brand span {
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .action-btn {
+        flex: 1;
+        border: none;
+        padding: 11px 16px;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .action-btn.primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .action-btn.primary:hover {
+        background: var(--primary-dark);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+      }
+
+      .action-btn.primary:active {
+        transform: translateY(0);
+      }
+
+      .action-btn.secondary {
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        color: var(--text-secondary);
+      }
+
+      .action-btn.secondary:hover {
+        background: var(--bg-card);
+        border-color: var(--border-light);
+        color: var(--text-primary);
+      }
+
+      .control-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .control-group label {
+        color: var(--text-secondary);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .control-group label i {
+        color: var(--primary);
+        font-size: 0.85rem;
+      }
+
+      select {
+        width: 100%;
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+        padding: 10px 12px;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      select:hover {
+        border-color: var(--primary);
+        background: var(--bg-card);
+      }
+
+      select:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      }
+
+      .slider-container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px;
+        background: var(--bg-elevated);
+        border-radius: 8px;
+        border: 1px solid var(--border);
+      }
+
+      input[type="range"] {
+        width: 100%;
+        height: 4px;
+        background: var(--border);
+        border-radius: 2px;
+        outline: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        background: var(--primary);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+      }
+
+      input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.15);
+        box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.3);
+      }
+
+      .zone-selector {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+
+      .zone-btn {
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        color: var(--text-secondary);
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+
+      .zone-btn:hover {
+        background: var(--bg-card);
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .zone-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .toggle-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        background: var(--bg-elevated);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .toggle-row:hover {
+        background: var(--bg-card);
+        border-color: var(--border);
+      }
+
+      .toggle-row input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        accent-color: var(--primary);
+      }
+
+      .match-list-container {
+        max-height: 180px;
+        overflow-y: auto;
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px;
+      }
+
+      .match-list-container::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      .match-list-container::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .match-list-container::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 2px;
+      }
+
+      .match-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+      }
+
+      .match-item:hover {
+        background: var(--bg-card);
+        color: var(--text-primary);
+      }
+
+      .match-item input {
+        margin: 0;
+      }
+
+      /* Main Content */
+      .main-content {
+        padding: 24px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background: var(--bg-main);
+      }
+
+      .main-content::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .main-content::-webkit-scrollbar-track {
+        background: var(--bg-main);
+      }
+
+      .main-content::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 4px;
+      }
+
+      .main-content::-webkit-scrollbar-thumb:hover {
+        background: var(--border-light);
+      }
+
+      .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 28px;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+      }
+
+      .player-info-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .player-profile-img {
+        width: 72px;
+        height: 72px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 2px solid var(--border);
+        box-shadow: var(--shadow-md);
+      }
+
+      .player-details h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+      }
+
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .kpi-row {
+        display: flex;
+        gap: 16px;
+      }
+
+      .kpi-box {
+        background: var(--bg-elevated);
+        padding: 16px 20px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        text-align: center;
+        min-width: 90px;
+        transition: all 0.2s ease;
+      }
+
+      .kpi-box:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary);
+        background: var(--bg-card);
+      }
+
+      .kpi-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .kpi-label {
+        font-size: 0.7rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      /* Carousel */
+      .carousel-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+
+      .carousel-card {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+      }
+
+      .carousel-header {
+        padding: 18px 24px;
+        background: var(--bg-elevated);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .carousel-header h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .nav-btn {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        color: var(--text-secondary);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-btn:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .carousel-indicators {
+        display: flex;
+        gap: 8px;
+      }
+
+      .indicator {
+        width: 8px;
+        height: 8px;
+        background: var(--border);
+        border-radius: 50%;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+
+      .indicator.active {
+        background: var(--primary);
+        transform: scale(1.25);
+        box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+      }
+
+      .indicator:hover {
+        background: var(--border-light);
+      }
+
+      /* Slides */
+      .carousel-track-container {
+        position: relative;
+        flex: 1;
+        overflow: hidden;
+        background: var(--bg-main);
+      }
+
+      .carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .carousel-slide.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+      }
+
+      .slide-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      /* Tabs Overlay */
+      .tabs-overlay {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+        display: flex;
+        gap: 4px;
+        background: var(--bg-secondary);
+        padding: 4px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .tabs-overlay .tab {
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .tabs-overlay .tab:hover {
+        background: var(--bg-elevated);
+        color: var(--text-primary);
+      }
+
+      .tabs-overlay .tab.active {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* Stats Summary */
+      .stats-summary {
+        background: var(--bg-elevated);
+        padding: 14px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+      }
+
+      .stat-line {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stat-line:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .metric-label {
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      .stat-value {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      /* Tooltip */
+      .tooltip {
+        position: absolute;
+        background: rgba(15, 23, 42, 0.95);
+        color: var(--text-primary);
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        pointer-events: none;
+        display: none;
+        z-index: 1000;
+        box-shadow: var(--shadow-xl);
+        border: 1px solid var(--border);
+        backdrop-filter: blur(10px);
+      }
+
+      /* Empty State */
+      .empty-state {
+        text-align: center;
+        color: var(--text-secondary);
+        padding: 60px 20px;
+      }
+
+      .empty-state i {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        color: var(--text-muted);
+      }
+
+      .empty-state p {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .app-container {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="app-container">
       <aside class="sidebar">
         <div class="brand">
-          <i class="fas fa-futbol"></i> SCOUTING<span>PRO</span>
+          <i class="fas fa-futbol"></i>
+          <span>SCOUTING PRO</span>
+        </div>
+
+        <div class="action-buttons">
+          <button id="btn-open-scrape" class="action-btn primary">
+            <i class="fas fa-cloud-download-alt"></i>
+            <span>Nouveau</span>
+          </button>
+          <button id="btn-reset-app" class="action-btn secondary">
+            <i class="fas fa-undo"></i>
+            <span>Reset</span>
+          </button>
         </div>
 
         <div class="control-group">
-          <label><i class="fas fa-file-import"></i> Rapport</label>
-          <select id="fileSelect"></select>
+          <label><i class="fas fa-file-import"></i> Rapport Existant</label>
+          <select id="fileSelect">
+            <option value="">Choisir un rapport...</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label><i class="fas fa-list-ol"></i> Sélection Matchs</label>
+          <div id="match-selector-container" class="match-list-container">
+            <div class="match-item">
+              <input type="checkbox" id="match-all" checked />
+              <span>Chargement...</span>
+            </div>
+          </div>
         </div>
 
         <div class="control-group">
@@ -39,17 +731,23 @@
 
         <div class="control-group">
           <label><i class="fas fa-filter"></i> Filtres</label>
-          <div class="checkbox-group">
+          <div style="display: flex; flex-direction: column; gap: 8px">
             <label class="toggle-row">
               <span
-                ><i class="fas fa-check-circle" style="color: #22c55e"></i>
+                ><i
+                  class="fas fa-check-circle"
+                  style="color: var(--success)"
+                ></i>
                 Réussies</span
               >
               <input type="checkbox" id="filter-success" checked />
             </label>
             <label class="toggle-row">
               <span
-                ><i class="fas fa-times-circle" style="color: #ef4444"></i>
+                ><i
+                  class="fas fa-times-circle"
+                  style="color: var(--danger)"
+                ></i>
                 Ratées</span
               >
               <input type="checkbox" id="filter-failed" checked />
@@ -68,122 +766,83 @@
         </div>
 
         <div class="control-group">
-          <label><i class="fas fa-layer-group"></i> Options Vue</label>
-          <div id="filters-passes" class="sub-filters" style="display: none">
-            <label class="toggle-row">
-              <span
-                ><span class="dot" style="background: #fbbf24"></span>
-                Clés/Décisives</span
-              >
-              <input type="checkbox" id="opt-keypass" checked />
-            </label>
-            <label class="toggle-row">
-              <span
-                ><span class="dot" style="background: #3b82f6"></span>
-                Réussies</span
-              >
-              <input type="checkbox" id="opt-pass-success" checked />
-            </label>
-            <label class="toggle-row">
-              <span
-                ><span class="dot" style="background: #ef4444"></span>
-                Ratées</span
-              >
-              <input type="checkbox" id="opt-pass-fail" checked />
-            </label>
+          <label><i class="fas fa-chart-bar"></i> Résumé</label>
+          <div id="sidebar-summary" class="stats-summary">
+            <div class="stat-line">
+              <span class="metric-label">Actions</span>
+              <span class="stat-value">0</span>
+            </div>
+            <div class="stat-line">
+              <span class="metric-label">Passes</span>
+              <span class="stat-value">0</span>
+            </div>
+            <div class="stat-line">
+              <span class="metric-label">Tirs</span>
+              <span class="stat-value">0</span>
+            </div>
           </div>
-
-          <div id="filters-actions" class="sub-filters" style="display: none">
-            <label class="toggle-row">
-              <span
-                ><i class="fas fa-star" style="color: #ffd700"></i> Buts</span
-              >
-              <input type="checkbox" id="opt-goal" checked />
-            </label>
-            <label class="toggle-row">
-              <span
-                ><i class="fas fa-circle" style="color: #fff"></i> Tirs</span
-              >
-              <input type="checkbox" id="opt-shot" checked />
-            </label>
-            <label class="toggle-row">
-              <span
-                ><i class="fas fa-square" style="color: #4caf50"></i>
-                Dribbles</span
-              >
-              <input type="checkbox" id="opt-dribble" checked />
-            </label>
-            <label class="toggle-row">
-              <span
-                ><i class="fas fa-shield-alt" style="color: #8b5cf6"></i>
-                Défense</span
-              >
-              <input type="checkbox" id="opt-defense" checked />
-            </label>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <label><i class="fas fa-chart-bar"></i> Statistiques Filtrées</label>
-          <div id="sidebar-summary" class="stats-summary"></div>
         </div>
       </aside>
 
       <main class="main-content">
         <header class="top-bar">
-          <div id="player-header">
-            <h1>Chargement...</h1>
+          <div id="player-header" class="player-info-container">
+            <div class="player-details">
+              <h1>Chargement...</h1>
+              <p class="subtitle">Sélectionnez un rapport pour commencer</p>
+            </div>
           </div>
-
           <div class="kpi-row" id="kpi-container"></div>
         </header>
 
-        <div class="dashboard-grid">
-          <div class="card pitch-card">
-            <div class="card-header">
-              <h3>Analyse Terrain</h3>
-              <div class="tabs">
-                <button class="tab active" data-view="heatmap">
-                  <i class="fas fa-fire"></i> Heatmap
-                </button>
-                <button class="tab" data-view="passes">
-                  <i class="fas fa-project-diagram"></i> Passes
-                </button>
-                <button class="tab" data-view="actions">
-                  <i class="fas fa-bolt"></i> Actions
-                </button>
+        <div class="carousel-container">
+          <div class="carousel-card">
+            <div class="carousel-header">
+              <button class="nav-btn" id="prev-slide">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <h3 id="slide-title">Analyse Terrain</h3>
+              <div class="carousel-indicators">
+                <span class="indicator active" data-index="0"></span>
+                <span class="indicator" data-index="1"></span>
+                <span class="indicator" data-index="2"></span>
+                <span class="indicator" data-index="3"></span>
               </div>
+              <button class="nav-btn" id="next-slide">
+                <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
-            <div class="card-body">
-              <div id="viz-container"></div>
-            </div>
-          </div>
-
-          <div class="stats-column">
-            <div class="card radar-card">
-              <div class="card-header">
-                <h3><i class="fas fa-chart-area"></i> Profil Performance</h3>
+            <div class="carousel-track-container" id="carousel-track">
+              <div class="carousel-slide active" data-title="Analyse Terrain">
+                <div class="tabs-overlay">
+                  <button class="tab active" data-view="heatmap">
+                    <i class="fas fa-fire"></i>
+                    Heatmap
+                  </button>
+                  <button class="tab" data-view="passes">
+                    <i class="fas fa-project-diagram"></i>
+                    Passes
+                  </button>
+                  <button class="tab" data-view="actions">
+                    <i class="fas fa-bolt"></i>
+                    Actions
+                  </button>
+                </div>
+                <div id="viz-container" class="slide-content">
+                  <div class="empty-state">
+                    <i class="fas fa-futbol"></i>
+                    <p>Chargez un fichier pour commencer l'analyse</p>
+                  </div>
+                </div>
               </div>
-              <div class="card-body">
-                <div id="radar-chart"></div>
+              <div class="carousel-slide" data-title="Profil Performance">
+                <div id="radar-chart" class="slide-content"></div>
               </div>
-            </div>
-
-            <div class="card metrics-card">
-              <div class="card-header">
-                <h3><i class="fas fa-list-ul"></i> Métriques Détaillées</h3>
+              <div class="carousel-slide" data-title="Métriques Détaillées">
+                <div id="detailed-metrics" class="slide-content"></div>
               </div>
-              <div class="card-body">
-                <div id="detailed-metrics"></div>
-              </div>
-            </div>
-
-            <div class="card timeline-card">
-              <div class="card-header">
-                <h3><i class="fas fa-clock"></i> Timeline Match</h3>
-              </div>
-              <div class="card-body">
-                <div id="timeline-chart"></div>
+              <div class="carousel-slide" data-title="Timeline Match">
+                <div id="timeline-chart" class="slide-content"></div>
               </div>
             </div>
           </div>
@@ -194,5 +853,66 @@
     <div id="tooltip" class="tooltip"></div>
 
     <script type="module" src="src/js/main.js"></script>
+
+    <script>
+      // Animation des zone buttons
+      document.querySelectorAll(".zone-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll(".zone-btn")
+            .forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      // Slider interaction
+      const timeMin = document.getElementById("time-min");
+      const timeMax = document.getElementById("time-max");
+      const timeVal = document.getElementById("time-val");
+
+      function updateTimeDisplay() {
+        timeVal.textContent = `${timeMin.value}-${timeMax.value}`;
+      }
+
+      if (timeMin && timeMax) {
+        timeMin.addEventListener("input", updateTimeDisplay);
+        timeMax.addEventListener("input", updateTimeDisplay);
+      }
+
+      // Carousel navigation
+      const slides = document.querySelectorAll(".carousel-slide");
+      const indicators = document.querySelectorAll(".indicator");
+      const prevBtn = document.getElementById("prev-slide");
+      const nextBtn = document.getElementById("next-slide");
+      const slideTitle = document.getElementById("slide-title");
+      let currentSlide = 0;
+
+      function goToSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === index);
+        });
+        indicators.forEach((ind, i) => {
+          ind.classList.toggle("active", i === index);
+        });
+        slideTitle.textContent = slides[index].dataset.title;
+        currentSlide = index;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        const newIndex =
+          currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
+        goToSlide(newIndex);
+      });
+
+      nextBtn.addEventListener("click", () => {
+        const newIndex =
+          currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
+        goToSlide(newIndex);
+      });
+
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => goToSlide(index));
+      });
+    </script>
   </body>
 </html>
