@@ -8,6 +8,10 @@ import { PassMap } from './passmap.js';
 import { ActionMap } from './actions.js';
 import { RadarChart } from './radarChart.js';
 import { Timeline } from './timeline.js';
+import { ShotMap } from './shotmap.js';
+import { ZoneAnalysis } from './zoneAnalysis.js';
+import { ProgressivePasses } from './progressivePasses.js';
+import { DefensiveActions } from './defensiveActions.js';
 
 class Dashboard {
     constructor() {
@@ -21,33 +25,254 @@ class Dashboard {
             passes: null,
             actions: null,
             radar: null,
-            timeline: null
+            timeline: null,
+            shotmap: null,
+            zoneAnalysis: null,
+            progressivePasses: null,
+            defensiveActions: null
         };
         
         this.init();
+        this.setupLandingPage();
+        this.setupScrapingModal();
+    }
+
+    setupLandingPage() {
+        console.log('🔵 Setting up landing page...');
+        const btnNewScrape = document.getElementById('btn-new-scrape');
+        const btnLoadExisting = document.getElementById('btn-load-existing');
+        const btnBackHome = document.getElementById('btn-back-home');
+
+        if (btnNewScrape) {
+            console.log('✅ btn-new-scrape found');
+            btnNewScrape.addEventListener('click', () => {
+                console.log('🔵 Click: Nouveau Rapport');
+                this.openScrapeModal();
+            });
+        } else {
+            console.error('❌ btn-new-scrape not found');
+        }
+
+        if (btnLoadExisting) {
+            console.log('✅ btn-load-existing found');
+            btnLoadExisting.addEventListener('click', () => {
+                console.log('🔵 Click: Charger Rapport');
+                this.showMainApp();
+            });
+        } else {
+            console.error('❌ btn-load-existing not found');
+        }
+
+        if (btnBackHome) {
+            console.log('✅ btn-back-home found');
+            btnBackHome.addEventListener('click', () => {
+                console.log('🔵 Click: Retour Accueil');
+                this.showLandingPage();
+            });
+        }
+    }
+
+    showLandingPage() {
+        document.getElementById('landing-page').style.display = 'flex';
+        document.getElementById('main-app').style.display = 'none';
+    }
+
+    showMainApp() {
+        document.getElementById('landing-page').style.display = 'none';
+        document.getElementById('main-app').style.display = 'grid';
+    }
+
+    setupScrapingModal() {
+        const modal = document.getElementById('scrape-modal');
+        const openBtn = document.getElementById('btn-open-scrape');
+        const closeBtn = document.getElementById('close-modal');
+        const startBtn = document.getElementById('start-scrape');
+
+        if (openBtn) {
+            openBtn.addEventListener('click', () => this.openScrapeModal());
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => this.closeScrapeModal());
+        }
+
+        if (startBtn) {
+            startBtn.addEventListener('click', () => this.startScraping());
+        }
+
+        // Fermer au clic en dehors
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) this.closeScrapeModal();
+            });
+        }
+    }
+
+    openScrapeModal() {
+        console.log('🔵 Opening scrape modal...');
+        const modal = document.getElementById('scrape-modal');
+        if (!modal) {
+            console.error('❌ Modal scrape-modal not found!');
+            return;
+        }
+        modal.classList.add('active');
+        document.getElementById('player-url').value = '';
+        document.getElementById('player-name').value = '';
+        document.getElementById('modal-error').textContent = '';
+        console.log('✅ Modal opened');
+    }
+
+    closeScrapeModal() {
+        console.log('🔵 Closing scrape modal...');
+        const modal = document.getElementById('scrape-modal');
+        if (!modal) return;
+        modal.classList.remove('active');
+        console.log('✅ Modal closed');
+    }
+
+    async startScraping() {
+        const url = document.getElementById('player-url').value.trim();
+        const name = document.getElementById('player-name').value.trim();
+        const errorEl = document.getElementById('modal-error');
+
+        // Validation
+        if (!url || !name) {
+            errorEl.textContent = '⚠️ Veuillez remplir tous les champs';
+            return;
+        }
+
+        if (!url.includes('whoscored.com')) {
+            errorEl.textContent = '⚠️ URL WhoScored invalide';
+            return;
+        }
+
+        // Détecter le type de scraping
+        const isSeasonUrl = url.includes('/Players/') || url.includes('/History');
+        const scrapeType = isSeasonUrl ? 'saison complète' : 'match unique';
+
+        // Fermer le modal et afficher le loader
+        this.closeScrapeModal();
+        this.showLoader(scrapeType, name);
+
+        try {
+            const response = await fetch('/api/scrape', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url, name })
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                // Afficher un résumé détaillé
+                this.showScrapingSuccess(result);
+                
+                setTimeout(() => {
+                    this.hideLoader();
+                    this.showMainApp();
+                    this.loadData(result.file);
+                }, 3000);
+            } else {
+                throw new Error(result.error || 'Erreur inconnue');
+            }
+        } catch (error) {
+            this.updateLoaderStatus('❌ Erreur: ' + error.message, 0, '');
+            setTimeout(() => {
+                this.hideLoader();
+                alert('Erreur lors du scraping: ' + error.message);
+            }, 2000);
+        }
+    }
+
+    showScrapingSuccess(result) {
+        const matchesText = result.total_matches > 1 
+            ? `${result.total_matches} matchs` 
+            : '1 match';
+        
+        let detailsHtml = `<div style="margin-top: 20px; text-align: left;">`;
+        
+        if (result.matches && result.matches.length > 0) {
+            detailsHtml += `<div style="max-height: 200px; overflow-y: auto; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin-top: 15px;">`;
+            detailsHtml += `<strong style="color: #3b82f6;">📋 Matchs scrapés :</strong><br><br>`;
+            
+            result.matches.forEach((match, idx) => {
+                const date = new Date(match.date).toLocaleDateString('fr-FR');
+                detailsHtml += `<div style="margin-bottom: 10px; padding: 8px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">`;
+                detailsHtml += `<strong>${idx + 1}.</strong> ${date} - vs ${match.opponent} <span style="color: #22c55e;">${match.score}</span><br>`;
+                detailsHtml += `<small style="color: #94a3b8;">${match.competition}</small>`;
+                detailsHtml += `</div>`;
+            });
+            
+            detailsHtml += `</div>`;
+        }
+        
+        detailsHtml += `<div style="margin-top: 15px; padding: 15px; background: rgba(34, 197, 94, 0.1); border-radius: 8px; border-left: 4px solid #22c55e;">`;
+        detailsHtml += `<strong style="color: #22c55e;">✅ Extraction réussie !</strong><br>`;
+        detailsHtml += `• ${matchesText} analysé(s)<br>`;
+        detailsHtml += `• ${result.total_events} événements extraits<br>`;
+        detailsHtml += `• Joueur : ${result.player_name}`;
+        detailsHtml += `</div>`;
+        detailsHtml += `</div>`;
+        
+        this.updateLoaderStatus(
+            '🎉 Scraping terminé !',
+            100,
+            detailsHtml
+        );
+    }
+
+    showLoader(type = 'match', playerName = '') {
+        const loader = document.getElementById('loader-overlay');
+        loader.classList.add('active');
+        
+        const title = type === 'saison complète' 
+            ? `🔍 Scraping saison de ${playerName}...`
+            : `🔍 Scraping match de ${playerName}...`;
+        
+        document.getElementById('loader-title').textContent = title;
+        
+        const statusMsg = type === 'saison complète'
+            ? '📡 Connexion à WhoScored (peut prendre 1-2 minutes)...'
+            : '📡 Connexion à WhoScored...';
+        
+        this.updateLoaderStatus(statusMsg, 10, '');
+
+        // Animation progressive différente selon le type
+        if (type === 'saison complète') {
+            setTimeout(() => this.updateLoaderStatus('🔎 Récupération de la liste des matchs...', 25, ''), 2000);
+            setTimeout(() => this.updateLoaderStatus('📥 Scraping des matchs en cours...', 45, '<div style="margin-top: 10px; color: #94a3b8;">⏳ Cela peut prendre quelques minutes...</div>'), 5000);
+            setTimeout(() => this.updateLoaderStatus('⚽ Extraction des événements...', 70, ''), 10000);
+            setTimeout(() => this.updateLoaderStatus('📊 Calcul des statistiques...', 85, ''), 15000);
+        } else {
+            setTimeout(() => this.updateLoaderStatus('📥 Récupération des données du match...', 40, ''), 2000);
+            setTimeout(() => this.updateLoaderStatus('⚽ Extraction des événements...', 65, ''), 4000);
+            setTimeout(() => this.updateLoaderStatus('📊 Calcul des statistiques...', 85, ''), 6000);
+        }
+    }
+
+    hideLoader() {
+        const loader = document.getElementById('loader-overlay');
+        loader.classList.remove('active');
+    }
+
+    updateLoaderStatus(message, progress, extraHtml = '') {
+        document.getElementById('loader-status').innerHTML = message + extraHtml;
+        document.getElementById('progress-fill').style.width = progress + '%';
+        document.getElementById('progress-text').textContent = progress + '%';
     }
 
     async init() {
         await this.loadFileList();
         this.setupEventListeners();
         this.setupCarousel();
-        this.setupScrapingControls();
         
         // Initialiser les charts qui ne dépendent pas des données
         this.charts.radar = new RadarChart('radar-chart');
         this.charts.timeline = new Timeline('timeline-chart');
-    }
-
-    setupScrapingControls() {
-        const btnReset = document.getElementById('btn-reset-app');
-
-        if (btnReset) {
-            btnReset.addEventListener('click', () => {
-                if (confirm('Réinitialiser l\'application ?')) {
-                    window.location.reload();
-                }
-            });
-        }
+        this.charts.shotmap = new ShotMap('shotmap-chart');
+        this.charts.zoneAnalysis = new ZoneAnalysis('zone-analysis');
+        this.charts.progressivePasses = new ProgressivePasses('progressive-passes');
+        this.charts.defensiveActions = new DefensiveActions('defensive-actions');
     }
 
     setupEventListeners() {
@@ -70,6 +295,16 @@ class Dashboard {
         const filterFailed = document.getElementById('filter-failed');
         if (filterSuccess) filterSuccess.addEventListener('change', () => this.updateFilters());
         if (filterFailed) filterFailed.addEventListener('change', () => this.updateFilters());
+        
+        // Filtres d'actions (buts, tirs, dribbles, défense)
+        const filterGoals = document.getElementById('filter-goals');
+        const filterShots = document.getElementById('filter-shots');
+        const filterDribbles = document.getElementById('filter-dribbles');
+        const filterDefensive = document.getElementById('filter-defensive');
+        if (filterGoals) filterGoals.addEventListener('change', () => this.updateActionFilters());
+        if (filterShots) filterShots.addEventListener('change', () => this.updateActionFilters());
+        if (filterDribbles) filterDribbles.addEventListener('change', () => this.updateActionFilters());
+        if (filterDefensive) filterDefensive.addEventListener('change', () => this.updateActionFilters());
 
         // Boutons de zone
         document.querySelectorAll('.zone-btn').forEach(btn => {
@@ -181,6 +416,18 @@ class Dashboard {
         if (index === 0) {
             this.switchPitchView(this.currentView);
         } else if (index === 1 || index === 3) {
+            this.updateFilters();
+        } else if (index === 4) {
+            // Shot Map
+            this.updateFilters();
+        } else if (index === 5) {
+            // Zone Analysis
+            this.updateFilters();
+        } else if (index === 6) {
+            // Progressive Passes
+            this.updateFilters();
+        } else if (index === 7) {
+            // Defensive Actions
             this.updateFilters();
         }
     }
@@ -316,6 +563,23 @@ class Dashboard {
         if (this.charts.timeline) {
             this.charts.timeline.update(events, filters.timeRange);
         }
+
+        // Mise à jour des nouveaux charts TODO
+        if (this.charts.shotmap) {
+            this.charts.shotmap.update(events);
+        }
+
+        if (this.charts.zoneAnalysis) {
+            this.charts.zoneAnalysis.update(events);
+        }
+
+        if (this.charts.progressivePasses) {
+            this.charts.progressivePasses.update(events);
+        }
+
+        if (this.charts.defensiveActions) {
+            this.charts.defensiveActions.update(events);
+        }
     }
 
     updateSubFilters() {
@@ -346,6 +610,23 @@ class Dashboard {
         }
     }
 
+    updateActionFilters() {
+        if (this.currentSlideIndex !== 0) return;
+        if (this.currentView === 'actions' && this.charts.actions) {
+            const filterGoals = document.getElementById('filter-goals');
+            const filterShots = document.getElementById('filter-shots');
+            const filterDribbles = document.getElementById('filter-dribbles');
+            const filterDefensive = document.getElementById('filter-defensive');
+            
+            this.charts.actions.updateOptions({
+                showGoals: filterGoals ? filterGoals.checked : true,
+                showShots: filterShots ? filterShots.checked : true,
+                showDribbles: filterDribbles ? filterDribbles.checked : true,
+                showDefensive: filterDefensive ? filterDefensive.checked : true
+            });
+        }
+    }
+
     switchPitchView(viewName) {
         this.currentView = viewName;
         
@@ -354,19 +635,23 @@ class Dashboard {
         
         this.charts[viewName] = null;
         
-        // Masquer tous les filtres spécifiques
+        // Masquer tous les groupes de filtres spécifiques
         const filtersPass = document.getElementById('filters-passes');
         const filtersActions = document.getElementById('filters-actions');
+        const actionFiltersGroup = document.getElementById('action-filters-group');
+        
         if (filtersPass) filtersPass.style.display = 'none';
         if (filtersActions) filtersActions.style.display = 'none';
+        if (actionFiltersGroup) actionFiltersGroup.style.display = 'none';
 
-        // Afficher les filtres appropriés
+        // Afficher les filtres appropriés selon la vue
         if (this.currentSlideIndex === 0) {
             if (viewName === 'passes' && filtersPass) {
                 filtersPass.style.display = 'block';
             }
-            if (viewName === 'actions' && filtersActions) {
-                filtersActions.style.display = 'block';
+            if (viewName === 'actions') {
+                if (filtersActions) filtersActions.style.display = 'block';
+                if (actionFiltersGroup) actionFiltersGroup.style.display = 'block';
             }
         }
         

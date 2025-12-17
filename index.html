@@ -10,678 +10,60 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
-
-      :root {
-        --primary: #3b82f6;
-        --primary-dark: #2563eb;
-        --primary-light: #60a5fa;
-        --secondary: #64748b;
-        --success: #22c55e;
-        --danger: #ef4444;
-        --warning: #f59e0b;
-        --bg-main: #0f172a;
-        --bg-secondary: #1e293b;
-        --bg-elevated: #1e293b;
-        --bg-card: #334155;
-        --text-primary: #f1f5f9;
-        --text-secondary: #cbd5e1;
-        --text-muted: #94a3b8;
-        --border: #334155;
-        --border-light: #475569;
-        --pitch-green: #16a34a;
-        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
-        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
-        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6);
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-        background: var(--bg-main);
-        color: var(--text-primary);
-        height: 100vh;
-        overflow: hidden;
-      }
-
-      .app-container {
-        display: grid;
-        grid-template-columns: 300px 1fr;
-        height: 100vh;
-        gap: 0;
-      }
-
-      /* Sidebar */
-      .sidebar {
-        background: var(--bg-secondary);
-        border-right: 1px solid var(--border);
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        overflow-y: auto;
-        box-shadow: var(--shadow-lg);
-      }
-
-      .sidebar::-webkit-scrollbar {
-        width: 6px;
-      }
-
-      .sidebar::-webkit-scrollbar-track {
-        background: var(--bg-main);
-      }
-
-      .sidebar::-webkit-scrollbar-thumb {
-        background: var(--border);
-        border-radius: 3px;
-      }
-
-      .sidebar::-webkit-scrollbar-thumb:hover {
-        background: var(--border-light);
-      }
-
-      .brand {
-        font-size: 1.5rem;
-        font-weight: 800;
-        letter-spacing: -0.5px;
-        color: var(--text-primary);
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding-bottom: 20px;
-        border-bottom: 2px solid var(--border);
-      }
-
-      .brand i {
-        color: var(--primary);
-        font-size: 1.75rem;
-      }
-
-      .brand span {
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-light)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .action-buttons {
-        display: flex;
-        gap: 10px;
-      }
-
-      .action-btn {
-        flex: 1;
-        border: none;
-        padding: 11px 16px;
-        border-radius: 8px;
-        font-size: 0.875rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-      }
-
-      .action-btn.primary {
-        background: var(--primary);
-        color: white;
-        box-shadow: var(--shadow-sm);
-      }
-
-      .action-btn.primary:hover {
-        background: var(--primary-dark);
-        box-shadow: var(--shadow-md);
-        transform: translateY(-1px);
-      }
-
-      .action-btn.primary:active {
-        transform: translateY(0);
-      }
-
-      .action-btn.secondary {
-        background: var(--bg-elevated);
-        border: 1px solid var(--border);
-        color: var(--text-secondary);
-      }
-
-      .action-btn.secondary:hover {
-        background: var(--bg-card);
-        border-color: var(--border-light);
-        color: var(--text-primary);
-      }
-
-      .control-group {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .control-group label {
-        color: var(--text-secondary);
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .control-group label i {
-        color: var(--primary);
-        font-size: 0.85rem;
-      }
-
-      select {
-        width: 100%;
-        background: var(--bg-elevated);
-        border: 1px solid var(--border);
-        color: var(--text-primary);
-        padding: 10px 12px;
-        border-radius: 6px;
-        font-size: 0.875rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      select:hover {
-        border-color: var(--primary);
-        background: var(--bg-card);
-      }
-
-      select:focus {
-        outline: none;
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-      }
-
-      .slider-container {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: 12px;
-        background: var(--bg-elevated);
-        border-radius: 8px;
-        border: 1px solid var(--border);
-      }
-
-      input[type="range"] {
-        width: 100%;
-        height: 4px;
-        background: var(--border);
-        border-radius: 2px;
-        outline: none;
-        -webkit-appearance: none;
-        cursor: pointer;
-      }
-
-      input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 16px;
-        height: 16px;
-        background: var(--primary);
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
-      }
-
-      input[type="range"]::-webkit-slider-thumb:hover {
-        transform: scale(1.15);
-        box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.3);
-      }
-
-      .zone-selector {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-      }
-
-      .zone-btn {
-        background: var(--bg-elevated);
-        border: 1px solid var(--border);
-        color: var(--text-secondary);
-        padding: 10px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 0.8rem;
-        font-weight: 600;
-        transition: all 0.2s ease;
-      }
-
-      .zone-btn:hover {
-        background: var(--bg-card);
-        border-color: var(--primary);
-        color: var(--primary);
-      }
-
-      .zone-btn.active {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
-        box-shadow: var(--shadow-sm);
-      }
-
-      .toggle-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 12px;
-        background: var(--bg-elevated);
-        border-radius: 6px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        border: 1px solid transparent;
-      }
-
-      .toggle-row:hover {
-        background: var(--bg-card);
-        border-color: var(--border);
-      }
-
-      .toggle-row input[type="checkbox"] {
-        width: 16px;
-        height: 16px;
-        cursor: pointer;
-        accent-color: var(--primary);
-      }
-
-      .match-list-container {
-        max-height: 180px;
-        overflow-y: auto;
-        background: var(--bg-elevated);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 8px;
-      }
-
-      .match-list-container::-webkit-scrollbar {
-        width: 4px;
-      }
-
-      .match-list-container::-webkit-scrollbar-track {
-        background: transparent;
-      }
-
-      .match-list-container::-webkit-scrollbar-thumb {
-        background: var(--border);
-        border-radius: 2px;
-      }
-
-      .match-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 8px 10px;
-        font-size: 0.8rem;
-        color: var(--text-secondary);
-        cursor: pointer;
-        border-radius: 4px;
-        transition: all 0.2s ease;
-      }
-
-      .match-item:hover {
-        background: var(--bg-card);
-        color: var(--text-primary);
-      }
-
-      .match-item input {
-        margin: 0;
-      }
-
-      /* Main Content */
-      .main-content {
-        padding: 24px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        background: var(--bg-main);
-      }
-
-      .main-content::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .main-content::-webkit-scrollbar-track {
-        background: var(--bg-main);
-      }
-
-      .main-content::-webkit-scrollbar-thumb {
-        background: var(--border);
-        border-radius: 4px;
-      }
-
-      .main-content::-webkit-scrollbar-thumb:hover {
-        background: var(--border-light);
-      }
-
-      .top-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 24px 28px;
-        background: var(--bg-secondary);
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow-md);
-      }
-
-      .player-info-container {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .player-profile-img {
-        width: 72px;
-        height: 72px;
-        border-radius: 12px;
-        object-fit: cover;
-        border: 2px solid var(--border);
-        box-shadow: var(--shadow-md);
-      }
-
-      .player-details h1 {
-        font-size: 1.75rem;
-        font-weight: 700;
-        color: var(--text-primary);
-        margin-bottom: 4px;
-      }
-
-      .subtitle {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-
-      .kpi-row {
-        display: flex;
-        gap: 16px;
-      }
-
-      .kpi-box {
-        background: var(--bg-elevated);
-        padding: 16px 20px;
-        border-radius: 10px;
-        border: 1px solid var(--border);
-        text-align: center;
-        min-width: 90px;
-        transition: all 0.2s ease;
-      }
-
-      .kpi-box:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-        border-color: var(--primary);
-        background: var(--bg-card);
-      }
-
-      .kpi-value {
-        font-size: 1.5rem;
-        font-weight: 700;
-        display: block;
-        margin-bottom: 4px;
-      }
-
-      .kpi-label {
-        font-size: 0.7rem;
-        color: var(--text-secondary);
-        text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-      }
-
-      /* Carousel */
-      .carousel-container {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        min-height: 0;
-      }
-
-      .carousel-card {
-        background: var(--bg-secondary);
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        box-shadow: var(--shadow-md);
-        overflow: hidden;
-      }
-
-      .carousel-header {
-        padding: 18px 24px;
-        background: var(--bg-elevated);
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .carousel-header h3 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--text-primary);
-      }
-
-      .nav-btn {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        color: var(--text-secondary);
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .nav-btn:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
-        box-shadow: var(--shadow-sm);
-      }
-
-      .carousel-indicators {
-        display: flex;
-        gap: 8px;
-      }
-
-      .indicator {
-        width: 8px;
-        height: 8px;
-        background: var(--border);
-        border-radius: 50%;
-        transition: all 0.2s ease;
-        cursor: pointer;
-      }
-
-      .indicator.active {
-        background: var(--primary);
-        transform: scale(1.25);
-        box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
-      }
-
-      .indicator:hover {
-        background: var(--border-light);
-      }
-
-      /* Slides */
-      .carousel-track-container {
-        position: relative;
-        flex: 1;
-        overflow: hidden;
-        background: var(--bg-main);
-      }
-
-      .carousel-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.4s ease;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .carousel-slide.active {
-        opacity: 1;
-        visibility: visible;
-        z-index: 1;
-      }
-
-      .slide-content {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-      }
-
-      /* Tabs Overlay */
-      .tabs-overlay {
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 20;
-        display: flex;
-        gap: 4px;
-        background: var(--bg-secondary);
-        padding: 4px;
-        border-radius: 10px;
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow-lg);
-      }
-
-      .tabs-overlay .tab {
-        background: transparent;
-        border: none;
-        color: var(--text-secondary);
-        padding: 8px 16px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 0.85rem;
-        font-weight: 600;
-        transition: all 0.2s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .tabs-overlay .tab:hover {
-        background: var(--bg-elevated);
-        color: var(--text-primary);
-      }
-
-      .tabs-overlay .tab.active {
-        background: var(--primary);
-        color: white;
-      }
-
-      /* Stats Summary */
-      .stats-summary {
-        background: var(--bg-elevated);
-        padding: 14px;
-        border-radius: 8px;
-        border: 1px solid var(--border);
-      }
-
-      .stat-line {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .stat-line:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
-      }
-
-      .metric-label {
-        color: var(--text-secondary);
-        font-size: 0.85rem;
-        font-weight: 500;
-      }
-
-      .stat-value {
-        color: var(--text-primary);
-        font-weight: 600;
-      }
-
-      /* Tooltip */
-      .tooltip {
-        position: absolute;
-        background: rgba(15, 23, 42, 0.95);
-        color: var(--text-primary);
-        padding: 10px 14px;
-        border-radius: 6px;
-        font-size: 0.85rem;
-        pointer-events: none;
-        display: none;
-        z-index: 1000;
-        box-shadow: var(--shadow-xl);
-        border: 1px solid var(--border);
-        backdrop-filter: blur(10px);
-      }
-
-      /* Empty State */
-      .empty-state {
-        text-align: center;
-        color: var(--text-secondary);
-        padding: 60px 20px;
-      }
-
-      .empty-state i {
-        font-size: 4rem;
-        margin-bottom: 20px;
-        color: var(--text-muted);
-      }
-
-      .empty-state p {
-        font-size: 1.1rem;
-        font-weight: 500;
-      }
-
-      /* Responsive */
-      @media (max-width: 1024px) {
-        .app-container {
-          grid-template-columns: 1fr;
-        }
-        .sidebar {
-          display: none;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="src/css/style.css" />
   </head>
   <body>
-    <div class="app-container">
+    <!-- Landing Page -->
+    <div id="landing-page" class="landing-page">
+      <div class="landing-content">
+        <div class="landing-hero">
+          <i class="fas fa-futbol landing-icon"></i>
+          <h1 class="landing-title">
+            <span class="gradient-text">SCOUTING PRO</span>
+          </h1>
+          <p class="landing-subtitle">
+            Analyse de performance football alimentée par l'IA
+          </p>
+        </div>
+
+        <div class="landing-actions">
+          <button id="btn-new-scrape" class="landing-btn primary">
+            <i class="fas fa-cloud-download-alt"></i>
+            <span>Nouveau Rapport</span>
+          </button>
+          <button id="btn-load-existing" class="landing-btn secondary">
+            <i class="fas fa-folder-open"></i>
+            <span>Charger Rapport</span>
+          </button>
+        </div>
+
+        <div class="landing-features">
+          <div class="feature-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>Heatmaps</h3>
+            <p>Zones d'activité</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Statistiques</h3>
+            <p>Métriques détaillées</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-project-diagram"></i>
+            <h3>Pass Maps</h3>
+            <p>Réseau de passes</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-bullseye"></i>
+            <h3>Shot Maps</h3>
+            <p>Analyse des tirs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main App (hidden initially) -->
+    <div class="app-container" id="main-app" style="display: none">
       <aside class="sidebar">
         <div class="brand">
           <i class="fas fa-futbol"></i>
@@ -689,13 +71,13 @@
         </div>
 
         <div class="action-buttons">
-          <button id="btn-open-scrape" class="action-btn primary">
-            <i class="fas fa-cloud-download-alt"></i>
-            <span>Nouveau</span>
+          <button id="btn-back-home" class="action-btn secondary">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
           </button>
-          <button id="btn-reset-app" class="action-btn secondary">
-            <i class="fas fa-undo"></i>
-            <span>Reset</span>
+          <button id="btn-open-scrape" class="action-btn primary">
+            <i class="fas fa-plus"></i>
+            <span>Nouveau</span>
           </button>
         </div>
 
@@ -730,7 +112,7 @@
         </div>
 
         <div class="control-group">
-          <label><i class="fas fa-filter"></i> Filtres</label>
+          <label><i class="fas fa-filter"></i> Filtres Généraux</label>
           <div style="display: flex; flex-direction: column; gap: 8px">
             <label class="toggle-row">
               <span
@@ -751,6 +133,43 @@
                 Ratées</span
               >
               <input type="checkbox" id="filter-failed" checked />
+            </label>
+          </div>
+        </div>
+
+        <div
+          class="control-group"
+          id="action-filters-group"
+          style="display: none"
+        >
+          <label><i class="fas fa-bolt"></i> Types d'Actions</label>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label class="toggle-row">
+              <span
+                ><i class="fas fa-futbol" style="color: #eab308"></i> Buts</span
+              >
+              <input type="checkbox" id="filter-goals" checked />
+            </label>
+            <label class="toggle-row">
+              <span
+                ><i class="fas fa-bullseye" style="color: #ef4444"></i>
+                Tirs</span
+              >
+              <input type="checkbox" id="filter-shots" checked />
+            </label>
+            <label class="toggle-row">
+              <span
+                ><i class="fas fa-running" style="color: #22c55e"></i>
+                Dribbles</span
+              >
+              <input type="checkbox" id="filter-dribbles" checked />
+            </label>
+            <label class="toggle-row">
+              <span
+                ><i class="fas fa-shield-alt" style="color: #8b5cf6"></i>
+                Défense</span
+              >
+              <input type="checkbox" id="filter-defensive" checked />
             </label>
           </div>
         </div>
@@ -807,6 +226,10 @@
                 <span class="indicator" data-index="1"></span>
                 <span class="indicator" data-index="2"></span>
                 <span class="indicator" data-index="3"></span>
+                <span class="indicator" data-index="4"></span>
+                <span class="indicator" data-index="5"></span>
+                <span class="indicator" data-index="6"></span>
+                <span class="indicator" data-index="7"></span>
               </div>
               <button class="nav-btn" id="next-slide">
                 <i class="fas fa-chevron-right"></i>
@@ -844,6 +267,18 @@
               <div class="carousel-slide" data-title="Timeline Match">
                 <div id="timeline-chart" class="slide-content"></div>
               </div>
+              <div class="carousel-slide" data-title="TODO: Shot Map">
+                <div id="shotmap-chart" class="slide-content"></div>
+              </div>
+              <div class="carousel-slide" data-title="TODO: Zone Analysis">
+                <div id="zone-analysis" class="slide-content"></div>
+              </div>
+              <div class="carousel-slide" data-title="TODO: Progressive Passes">
+                <div id="progressive-passes" class="slide-content"></div>
+              </div>
+              <div class="carousel-slide" data-title="TODO: Defensive Actions">
+                <div id="defensive-actions" class="slide-content"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -851,6 +286,65 @@
     </div>
 
     <div id="tooltip" class="tooltip"></div>
+
+    <!-- Modal Scraping -->
+    <div id="scrape-modal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>
+            <i class="fas fa-cloud-download-alt"></i>
+            Nouveau Rapport
+          </h2>
+          <button class="close-btn" id="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <label for="player-url">
+              <i class="fas fa-link"></i>
+              URL WhoScored (match ou saison)
+            </label>
+            <input
+              type="text"
+              id="player-url"
+              placeholder="https://www.whoscored.com/..."
+            />
+          </div>
+          <div class="input-group">
+            <label for="player-name">
+              <i class="fas fa-user"></i>
+              Nom du joueur
+            </label>
+            <input
+              type="text"
+              id="player-name"
+              placeholder="Ex: Kylian Mbappé"
+            />
+          </div>
+          <div id="modal-error" class="error-msg"></div>
+        </div>
+        <div class="modal-footer">
+          <button id="start-scrape" class="action-btn primary full-width">
+            <i class="fas fa-play"></i>
+            <span>Lancer l'analyse</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loader Overlay -->
+    <div id="loader-overlay" class="loader-overlay">
+      <div class="loader-box">
+        <div class="spinner"></div>
+        <h2 id="loader-title">Scraping en cours...</h2>
+        <p id="loader-status">Connexion au serveur WhoScored</p>
+        <div class="loader-progress">
+          <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+          <span id="progress-text">0%</span>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="src/js/main.js"></script>
 
