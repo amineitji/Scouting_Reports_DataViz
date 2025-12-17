@@ -1,0 +1,5348 @@
+{
+  "player_name": "Jérémy Doku",
+  "player_image_url": "https://img.a.transfermarkt.technology/portrait/big/486049-1743670159.jpg?lm=1",
+  "total_matches": 1,
+  "teams_played_for": [
+    "Belgium"
+  ],
+  "matches_list": [
+    {
+      "matchId": null,
+      "date": "2025-11-19 06:44:55",
+      "competition": null,
+      "score": "7 : 0",
+      "homeTeam": "Belgium",
+      "awayTeam": "Liechtenstein",
+      "opponent": "Liechtenstein"
+    }
+  ],
+  "events": [
+    {
+      "id": 2874059679.0,
+      "eventId": 7,
+      "minute": 0,
+      "second": 29,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 62.0,
+      "y": 94.8,
+      "expandedMinute": 0,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.16"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "96.3"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "6.3"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "67.9"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 67.9,
+      "endY": 96.3,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874059763.0,
+      "eventId": 10,
+      "minute": 0,
+      "second": 33,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 65.7,
+      "y": 96.5,
+      "expandedMinute": 0,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "26.2"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "77.2"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "44.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.67"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 44.1,
+      "endY": 77.2,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874059931.0,
+      "eventId": 17,
+      "minute": 0,
+      "second": 58,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 53.3,
+      "y": 90.8,
+      "expandedMinute": 0,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "85.6"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.33"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "19.2"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "35.3"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 35.3,
+      "endY": 85.6,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874133681.0,
+      "eventId": 1083,
+      "minute": 1,
+      "second": 39,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 67.1,
+      "y": 93.4,
+      "expandedMinute": 1,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        53
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874060389.0,
+      "eventId": 31,
+      "minute": 1,
+      "second": 42,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 70.1,
+      "y": 91.4,
+      "expandedMinute": 1,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 4,
+        "displayName": "Foul"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 13,
+            "displayName": "Foul"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "5"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        63
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874060461.0,
+      "eventId": 33,
+      "minute": 1,
+      "second": 53,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 84.4,
+      "y": 90.8,
+      "expandedMinute": 1,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "3.3"
+        },
+        {
+          "type": {
+            "value": 20,
+            "displayName": "RightFoot"
+          }
+        },
+        {
+          "type": {
+            "value": 155,
+            "displayName": "Chipped"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "6"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "86.2"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "85.4"
+        },
+        {
+          "type": {
+            "value": 2,
+            "displayName": "Cross"
+          }
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.04"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        137,
+        124,
+        126,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 85.4,
+      "endY": 86.2,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874061805.0,
+      "eventId": 64,
+      "minute": 4,
+      "second": 11,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 54.2,
+      "y": 92.9,
+      "expandedMinute": 4,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "42.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "24.0"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "62.6"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.17"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 42.4,
+      "endY": 62.6,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874062019.0,
+      "eventId": 72,
+      "minute": 4,
+      "second": 35,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 71.0,
+      "y": 90.0,
+      "expandedMinute": 4,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "69.0"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "75.0"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.51"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "10.4"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 69.0,
+      "endY": 75.0,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874067823.0,
+      "eventId": 210,
+      "minute": 6,
+      "second": 42,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 66.0,
+      "y": 84.0,
+      "expandedMinute": 6,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "76"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874063511.0,
+      "eventId": 90,
+      "minute": 6,
+      "second": 45,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 71.0,
+      "y": 77.2,
+      "expandedMinute": 6,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "7.0"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "79.3"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "77.5"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.21"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 77.5,
+      "endY": 79.3,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874063639.0,
+      "eventId": 95,
+      "minute": 7,
+      "second": 4,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 77.2,
+      "y": 92.2,
+      "expandedMinute": 7,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "36"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874063649.0,
+      "eventId": 96,
+      "minute": 7,
+      "second": 5,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 87.8,
+      "y": 88.6,
+      "expandedMinute": 7,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "15.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.89"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "65.7"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "90.4"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 90.4,
+      "endY": 65.7,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874063913.0,
+      "eventId": 105,
+      "minute": 7,
+      "second": 32,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 65.0,
+      "y": 94.2,
+      "expandedMinute": 7,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "41"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874063941.0,
+      "eventId": 106,
+      "minute": 7,
+      "second": 34,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 65.9,
+      "y": 84.5,
+      "expandedMinute": 7,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "24.3"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "88.0"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.30"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "95.0"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 88.0,
+      "endY": 95.0,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874063969.0,
+      "eventId": 108,
+      "minute": 7,
+      "second": 40,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 81.3,
+      "y": 82.9,
+      "expandedMinute": 7,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.34"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "14.8"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "62.6"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "76.1"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 76.1,
+      "endY": 62.6,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874064181.0,
+      "eventId": 118,
+      "minute": 8,
+      "second": 2,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 79.6,
+      "y": 70.2,
+      "expandedMinute": 8,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "47"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        53
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874064185.0,
+      "eventId": 119,
+      "minute": 8,
+      "second": 3,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 78.0,
+      "y": 72.6,
+      "expandedMinute": 8,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 61,
+        "displayName": "BallTouch"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874066589.0,
+      "eventId": 172,
+      "minute": 12,
+      "second": 14,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 75.7,
+      "y": 74.2,
+      "expandedMinute": 12,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "54.3"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "85.4"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.36"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "16.9"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 85.4,
+      "endY": 54.3,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874066951.0,
+      "eventId": 182,
+      "minute": 12,
+      "second": 48,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 71.1,
+      "y": 51.8,
+      "expandedMinute": 12,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "73.7"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.97"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "10.7"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "36.6"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 73.7,
+      "endY": 36.6,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874067681.0,
+      "eventId": 207,
+      "minute": 13,
+      "second": 59,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 72.6,
+      "y": 54.2,
+      "expandedMinute": 13,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "26.7"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "86.6"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "23.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.38"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 86.6,
+      "endY": 26.7,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874069991.0,
+      "eventId": 232,
+      "minute": 18,
+      "second": 8,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 88.2,
+      "y": 87.6,
+      "expandedMinute": 18,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "116"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        53
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874070019.0,
+      "eventId": 233,
+      "minute": 18,
+      "second": 10,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 88.2,
+      "y": 87.0,
+      "expandedMinute": 18,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 6,
+        "displayName": "CornerAwarded"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 73,
+            "displayName": "MissLeft"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "117"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        122
+      ],
+      "isTouch": false,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874070263.0,
+      "eventId": 235,
+      "minute": 18,
+      "second": 30,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 85.8,
+      "y": 96.9,
+      "expandedMinute": 18,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "16.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.29"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "74.4"
+        },
+        {
+          "type": {
+            "value": 210,
+            "displayName": "ShotAssist"
+          },
+          "value": "15"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "79.2"
+        },
+        {
+          "type": {
+            "value": 154,
+            "displayName": "IntentionalAssist"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 11113,
+            "displayName": "KeyPass"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        123,
+        205,
+        40,
+        46,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 79.2,
+      "endY": 74.4,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874070415.0,
+      "eventId": 237,
+      "minute": 18,
+      "second": 44,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 58.2,
+      "y": 91.2,
+      "expandedMinute": 18,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 4,
+        "displayName": "Foul"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "123"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 13,
+            "displayName": "Foul"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        63
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874070829.0,
+      "eventId": 251,
+      "minute": 19,
+      "second": 23,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 70.3,
+      "y": 89.7,
+      "expandedMinute": 19,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "8.7"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "76.9"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "70.0"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.68"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 70.0,
+      "endY": 76.9,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874072901.0,
+      "eventId": 297,
+      "minute": 22,
+      "second": 55,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 93.1,
+      "y": 8.0,
+      "expandedMinute": 22,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "15.6"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "15.4"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "79.3"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.80"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 79.3,
+      "endY": 15.6,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874073207.0,
+      "eventId": 305,
+      "minute": 23,
+      "second": 26,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 87.4,
+      "y": 13.2,
+      "expandedMinute": 23,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "151"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874073223.0,
+      "eventId": 306,
+      "minute": 23,
+      "second": 28,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 90.6,
+      "y": 21.7,
+      "expandedMinute": 23,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "152"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874073233.0,
+      "eventId": 307,
+      "minute": 23,
+      "second": 29,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 97.5,
+      "y": 29.5,
+      "expandedMinute": 23,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "47.5"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.02"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "13.6"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "91.9"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        120,
+        29,
+        35,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 91.9,
+      "endY": 47.5,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874073753.0,
+      "eventId": 320,
+      "minute": 24,
+      "second": 28,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 86.6,
+      "y": 84.1,
+      "expandedMinute": 24,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "156"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874073793.0,
+      "eventId": 321,
+      "minute": 24,
+      "second": 32,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 91.9,
+      "y": 86.3,
+      "expandedMinute": 24,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.61"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "70.3"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "69.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "25.4"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 70.3,
+      "endY": 69.4,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874073835.0,
+      "eventId": 323,
+      "minute": 24,
+      "second": 38,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 85.9,
+      "y": 88.5,
+      "expandedMinute": 24,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 4,
+        "displayName": "Foul"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "157"
+        },
+        {
+          "type": {
+            "value": 13,
+            "displayName": "Foul"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        63
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874076529.0,
+      "eventId": 373,
+      "minute": 29,
+      "second": 6,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 86.9,
+      "y": 95.6,
+      "expandedMinute": 29,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "82.9"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "74.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.71"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "16.0"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 74.1,
+      "endY": 82.9,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874076797.0,
+      "eventId": 381,
+      "minute": 29,
+      "second": 33,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 80.1,
+      "y": 92.1,
+      "expandedMinute": 29,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "10.2"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.95"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "95.0"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "70.6"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 70.6,
+      "endY": 95.0,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874078949.0,
+      "eventId": 417,
+      "minute": 32,
+      "second": 52,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 63.9,
+      "y": 74.7,
+      "expandedMinute": 32,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "66.8"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "66.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.19"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "6.6"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 66.8,
+      "endY": 66.1,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874079073.0,
+      "eventId": 422,
+      "minute": 33,
+      "second": 5,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 75.9,
+      "y": 72.1,
+      "expandedMinute": 33,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "76.3"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "63.1"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "6.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.78"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 76.3,
+      "endY": 63.1,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874079199.0,
+      "eventId": 426,
+      "minute": 33,
+      "second": 18,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 78.9,
+      "y": 18.8,
+      "expandedMinute": 33,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "78.0"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "11.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "5.1"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.53"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 78.0,
+      "endY": 11.4,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874079533.0,
+      "eventId": 434,
+      "minute": 33,
+      "second": 47,
+      "teamId": 339,
+      "playerId": 388098,
+      "relatedEventId": 433,
+      "relatedPlayerId": 365308,
+      "x": 86.8,
+      "y": 50.3,
+      "expandedMinute": 33,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 16,
+        "displayName": "Goal"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 22,
+            "displayName": "RegularPlay"
+          }
+        },
+        {
+          "type": {
+            "value": 55,
+            "displayName": "RelatedEventId"
+          },
+          "value": "433"
+        },
+        {
+          "type": {
+            "value": 328,
+            "displayName": "FirstTouch"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 103,
+            "displayName": "GoalMouthZ"
+          },
+          "value": "2.5"
+        },
+        {
+          "type": {
+            "value": 17,
+            "displayName": "BoxCentre"
+          }
+        },
+        {
+          "type": {
+            "value": 80,
+            "displayName": "LowRight"
+          }
+        },
+        {
+          "type": {
+            "value": 20,
+            "displayName": "RightFoot"
+          }
+        },
+        {
+          "type": {
+            "value": 154,
+            "displayName": "IntentionalAssist"
+          }
+        },
+        {
+          "type": {
+            "value": 29,
+            "displayName": "Assisted"
+          }
+        },
+        {
+          "type": {
+            "value": 102,
+            "displayName": "GoalMouthY"
+          },
+          "value": "47.5"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        24,
+        9,
+        10,
+        1,
+        3,
+        12,
+        17,
+        19,
+        25
+      ],
+      "isTouch": true,
+      "goalMouthZ": 2.5,
+      "goalMouthY": 47.5,
+      "isGoal": true,
+      "isShot": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874080435.0,
+      "eventId": 437,
+      "minute": 35,
+      "second": 20,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 53.3,
+      "y": 80.8,
+      "expandedMinute": 35,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "43.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.43"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "26.7"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "46.3"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 46.3,
+      "endY": 43.1,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874080601.0,
+      "eventId": 444,
+      "minute": 35,
+      "second": 39,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 70.4,
+      "y": 67.5,
+      "expandedMinute": 35,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.62"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "65.7"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "2.0"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "71.9"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        120,
+        29,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 71.9,
+      "endY": 65.7,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874081235.0,
+      "eventId": 466,
+      "minute": 36,
+      "second": 34,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 71.2,
+      "y": 82.1,
+      "expandedMinute": 36,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.11"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "6.9"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "73.8"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "67.5"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 67.5,
+      "endY": 73.8,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874082511.0,
+      "eventId": 477,
+      "minute": 38,
+      "second": 23,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 27.5,
+      "y": 94.1,
+      "expandedMinute": 38,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 61,
+        "displayName": "BallTouch"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        69
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874082973.0,
+      "eventId": 489,
+      "minute": 39,
+      "second": 4,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 94.1,
+      "y": 74.1,
+      "expandedMinute": 39,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "55.7"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "12.8"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "96.6"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.92"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        120,
+        29,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 96.6,
+      "endY": 55.7,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874083917.0,
+      "eventId": 508,
+      "minute": 40,
+      "second": 38,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 71.4,
+      "y": 64.3,
+      "expandedMinute": 40,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 49,
+        "displayName": "BallRecovery"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [],
+      "satisfiedEventsTypes": [
+        93
+      ],
+      "isTouch": false,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874083971.0,
+      "eventId": 509,
+      "minute": 40,
+      "second": 41,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 75.4,
+      "y": 57.0,
+      "expandedMinute": 40,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "255"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874083981.0,
+      "eventId": 510,
+      "minute": 40,
+      "second": 42,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 86.5,
+      "y": 62.8,
+      "expandedMinute": 40,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 16,
+        "displayName": "Goal"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 80,
+            "displayName": "LowRight"
+          }
+        },
+        {
+          "type": {
+            "value": 17,
+            "displayName": "BoxCentre"
+          }
+        },
+        {
+          "type": {
+            "value": 22,
+            "displayName": "RegularPlay"
+          }
+        },
+        {
+          "type": {
+            "value": 72,
+            "displayName": "LeftFoot"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 103,
+            "displayName": "GoalMouthZ"
+          },
+          "value": "0.6"
+        },
+        {
+          "type": {
+            "value": 102,
+            "displayName": "GoalMouthY"
+          },
+          "value": "47.4"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        24,
+        9,
+        10,
+        1,
+        3,
+        13,
+        17,
+        19,
+        26
+      ],
+      "isTouch": true,
+      "goalMouthZ": 0.6,
+      "goalMouthY": 47.4,
+      "isGoal": true,
+      "isShot": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874085649.0,
+      "eventId": 529,
+      "minute": 43,
+      "second": 26,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 42.0,
+      "y": 19.5,
+      "expandedMinute": 43,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.44"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "27.0"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "22.4"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "45.2"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        37,
+        215,
+        218
+      ],
+      "isTouch": true,
+      "endX": 22.4,
+      "endY": 45.2,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874097395.0,
+      "eventId": 11553,
+      "minute": 44,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 73.5,
+      "y": 70.9,
+      "expandedMinute": 44,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 10000,
+        "displayName": "OffsideGiven"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [],
+      "satisfiedEventsTypes": [
+        61
+      ],
+      "isTouch": false,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874086169.0,
+      "eventId": 548,
+      "minute": 44,
+      "second": 15,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 74.5,
+      "y": 67.2,
+      "expandedMinute": 44,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "62.9"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "85.2"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "6.03"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "11.6"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 85.2,
+      "endY": 62.9,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874087183.0,
+      "eventId": 566,
+      "minute": 45,
+      "second": 55,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 68.1,
+      "y": 81.2,
+      "expandedMinute": 45,
+      "period": {
+        "value": 1,
+        "displayName": "FirstHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "8.5"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.61"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "67.3"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "68.7"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 67.3,
+      "endY": 68.7,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874093707.0,
+      "eventId": 589,
+      "minute": 45,
+      "second": 34,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 60.5,
+      "y": 80.9,
+      "expandedMinute": 48,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 156,
+            "displayName": "LayOff"
+          }
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.00"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "43.5"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "27.2"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "50.7"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 43.5,
+      "endY": 50.7,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874094009.0,
+      "eventId": 601,
+      "minute": 46,
+      "second": 14,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 88.8,
+      "y": 57.0,
+      "expandedMinute": 49,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "6.1"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "86.5"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.31"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "48.7"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        120,
+        29,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 86.5,
+      "endY": 48.7,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874094605.0,
+      "eventId": 613,
+      "minute": 47,
+      "second": 18,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 73.3,
+      "y": 39.1,
+      "expandedMinute": 50,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Right"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.16"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "16.6"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "17.0"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "80.1"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 80.1,
+      "endY": 17.0,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874094667.0,
+      "eventId": 615,
+      "minute": 47,
+      "second": 24,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 82.7,
+      "y": 29.2,
+      "expandedMinute": 50,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "33.6"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "83.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "3.1"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "1.33"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 83.4,
+      "endY": 33.6,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874095497.0,
+      "eventId": 627,
+      "minute": 48,
+      "second": 49,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 69.1,
+      "y": 58.7,
+      "expandedMinute": 51,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 61,
+        "displayName": "BallTouch"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874100083.0,
+      "eventId": 688,
+      "minute": 56,
+      "second": 6,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 73.6,
+      "y": 46.4,
+      "expandedMinute": 59,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 23,
+            "displayName": "FastBreak"
+          }
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "37.7"
+        },
+        {
+          "type": {
+            "value": 154,
+            "displayName": "IntentionalAssist"
+          }
+        },
+        {
+          "type": {
+            "value": 210,
+            "displayName": "ShotAssist"
+          },
+          "value": "16"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "8.7"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.54"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "79.7"
+        },
+        {
+          "type": {
+            "value": 11112,
+            "displayName": "BigChanceCreated"
+          }
+        },
+        {
+          "type": {
+            "value": 11111,
+            "displayName": "IntentionalGoalAssist"
+          }
+        },
+        {
+          "type": {
+            "value": 11113,
+            "displayName": "KeyPass"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        92,
+        100,
+        119,
+        117,
+        30,
+        123,
+        203,
+        205,
+        40,
+        46,
+        52,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 79.7,
+      "endY": 37.7,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874174461.0,
+      "eventId": 1089,
+      "minute": 58,
+      "second": 8,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 80.1,
+      "y": 94.8,
+      "expandedMinute": 61,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        53
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874101133.0,
+      "eventId": 698,
+      "minute": 58,
+      "second": 9,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 87.4,
+      "y": 93.8,
+      "expandedMinute": 61,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 4,
+        "displayName": "Foul"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 13,
+            "displayName": "Foul"
+          }
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "362"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        63
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874101195.0,
+      "eventId": 699,
+      "minute": 58,
+      "second": 13,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 89.2,
+      "y": 95.1,
+      "expandedMinute": 61,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "88.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "13.9"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "76.7"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.48"
+        },
+        {
+          "type": {
+            "value": 5,
+            "displayName": "FreekickTaken"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        132,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 76.7,
+      "endY": 88.4,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874101299.0,
+      "eventId": 703,
+      "minute": 58,
+      "second": 24,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 80.9,
+      "y": 88.6,
+      "expandedMinute": 61,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "84.4"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.99"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "69.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "13.6"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 84.4,
+      "endY": 69.4,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874101305.0,
+      "eventId": 705,
+      "minute": 58,
+      "second": 28,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 88.2,
+      "y": 68.4,
+      "expandedMinute": 61,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 50,
+        "displayName": "Dispossessed"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "364"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        70
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874101339.0,
+      "eventId": 706,
+      "minute": 58,
+      "second": 32,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 97.7,
+      "y": 70.4,
+      "expandedMinute": 61,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 50,
+        "displayName": "Dispossessed"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "365"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        70
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874102615.0,
+      "eventId": 730,
+      "minute": 61,
+      "second": 6,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 65.2,
+      "y": 70.6,
+      "expandedMinute": 64,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "64.0"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "61.2"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "6.5"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.52"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 64.0,
+      "endY": 61.2,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874102775.0,
+      "eventId": 733,
+      "minute": 61,
+      "second": 19,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 56.5,
+      "y": 66.9,
+      "expandedMinute": 64,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.21"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "31.0"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "27.1"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Back"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "42.2"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        117,
+        30,
+        35,
+        38,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 42.2,
+      "endY": 27.1,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874102865.0,
+      "eventId": 737,
+      "minute": 61,
+      "second": 34,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 74.9,
+      "y": 61.4,
+      "expandedMinute": 64,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "34.3"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.66"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "18.5"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "73.9"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 73.9,
+      "endY": 34.3,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874117517.0,
+      "eventId": 1081,
+      "minute": 62,
+      "second": 7,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 70.8,
+      "y": 69.3,
+      "expandedMinute": 65,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "65.6"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "76.4"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "7.3"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "2.42"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        35,
+        37,
+        216,
+        218
+      ],
+      "isTouch": true,
+      "endX": 65.6,
+      "endY": 76.4,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874103403.0,
+      "eventId": 761,
+      "minute": 62,
+      "second": 30,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 77.8,
+      "y": 75.0,
+      "expandedMinute": 65,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "15.6"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "0.60"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "90.0"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "88.0"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        37,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 90.0,
+      "endY": 88.0,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874103723.0,
+      "eventId": 771,
+      "minute": 63,
+      "second": 15,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 79.2,
+      "y": 74.5,
+      "expandedMinute": 66,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "62.6"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "88.0"
+        },
+        {
+          "type": {
+            "value": 4,
+            "displayName": "Throughball"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.56"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "12.3"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        120,
+        29,
+        130,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 88.0,
+      "endY": 62.6,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874103833.0,
+      "eventId": 772,
+      "minute": 63,
+      "second": 24,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 88.4,
+      "y": 87.1,
+      "expandedMinute": 66,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "76.0"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "16.3"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.79"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "72.6"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 76.0,
+      "endY": 72.6,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874104881.0,
+      "eventId": 791,
+      "minute": 65,
+      "second": 46,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 75.3,
+      "y": 85.0,
+      "expandedMinute": 68,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "85.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "5.36"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "18.3"
+        },
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "63.6"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 85.8,
+      "endY": 63.6,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874105671.0,
+      "eventId": 808,
+      "minute": 67,
+      "second": 15,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 99.5,
+      "y": 99.5,
+      "expandedMinute": 70,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "90.6"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "9.8"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "3.80"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "92.1"
+        },
+        {
+          "type": {
+            "value": 6,
+            "displayName": "CornerTaken"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        119,
+        117,
+        30,
+        205,
+        31,
+        32,
+        34,
+        35,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 92.1,
+      "endY": 90.6,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874175035.0,
+      "eventId": 1090,
+      "minute": 67,
+      "second": 30,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 89.4,
+      "y": 88.2,
+      "expandedMinute": 70,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "579"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Left"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        54
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874105747.0,
+      "eventId": 812,
+      "minute": 67,
+      "second": 31,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 94.6,
+      "y": 85.0,
+      "expandedMinute": 70,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "70.8"
+        },
+        {
+          "type": {
+            "value": 72,
+            "displayName": "LeftFoot"
+          }
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "9.7"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "4.80"
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "95.4"
+        },
+        {
+          "type": {
+            "value": 155,
+            "displayName": "Chipped"
+          }
+        },
+        {
+          "type": {
+            "value": 2,
+            "displayName": "Cross"
+          }
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        138,
+        124,
+        126,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 95.4,
+      "endY": 70.8,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874106351.0,
+      "eventId": 826,
+      "minute": 68,
+      "second": 36,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 77.0,
+      "y": 63.0,
+      "expandedMinute": 71,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 3,
+        "displayName": "TakeOn"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        },
+        {
+          "type": {
+            "value": 286,
+            "displayName": "Offensive"
+          }
+        },
+        {
+          "type": {
+            "value": 233,
+            "displayName": "OppositeRelatedEvent"
+          },
+          "value": "427"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        53
+      ],
+      "isTouch": true,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874106437.0,
+      "eventId": 831,
+      "minute": 68,
+      "second": 47,
+      "teamId": 339,
+      "playerId": 388098,
+      "x": 81.1,
+      "y": 56.7,
+      "expandedMinute": 71,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 1,
+        "displayName": "Pass"
+      },
+      "outcomeType": {
+        "value": 0,
+        "displayName": "Unsuccessful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 141,
+            "displayName": "PassEndY"
+          },
+          "value": "49.7"
+        },
+        {
+          "type": {
+            "value": 213,
+            "displayName": "Angle"
+          },
+          "value": "6.00"
+        },
+        {
+          "type": {
+            "value": 212,
+            "displayName": "Length"
+          },
+          "value": "16.8"
+        },
+        {
+          "type": {
+            "value": 4,
+            "displayName": "Throughball"
+          }
+        },
+        {
+          "type": {
+            "value": 140,
+            "displayName": "PassEndX"
+          },
+          "value": "96.4"
+        },
+        {
+          "type": {
+            "value": 56,
+            "displayName": "Zone"
+          },
+          "value": "Center"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        91,
+        120,
+        29,
+        130,
+        36,
+        38,
+        217,
+        218
+      ],
+      "isTouch": true,
+      "endX": 96.4,
+      "endY": 49.7,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    },
+    {
+      "id": 2874106949.0,
+      "eventId": 841,
+      "minute": 70,
+      "second": 6,
+      "teamId": 339,
+      "playerId": 388098,
+      "relatedEventId": 842,
+      "relatedPlayerId": 299490,
+      "x": 0.0,
+      "y": 0.0,
+      "expandedMinute": 73,
+      "period": {
+        "value": 2,
+        "displayName": "SecondHalf"
+      },
+      "type": {
+        "value": 18,
+        "displayName": "SubstitutionOff"
+      },
+      "outcomeType": {
+        "value": 1,
+        "displayName": "Successful"
+      },
+      "qualifiers": [
+        {
+          "type": {
+            "value": 59,
+            "displayName": "JerseyNumber"
+          },
+          "value": "11"
+        },
+        {
+          "type": {
+            "value": 44,
+            "displayName": "PlayerPosition"
+          },
+          "value": "Forward"
+        },
+        {
+          "type": {
+            "value": 55,
+            "displayName": "RelatedEventId"
+          },
+          "value": "842"
+        }
+      ],
+      "satisfiedEventsTypes": [
+        214
+      ],
+      "isTouch": false,
+      "matchId": null,
+      "matchDate": "2025-11-19 06:44:55",
+      "opponent": "Liechtenstein"
+    }
+  ]
+}

@@ -40,41 +40,43 @@ export class PassMap {
             if (!isKey && isSuccess && !this.options.showSuccessful) return;
             if (!isSuccess && !this.options.showFailed) return;
 
-            const color = isKey ? '#fbbf24' : (isSuccess ? '#3b82f6' : '#ef4444');
+            // COULEURS AGRESSIVES AVEC FORTE DÉMARCATION
+            const color = isKey ? '#fbbf24' : (isSuccess ? '#22c55e' : '#ef4444');
             const [x1, y1] = this.pitch.toPixels(pass.x, pass.y);
             const [x2, y2] = this.pitch.toPixels(pass.endX, pass.endY);
 
             // Calculer la distance de la passe
             const distance = Math.sqrt(Math.pow(pass.endX - pass.x, 2) + Math.pow(pass.endY - pass.y, 2));
 
-            // Ligne de passe avec animation au survol
+            // Ligne de passe avec animation au survol - OPACITÉ FORTE
             const line = passesGroup.append('line')
                 .attr('x1', x1)
                 .attr('y1', y1)
                 .attr('x2', x2)
                 .attr('y2', y2)
                 .attr('stroke', color)
-                .attr('stroke-width', isKey ? 3.5 : 2)
+                .attr('stroke-width', isKey ? 4 : 2.5)
                 .attr('opacity', 0)
                 .attr('marker-end', `url(#arrow-${isKey ? 'key' : (isSuccess ? 'ok' : 'ko')})`)
-                .style('transition', 'all 0.3s ease');
+                .style('transition', 'all 0.3s ease')
+                .style('filter', `drop-shadow(0 0 4px ${color})`);
 
             // Animation d'entrée
             line.transition()
                 .duration(500)
                 .delay(Math.random() * 300)
-                .attr('opacity', isKey ? 0.85 : 0.65);
+                .attr('opacity', isKey ? 1 : 0.9);
 
-            // Cercle de départ (optionnel, pour les passes clés)
+            // Cercle de départ pour les passes clés
             if (isKey) {
                 passesGroup.append('circle')
                     .attr('cx', x1)
                     .attr('cy', y1)
-                    .attr('r', 4)
+                    .attr('r', 5)
                     .attr('fill', color)
                     .attr('stroke', 'white')
-                    .attr('stroke-width', 1.5)
-                    .style('filter', `drop-shadow(0 0 6px ${color})`);
+                    .attr('stroke-width', 2)
+                    .style('filter', `drop-shadow(0 0 8px ${color})`);
             }
 
             // Zone interactive (plus large que la ligne visible)
@@ -90,16 +92,16 @@ export class PassMap {
                     line.transition()
                         .duration(200)
                         .attr('opacity', 1)
-                        .attr('stroke-width', isKey ? 5 : 3.5)
-                        .style('filter', `drop-shadow(0 0 8px ${color})`);
+                        .attr('stroke-width', isKey ? 6 : 4.5)
+                        .style('filter', `drop-shadow(0 0 12px ${color})`);
                     this.showEnhancedTooltip(e, pass, color, distance);
                 })
                 .on('mouseout', () => {
                     line.transition()
                         .duration(200)
-                        .attr('opacity', isKey ? 0.85 : 0.65)
-                        .attr('stroke-width', isKey ? 3.5 : 2)
-                        .style('filter', 'none');
+                        .attr('opacity', isKey ? 1 : 0.9)
+                        .attr('stroke-width', isKey ? 4 : 2.5)
+                        .style('filter', `drop-shadow(0 0 4px ${color})`);
                     this.tooltip.style.display = 'none';
                 });
         });
@@ -206,7 +208,7 @@ export class PassMap {
             : this.pitch.svg.select('defs');
         
         const markers = [
-            { id: 'ok', color: '#3b82f6', name: 'Réussie' },
+            { id: 'ok', color: '#22c55e', name: 'Réussie' },
             { id: 'ko', color: '#ef4444', name: 'Ratée' },
             { id: 'key', color: '#fbbf24', name: 'Clé' }
         ];
@@ -225,7 +227,7 @@ export class PassMap {
                 markerEl.append('path')
                     .attr('d', 'M 0 0 L 10 5 L 0 10 z')
                     .attr('fill', marker.color)
-                    .style('filter', `drop-shadow(0 0 3px ${marker.color})`);
+                    .style('filter', `drop-shadow(0 0 4px ${marker.color})`);
             }
         });
     }
@@ -256,15 +258,15 @@ export class PassMap {
             .text('Types de passes');
 
         const items = [
-            { y: 30, color: '#fbbf24', text: 'Passes clés', width: 3.5 },
-            { y: 55, color: '#3b82f6', text: 'Passes réussies', width: 2 },
-            { y: 80, color: '#ef4444', text: 'Passes ratées', width: 2 }
+            { y: 30, color: '#fbbf24', text: 'Passes clés', width: 4 },
+            { y: 55, color: '#22c55e', text: 'Passes réussies', width: 2.5 },
+            { y: 80, color: '#ef4444', text: 'Passes ratées', width: 2.5 }
         ];
 
         items.forEach(item => {
             const lineY = legendY + item.y;
             
-            // Ligne de légende
+            // Ligne de légende avec glow
             g.append('line')
                 .attr('x1', legendX)
                 .attr('y1', lineY)
@@ -272,8 +274,8 @@ export class PassMap {
                 .attr('y2', lineY)
                 .attr('stroke', item.color)
                 .attr('stroke-width', item.width)
-                .attr('marker-end', `url(#arrow-${item.color === '#fbbf24' ? 'key' : (item.color === '#3b82f6' ? 'ok' : 'ko')})`)
-                .style('filter', `drop-shadow(0 0 4px ${item.color})`);
+                .attr('marker-end', `url(#arrow-${item.color === '#fbbf24' ? 'key' : (item.color === '#22c55e' ? 'ok' : 'ko')})`)
+                .style('filter', `drop-shadow(0 0 6px ${item.color})`);
 
             // Texte
             g.append('text')
