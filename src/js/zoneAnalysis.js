@@ -147,5 +147,41 @@ export class ZoneAnalysis {
             .style("font-size", "18px")
             .style("font-weight", "700")
             .text(d => `${d.pct.toFixed(2)}%`);
+
+        // =====================
+        // ➡️ SENS DU JEU (dans le terrain)
+        // =====================
+        const directionGroup = pitch.append("g")
+            .attr("opacity", 0.8);
+
+        // Texte
+        directionGroup.append("text")
+            .attr("x", W / 2)
+            .attr("y", H - 12)
+            .attr("text-anchor", "middle")
+            .attr("fill", "white")
+            .style("font-size", "13px")
+            .style("font-weight", "600")
+            .text("SENS DU JEU");
+
+        // Ligne flèche
+        directionGroup.append("line")
+            .attr("x1", W / 2 - 60)
+            .attr("y1", H - 24)
+            .attr("x2", W / 2 + 60)
+            .attr("y2", H - 24)
+            .attr("stroke", "white")
+            .attr("stroke-width", 2);
+
+        // Pointe
+        directionGroup.append("polygon")
+            .attr("points", `
+        ${W / 2 + 60},${H - 24}
+        ${W / 2 + 50},${H - 30}
+        ${W / 2 + 50},${H - 18}
+    `)
+            .attr("fill", "white");
+
+
     }
 }
