@@ -1,10 +1,14 @@
 /**
  * zoneAnalysis.js
  * Heatmap par zones avec terrain dessiné (style Squawka)
+ * ✔ Correction des données inversées sur l'axe X
+ * ✔ Tous les joueurs attaquent vers la DROITE
  */
+
 export class ZoneAnalysis {
     constructor(containerId) {
         this.containerId = containerId;
+
         this.width = 700;
         this.height = 450;
         this.margin = 20;
@@ -15,7 +19,7 @@ export class ZoneAnalysis {
 
     update(events) {
         const container = document.getElementById(this.containerId);
-        if (!container || !events?.length) return;
+        if (!container || !events || events.length === 0) return;
 
         container.innerHTML = '';
 
@@ -40,23 +44,43 @@ export class ZoneAnalysis {
             .attr("rx", 12)
             .attr("fill", "#14532d");
 
-        // Lignes
         const lines = pitch.append("g")
             .attr("stroke", "rgba(255,255,255,0.6)")
             .attr("fill", "none")
             .attr("stroke-width", 2);
 
         lines.append("rect").attr("width", W).attr("height", H);
-        lines.append("line").attr("x1", W / 2).attr("y1", 0).attr("x2", W / 2).attr("y2", H);
+        lines.append("line")
+            .attr("x1", W / 2)
+            .attr("y1", 0)
+            .attr("x2", W / 2)
+            .attr("y2", H);
 
-        // Rond central
-        lines.append("circle").attr("cx", W / 2).attr("cy", H / 2).attr("r", 55);
-        lines.append("circle").attr("cx", W / 2).attr("cy", H / 2).attr("r", 2).attr("fill", "white");
+        lines.append("circle")
+            .attr("cx", W / 2)
+            .attr("cy", H / 2)
+            .attr("r", 55);
 
-        // Surfaces
-        const boxW = 120, boxH = 260;
-        lines.append("rect").attr("x", 0).attr("y", (H - boxH) / 2).attr("width", boxW).attr("height", boxH);
-        lines.append("rect").attr("x", W - boxW).attr("y", (H - boxH) / 2).attr("width", boxW).attr("height", boxH);
+        lines.append("circle")
+            .attr("cx", W / 2)
+            .attr("cy", H / 2)
+            .attr("r", 2)
+            .attr("fill", "white");
+
+        const boxW = 120;
+        const boxH = 260;
+
+        lines.append("rect")
+            .attr("x", 0)
+            .attr("y", (H - boxH) / 2)
+            .attr("width", boxW)
+            .attr("height", boxH);
+
+        lines.append("rect")
+            .attr("x", W - boxW)
+            .attr("y", (H - boxH) / 2)
+            .attr("width", boxW)
+            .attr("height", boxH);
 
         // =====================
         // 🔥 ZONES
@@ -66,13 +90,28 @@ export class ZoneAnalysis {
 
         const zones = Array.from({ length: this.rows * this.cols }, (_, i) => ({
             id: i,
-            count: 0
+            count: 0,
+            pct: 0
         }));
 
+        // ===== CORRECTION DES DONNÉES ICI =====
         events.forEach(e => {
             if (e.x == null || e.y == null) return;
-            const col = Math.min(Math.floor(e.x / (100 / this.cols)), this.cols - 1);
-            const row = Math.min(Math.floor(e.y / (100 / this.rows)), this.rows - 1);
+
+            // 🔥 FIX PRINCIPAL : données inversées
+            const x = e.x;     // <<< LA CLÉ
+            const y = 100 - e.y;     // SVG top-left vs terrain bottom-left
+
+            const col = Math.min(
+                Math.floor(x / (100 / this.cols)),
+                this.cols - 1
+            );
+
+            const row = Math.min(
+                Math.floor(y / (100 / this.rows)),
+                this.rows - 1
+            );
+
             zones[row * this.cols + col].count++;
         });
 
@@ -83,7 +122,6 @@ export class ZoneAnalysis {
             .domain([0, d3.max(zones, d => d.pct)])
             .interpolator(d3.interpolateOrRd);
 
-        // Calque heatmap
         const heat = pitch.append("g");
 
         heat.selectAll(".zone")
@@ -97,7 +135,6 @@ export class ZoneAnalysis {
             .attr("fill", d => color(d.pct))
             .attr("opacity", 0.75);
 
-        // Texte %
         heat.selectAll(".zone-text")
             .data(zones)
             .enter()
