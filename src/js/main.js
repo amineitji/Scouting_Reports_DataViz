@@ -269,7 +269,7 @@ class Dashboard {
         // Initialiser les charts qui ne dépendent pas des données
         this.charts.radar = new RadarChart('radar-chart');
         this.charts.timeline = new Timeline('timeline-chart');
-        this.charts.shotmap = new ShotMap('shotmap-chart');
+        this.charts.shotmap = new ShotMap('shotmap-chart', []);
         this.charts.zoneAnalysis = new ZoneAnalysis('zone-analysis');
         this.charts.progressivePasses = new ProgressivePasses('progressive-passes');
         this.charts.defensiveActions = new DefensiveActions('defensive-actions');
@@ -566,7 +566,7 @@ class Dashboard {
 
         // Mise à jour des nouveaux charts TODO
         if (this.charts.shotmap) {
-            this.charts.shotmap.update(events);
+            this.charts.shotmap = new ShotMap('shotmap-chart', events);
         }
 
         if (this.charts.zoneAnalysis) {
