@@ -1,6 +1,6 @@
 /**
  * progressivePasses.js
- * Analyse avancée des passes progressives et gain de terrain
+ * Analyse avancée des passes progressives avec étiquettes orientées et lisibilité accrue
  */
 import { Pitch } from './pitch.js';
 
@@ -19,8 +19,7 @@ export class ProgressivePasses {
         container.innerHTML = '<svg id="progressive-pitch-svg"></svg>';
         this.pitch = new Pitch('progressive-pitch-svg');
 
-        // 1. Filtrer les passes réussies avec progression significative
-        // Définition : Gain d'au moins 15% de la longueur du terrain (env. 15.7m)
+        // 1. Filtrer les passes réussies avec progression significative (>15% du terrain)
         const passes = events.filter(e =>
             e.type?.displayName === 'Pass' &&
             e.outcomeType?.value === 1 &&
@@ -29,10 +28,10 @@ export class ProgressivePasses {
             const dx = p.endX - p.x;
             const dy = p.endY - p.y;
             const distPercent = Math.sqrt(dx*dx + dy*dy);
-            const distMeters = distPercent * 1.05; // 1% = 1.05m sur un terrain de 105m
+            const distMeters = distPercent * 1.05; // 1% = 1.05m (terrain de 105m)
             const progression = p.endX - p.x;
             return { ...p, distMeters, progression };
-        }).filter(p => p.progression > 15); // Seuil de progression (15% du terrain)
+        }).filter(p => p.progression > 15);
 
         this.render(passes);
     }
@@ -41,7 +40,6 @@ export class ProgressivePasses {
         const g = this.pitch.getGroup();
         this.pitch.initDefs();
 
-        // Définition du marqueur de flèche
         const defs = this.pitch.svg.select('defs');
         if (defs.select('#arrow-prog').empty()) {
             defs.append('marker')
@@ -61,12 +59,10 @@ export class ProgressivePasses {
             const [x1, y1] = this.pitch.toPixels(pass.x, pass.y);
             const [x2, y2] = this.pitch.toPixels(pass.endX, pass.endY);
 
-            // Intensité de la couleur selon la dangerosité (plus c'est haut sur le terrain, plus c'est vif)
             const color = pass.endX > 70 ? '#fbbf24' : '#f59e0b';
-
             const passG = g.append('g').attr('class', 'prog-pass-item');
 
-            // La flèche (ligne de passe)
+            // La ligne de passe
             passG.append('line')
                 .attr('x1', x1).attr('y1', y1)
                 .attr('x2', x2).attr('y2', y2)
@@ -78,18 +74,21 @@ export class ProgressivePasses {
                 .on('mouseover', (e) => this.showTooltip(e, pass))
                 .on('mouseout', () => this.tooltip.style.display = 'none');
 
-            // Texte de distance au milieu de la flèche
+            // Calcul de l'angle pour l'inclinaison du texte
+            const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
             const midX = (x1 + x2) / 2;
             const midY = (y1 + y2) / 2;
 
+            // Affichage de la distance avec inclinaison et taille augmentée
             passG.append('text')
                 .attr('x', midX)
-                .attr('y', midY - 10)
+                .attr('y', midY - 12) // Décalage pour ne pas chevaucher la ligne
                 .attr('text-anchor', 'middle')
                 .attr('fill', '#fff')
-                .style('font-size', '10px')
+                .attr('transform', `rotate(${angle}, ${midX}, ${midY})`)
+                .style('font-size', '13px') // Taille augmentée (était 10px)
                 .style('font-weight', 'bold')
-                .style('text-shadow', '1px 1px 2px #000')
+                .style('text-shadow', '1px 1px 3px #000')
                 .style('pointer-events', 'none')
                 .text(`${Math.round(pass.distMeters)}m`);
         });
@@ -126,49 +125,45 @@ export class ProgressivePasses {
         const totalProgMeters = passes.reduce((acc, p) => acc + (p.progression * 1.05), 0);
         const legendX = this.pitch.margin + 20;
         const legendY = this.pitch.margin + 20;
-
         const legendG = g.append('g').attr('transform', `translate(${legendX}, ${legendY})`);
 
-        // Fond Glassmorphism
+        // Cadre agrandi (height: 175)
         legendG.append('rect')
             .attr('width', 260)
-            .attr('height', 150)
-            .attr('fill', 'rgba(15, 23, 42, 0.9)')
+            .attr('height', 175)
+            .attr('fill', 'rgba(15, 23, 42, 0.92)')
             .attr('rx', 12)
             .attr('stroke', 'rgba(245, 158, 11, 0.4)')
             .attr('stroke-width', 1.5);
 
-        // Titre & Compteur
         legendG.append('text')
             .attr('x', 15).attr('y', 30)
             .attr('fill', '#f59e0b')
             .style('font-weight', 'bold').style('font-size', '15px')
             .text(`${passes.length} Passes Progressives`);
 
-        // KPI: Gain de terrain cumulé
         legendG.append('text')
             .attr('x', 15).attr('y', 55)
             .attr('fill', '#cbd5e1')
             .style('font-size', '13px')
             .text(`Gain total : ${Math.round(totalProgMeters)}m vers le but`);
 
-        // Ligne de séparation
         legendG.append('line')
             .attr('x1', 15).attr('y1', 70).attr('x2', 245).attr('y2', 70)
             .attr('stroke', 'rgba(255,255,255,0.1)');
 
-        // Définition technique
         legendG.append('text')
             .attr('x', 15).attr('y', 90)
             .attr('fill', '#94a3b8')
             .style('font-size', '11px').style('font-weight', 'bold')
-            .text('DÉFINITION OPTA / WYSCOUT :');
+            .text('DÉFINITION TECHNIQUE :');
 
         const explanation = [
             "Passe réussie dont le point d'arrivée",
             "est au moins 15% plus proche de la",
             "ligne de but adverse que le départ.",
-            "Indique la capacité à briser les lignes."
+            "Mesure la capacité à briser les blocs",
+            "et à faire progresser le jeu verticalement."
         ];
 
         explanation.forEach((line, i) => {
