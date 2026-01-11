@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <!-- Main App (hidden initially) -->
+    <!-- Main App -->
     <div class="app-container" id="main-app" style="display: none">
       <aside class="sidebar">
         <div class="brand">
@@ -82,14 +82,14 @@
         </div>
 
         <div class="control-group">
-          <label><i class="fas fa-file-import"></i> Rapport Existant</label>
+          <label><i class="fas fa-file-import"></i> Rapport</label>
           <select id="fileSelect">
-            <option value="">Choisir un rapport...</option>
+            <option value="">Choisir...</option>
           </select>
         </div>
 
         <div class="control-group">
-          <label><i class="fas fa-list-ol"></i> Sélection Matchs</label>
+          <label><i class="fas fa-list-ol"></i> Matchs</label>
           <div id="match-selector-container" class="match-list-container">
             <div class="match-item">
               <input type="checkbox" id="match-all" checked />
@@ -112,8 +112,8 @@
         </div>
 
         <div class="control-group">
-          <label><i class="fas fa-filter"></i> Filtres Généraux</label>
-          <div style="display: flex; flex-direction: column; gap: 8px">
+          <label><i class="fas fa-filter"></i> Filtres</label>
+          <div style="display: flex; flex-direction: column; gap: 6px">
             <label class="toggle-row">
               <span
                 ><i
@@ -142,8 +142,8 @@
           id="action-filters-group"
           style="display: none"
         >
-          <label><i class="fas fa-bolt"></i> Types d'Actions</label>
-          <div style="display: flex; flex-direction: column; gap: 8px">
+          <label><i class="fas fa-bolt"></i> Actions</label>
+          <div style="display: flex; flex-direction: column; gap: 6px">
             <label class="toggle-row">
               <span
                 ><i class="fas fa-futbol" style="color: #eab308"></i> Buts</span
@@ -175,7 +175,7 @@
         </div>
 
         <div class="control-group">
-          <label><i class="fas fa-map-marker-alt"></i> Zones Terrain</label>
+          <label><i class="fas fa-map-marker-alt"></i> Zones</label>
           <div class="zone-selector">
             <button class="zone-btn active" data-zone="all">Tout</button>
             <button class="zone-btn" data-zone="def">Déf</button>
@@ -208,76 +208,98 @@
           <div id="player-header" class="player-info-container">
             <div class="player-details">
               <h1>Chargement...</h1>
-              <p class="subtitle">Sélectionnez un rapport pour commencer</p>
+              <p class="subtitle">Sélectionnez un rapport</p>
             </div>
           </div>
           <div class="kpi-row" id="kpi-container"></div>
         </header>
 
+        <!-- Modern Tab Navigation -->
+        <div class="viz-tabs-container">
+          <div class="viz-tabs">
+            <button class="viz-tab active" data-slide="0">
+              <div class="tab-icon"><i class="fas fa-map-marked-alt"></i></div>
+              <div class="tab-content">
+                <span class="tab-title">Analyse Terrain</span>
+                <span class="tab-subtitle">Heatmap • Passes • Actions</span>
+              </div>
+            </button>
+            <button class="viz-tab" data-slide="1">
+              <div class="tab-icon"><i class="fas fa-tachometer-alt"></i></div>
+              <div class="tab-content">
+                <span class="tab-title">Dashboard</span>
+                <span class="tab-subtitle">Vue d'ensemble</span>
+              </div>
+            </button>
+            <button class="viz-tab" data-slide="2">
+              <div class="tab-icon"><i class="fas fa-clock"></i></div>
+              <div class="tab-content">
+                <span class="tab-title">Timeline</span>
+                <span class="tab-subtitle">Chronologie</span>
+              </div>
+            </button>
+            <button class="viz-tab" data-slide="3">
+              <div class="tab-icon"><i class="fas fa-bullseye"></i></div>
+              <div class="tab-content">
+                <span class="tab-title">Shot Map</span>
+                <span class="tab-subtitle">Analyse tirs</span>
+              </div>
+            </button>
+            <button class="viz-tab" data-slide="4">
+              <div class="tab-icon"><i class="fas fa-th"></i></div>
+              <div class="tab-content">
+                <span class="tab-title">Zones</span>
+                <span class="tab-subtitle">Territorial</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
         <div class="carousel-container">
           <div class="carousel-card">
-            <div class="carousel-header">
-              <button class="nav-btn" id="prev-slide">
-                <i class="fas fa-chevron-left"></i>
-              </button>
-              <h3 id="slide-title">Analyse Terrain</h3>
-              <div class="carousel-indicators">
-                <span class="indicator active" data-index="0"></span>
-                <span class="indicator" data-index="1"></span>
-                <span class="indicator" data-index="2"></span>
-                <span class="indicator" data-index="3"></span>
-                <span class="indicator" data-index="4"></span>
-                <span class="indicator" data-index="5"></span>
-                <span class="indicator" data-index="6"></span>
-                <span class="indicator" data-index="7"></span>
-              </div>
-              <button class="nav-btn" id="next-slide">
-                <i class="fas fa-chevron-right"></i>
-              </button>
-            </div>
             <div class="carousel-track-container" id="carousel-track">
+              <!-- Slide 0: Terrain -->
               <div class="carousel-slide active" data-title="Analyse Terrain">
                 <div class="tabs-overlay">
                   <button class="tab active" data-view="heatmap">
-                    <i class="fas fa-fire"></i>
-                    Heatmap
+                    <i class="fas fa-fire"></i>Heatmap
                   </button>
                   <button class="tab" data-view="passes">
-                    <i class="fas fa-project-diagram"></i>
-                    Passes
+                    <i class="fas fa-project-diagram"></i>Passes
                   </button>
                   <button class="tab" data-view="actions">
-                    <i class="fas fa-bolt"></i>
-                    Actions
+                    <i class="fas fa-bolt"></i>Actions
                   </button>
                 </div>
                 <div id="viz-container" class="slide-content">
                   <div class="empty-state">
                     <i class="fas fa-futbol"></i>
-                    <p>Chargez un fichier pour commencer l'analyse</p>
+                    <p>Chargez un fichier</p>
                   </div>
                 </div>
               </div>
-              <div class="carousel-slide" data-title="Profil Performance">
-                <div id="radar-chart" class="slide-content"></div>
+
+              <!-- Slide 1: Dashboard -->
+              <div class="carousel-slide" data-title="Dashboard">
+                <div
+                  id="dashboard-container"
+                  class="slide-content dashboard-layout"
+                ></div>
               </div>
-              <div class="carousel-slide" data-title="Métriques Détaillées">
-                <div id="detailed-metrics" class="slide-content"></div>
-              </div>
-              <div class="carousel-slide" data-title="Timeline Match">
+
+              <!-- Slide 2: Timeline -->
+              <div class="carousel-slide" data-title="Timeline">
                 <div id="timeline-chart" class="slide-content"></div>
               </div>
-              <div class="carousel-slide" data-title="TODO: Shot Map">
+
+              <!-- Slide 3: Shot Map -->
+              <div class="carousel-slide" data-title="Shot Map">
                 <div id="shotmap-chart" class="slide-content"></div>
               </div>
-              <div class="carousel-slide" data-title="Zone Analysis">
+
+              <!-- Slide 4: Zones -->
+              <div class="carousel-slide" data-title="Zones">
                 <div id="zone-analysis" class="slide-content"></div>
-              </div>
-              <div class="carousel-slide" data-title="Progressive Passes">
-                <div id="progressive-passes" class="slide-content"></div>
-              </div>
-              <div class="carousel-slide" data-title="TODO: Defensive Actions">
-                <div id="defensive-actions" class="slide-content"></div>
               </div>
             </div>
           </div>
@@ -287,22 +309,18 @@
 
     <div id="tooltip" class="tooltip"></div>
 
-    <!-- Modal Scraping -->
+    <!-- Modal -->
     <div id="scrape-modal" class="modal-overlay">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>
-            <i class="fas fa-cloud-download-alt"></i>
-            Nouveau Rapport
-          </h2>
+          <h2><i class="fas fa-cloud-download-alt"></i> Nouveau Rapport</h2>
           <button class="close-btn" id="close-modal">&times;</button>
         </div>
         <div class="modal-body">
           <div class="input-group">
-            <label for="player-url">
-              <i class="fas fa-link"></i>
-              URL WhoScored (match ou saison)
-            </label>
+            <label for="player-url"
+              ><i class="fas fa-link"></i> URL WhoScored</label
+            >
             <input
               type="text"
               id="player-url"
@@ -310,10 +328,9 @@
             />
           </div>
           <div class="input-group">
-            <label for="player-name">
-              <i class="fas fa-user"></i>
-              Nom du joueur
-            </label>
+            <label for="player-name"
+              ><i class="fas fa-user"></i> Nom du joueur</label
+            >
             <input
               type="text"
               id="player-name"
@@ -324,19 +341,18 @@
         </div>
         <div class="modal-footer">
           <button id="start-scrape" class="action-btn primary full-width">
-            <i class="fas fa-play"></i>
-            <span>Lancer l'analyse</span>
+            <i class="fas fa-play"></i><span>Lancer</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Loader Overlay -->
+    <!-- Loader -->
     <div id="loader-overlay" class="loader-overlay">
       <div class="loader-box">
         <div class="spinner"></div>
-        <h2 id="loader-title">Scraping en cours...</h2>
-        <p id="loader-status">Connexion au serveur WhoScored</p>
+        <h2 id="loader-title">Scraping...</h2>
+        <p id="loader-status">Connexion</p>
         <div class="loader-progress">
           <div class="progress-bar">
             <div id="progress-fill" class="progress-fill"></div>
@@ -349,7 +365,6 @@
     <script type="module" src="src/js/main.js"></script>
 
     <script>
-      // Animation des zone buttons
       document.querySelectorAll(".zone-btn").forEach((btn) => {
         btn.addEventListener("click", function () {
           document
@@ -359,7 +374,6 @@
         });
       });
 
-      // Slider interaction
       const timeMin = document.getElementById("time-min");
       const timeMax = document.getElementById("time-max");
       const timeVal = document.getElementById("time-val");
@@ -373,39 +387,18 @@
         timeMax.addEventListener("input", updateTimeDisplay);
       }
 
-      // Carousel navigation
-      const slides = document.querySelectorAll(".carousel-slide");
-      const indicators = document.querySelectorAll(".indicator");
-      const prevBtn = document.getElementById("prev-slide");
-      const nextBtn = document.getElementById("next-slide");
-      const slideTitle = document.getElementById("slide-title");
-      let currentSlide = 0;
+      document.querySelectorAll(".viz-tab").forEach((tab) => {
+        tab.addEventListener("click", function () {
+          const slideIndex = parseInt(this.dataset.slide);
+          document
+            .querySelectorAll(".viz-tab")
+            .forEach((t) => t.classList.remove("active"));
+          this.classList.add("active");
 
-      function goToSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.classList.toggle("active", i === index);
+          if (window.app && window.app.goToSlide) {
+            window.app.goToSlide(slideIndex);
+          }
         });
-        indicators.forEach((ind, i) => {
-          ind.classList.toggle("active", i === index);
-        });
-        slideTitle.textContent = slides[index].dataset.title;
-        currentSlide = index;
-      }
-
-      prevBtn.addEventListener("click", () => {
-        const newIndex =
-          currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
-        goToSlide(newIndex);
-      });
-
-      nextBtn.addEventListener("click", () => {
-        const newIndex =
-          currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
-        goToSlide(newIndex);
-      });
-
-      indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => goToSlide(index));
       });
     </script>
   </body>

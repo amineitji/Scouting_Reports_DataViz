@@ -1,12 +1,5 @@
 /**
- * timeline.js - AMÉLIORÉE
- * Timeline interactive avec:
- * - Graphique en aires empilées par type d'action
- * - Animations fluides et micro-interactions
- * - Marqueurs de mi-temps et moments clés
- * - Mini-cartes comparatives (1ère vs 2ème mi-temps)
- * - Statistiques dynamiques intégrées
- * - Design glassmorphism moderne
+ * timeline.js
  */
 
 export class Timeline {
@@ -43,16 +36,16 @@ export class Timeline {
     // Agréger les événements par minute avec détails
     const eventsByMinute = {};
     const keyMoments = [];
-
+    
     events.forEach(e => {
       const min = e.minute || 0;
       if (!eventsByMinute[min]) {
-        eventsByMinute[min] = {
-          passes: 0, shots: 0, dribbles: 0, defensive: 0, goals: 0,
+        eventsByMinute[min] = { 
+          passes: 0, shots: 0, dribbles: 0, defensive: 0, goals: 0, 
           keyPasses: 0, assists: 0
         };
       }
-
+      
       const type = e.type?.displayName;
       if (type === 'Pass') {
         eventsByMinute[min].passes++;
@@ -138,7 +131,7 @@ export class Timeline {
     // Marqueurs de mi-temps
     if (timeRange[0] <= 45 && timeRange[1] >= 45) {
       const halfTimeG = g.append('g').attr('class', 'halftime-marker');
-
+      
       halfTimeG.append('line')
         .attr('x1', xScale(45))
         .attr('y1', 0)
@@ -169,7 +162,7 @@ export class Timeline {
 
     // Grille moderne
     const gridG = g.append('g').attr('class', 'grid').attr('opacity', 0.08);
-
+    
     yScale.ticks(5).forEach(tick => {
       gridG.append('line')
         .attr('x1', 0)
@@ -201,7 +194,7 @@ export class Timeline {
     series.forEach((s, i) => {
       const key = s.key;
       const color = this.colors[key];
-
+      
       const path = g.append('path')
         .datum(s)
         .attr('class', `area-${key}`)
@@ -282,7 +275,7 @@ export class Timeline {
     keyMoments.filter(km => km.type === 'goal' && km.minute >= timeRange[0] && km.minute <= timeRange[1])
       .forEach(km => {
         const goalG = g.append('g');
-
+        
         goalG.append('circle')
           .attr('cx', xScale(km.minute))
           .attr('cy', -20)
@@ -587,7 +580,7 @@ export class Timeline {
     const totalActions = d3.sum(data, d => d.total);
     const avgIntensity = totalActions / data.length || 0;
     const peakData = data.reduce((max, d) => d.total > max.total ? d : max, data[0] || { total: 0 });
-
+    
     return {
       totalActions,
       avgIntensity,
