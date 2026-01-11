@@ -13,7 +13,7 @@ export class Dashboard {
     update(stats) {
         const container = document.getElementById(this.containerId);
         if (!container) return;
-
+        
         container.innerHTML = '';
 
         // Layout moderne en 2×2 avec radar au centre
