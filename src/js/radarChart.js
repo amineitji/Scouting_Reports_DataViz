@@ -1,13 +1,10 @@
 /**
- * dashboard.js
- * Vue d'ensemble complète en mosaïque moderne
+ * radarChart.js
+ * Graphique radar optimisé pour utiliser 100% de l'espace disponible
  */
-import { RadarChart } from './radarChart.js';
-
-export class Dashboard {
+export class RadarChart {
     constructor(containerId) {
         this.containerId = containerId;
-        this.radarChart = null;
     }
 
     update(stats) {
@@ -16,185 +13,179 @@ export class Dashboard {
 
         container.innerHTML = '';
 
-        // Layout moderne en 2×2 avec radar au centre
-        const layout = `
-            <div class="dashboard-modern">
-                <!-- COLONNE GAUCHE -->
-                <div class="dashboard-left">
-                    <!-- Passes Card -->
-                    <div class="stat-card stat-card-passes">
-                        <div class="stat-card-header">
-                            <div class="stat-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>Passes</h3>
-                                <div class="stat-big">${stats.passing.total}</div>
-                            </div>
-                        </div>
-                        <div class="stat-bars-compact">
-                            <div class="stat-bar-compact">
-                                <span>Précision</span>
-                                <strong style="color: #10b981;">${stats.passing.rate}%</strong>
-                            </div>
-                            <div class="progress-track">
-                                <div class="progress-fill" style="width: ${stats.passing.rate}%; background: linear-gradient(90deg, #10b981, #059669);"></div>
-                            </div>
-                            <div class="stat-bar-compact">
-                                <span>Passes Clés</span>
-                                <strong style="color: #eab308;">${stats.passing.key}</strong>
-                            </div>
-                        </div>
-                    </div>
+        // Utiliser 100% de l'espace disponible
+        const containerRect = container.getBoundingClientRect();
+        this.width = containerRect.width;
+        this.height = containerRect.height;
+        const size = Math.min(this.width, this.height);
+        this.margin = size * 0.08;
 
-                    <!-- Tirs Card -->
-                    <div class="stat-card stat-card-shooting">
-                        <div class="stat-card-header">
-                            <div class="stat-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
-                                <i class="fas fa-bullseye"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>Tirs</h3>
-                                <div class="stat-big">${stats.shooting.total}</div>
-                            </div>
-                        </div>
-                        <div class="stat-bars-compact">
-                            <div class="dual-mini-stats">
-                                <div class="mini-stat">
-                                    <div class="mini-stat-value" style="color: #eab308;">${stats.shooting.goals}</div>
-                                    <div class="mini-stat-label">BUTS</div>
-                                </div>
-                                <div class="mini-stat">
-                                    <div class="mini-stat-value" style="color: #f59e0b;">${stats.shooting.xg}</div>
-                                    <div class="mini-stat-label">xG</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CENTRE - RADAR -->
-                <div class="dashboard-center">
-                    <div class="radar-card">
-                        <div class="radar-title">
-                            <i class="fas fa-chart-radar"></i>
-                            <span>Profil Performance</span>
-                        </div>
-                        <div class="radar-content" id="dashboard-radar-content"></div>
-                    </div>
-                </div>
-
-                <!-- COLONNE DROITE -->
-                <div class="dashboard-right">
-                    <!-- Dribbles Card -->
-                    <div class="stat-card stat-card-dribbling">
-                        <div class="stat-card-header">
-                            <div class="stat-icon" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
-                                <i class="fas fa-running"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>Dribbles</h3>
-                                <div class="stat-big">${stats.dribbling.total}</div>
-                            </div>
-                        </div>
-                        <div class="stat-bars-compact">
-                            <div class="stat-bar-compact">
-                                <span>Réussite</span>
-                                <strong style="color: #22c55e;">${stats.dribbling.rate}%</strong>
-                            </div>
-                            <div class="progress-track">
-                                <div class="progress-fill" style="width: ${stats.dribbling.rate}%; background: linear-gradient(90deg, #22c55e, #16a34a);"></div>
-                            </div>
-                            <div class="stat-bar-compact">
-                                <span>Réussis</span>
-                                <strong style="color: #10b981;">${stats.dribbling.success}/${stats.dribbling.total}</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Défense Card -->
-                    <div class="stat-card stat-card-defense">
-                        <div class="stat-card-header">
-                            <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>Défense</h3>
-                                <div class="stat-big">${stats.defense.total}</div>
-                            </div>
-                        </div>
-                        <div class="stat-bars-compact">
-                            <div class="defense-mini-grid">
-                                <div class="defense-mini-item">
-                                    <div class="defense-mini-value">${stats.defense.tackles}</div>
-                                    <div class="defense-mini-label">Tacles</div>
-                                </div>
-                                <div class="defense-mini-item">
-                                    <div class="defense-mini-value">${stats.defense.interceptions}</div>
-                                    <div class="defense-mini-label">Interc.</div>
-                                </div>
-                                <div class="defense-mini-item">
-                                    <div class="defense-mini-value">${stats.defense.recoveries}</div>
-                                    <div class="defense-mini-label">Récup.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BOTTOM - MÉTRIQUES -->
-                <div class="dashboard-bottom">
-                    <div class="metrics-card">
-                        <div class="metrics-header">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>Statistiques Détaillées</span>
-                        </div>
-                        <div class="metrics-grid-horizontal" id="dashboard-metrics-content"></div>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        container.innerHTML = layout;
-
-        // Render components
-        this.radarChart = new RadarChart('dashboard-radar-content');
-        this.radarChart.update(stats);
-        this.renderMetrics(stats);
-    }
-
-    renderMetrics(stats) {
-        const container = document.getElementById('dashboard-metrics-content');
-        if (!container) return;
-
-        const metrics = [
-            { label: 'Volume Passes', value: stats.passing.total, icon: 'fas fa-exchange-alt', color: '#3b82f6' },
-            { label: 'Précision', value: `${stats.passing.rate}%`, icon: 'fas fa-crosshairs', color: '#22c55e' },
-            { label: 'Passes Clés', value: stats.passing.key, icon: 'fas fa-key', color: '#eab308' },
-            { label: 'Dribbles', value: `${stats.dribbling.success}/${stats.dribbling.total}`, icon: 'fas fa-running', color: '#22c55e' },
-            { label: 'Tirs', value: stats.shooting.total, icon: 'fas fa-bullseye', color: '#ef4444' },
-            { label: 'Buts', value: stats.shooting.goals, icon: 'fas fa-futbol', color: '#eab308' },
-            { label: 'xG', value: stats.shooting.xg, icon: 'fas fa-chart-line', color: '#f59e0b' },
-            { label: 'Tacles', value: stats.defense.tackles, icon: 'fas fa-hand-rock', color: '#8b5cf6' },
-            { label: 'Interceptions', value: stats.defense.interceptions, icon: 'fas fa-hand-paper', color: '#a78bfa' },
-            { label: 'Récupérations', value: stats.defense.recoveries, icon: 'fas fa-redo', color: '#c4b5fd' }
+        const data = [
+            {
+                axis: "Volume Passes",
+                value: Math.min(stats.passing.total / 60 * 100, 100),
+                raw: stats.passing.total,
+                color: '#3b82f6'
+            },
+            {
+                axis: "Précision",
+                value: stats.passing.rate,
+                raw: stats.passing.rate + '%',
+                color: '#3b82f6'
+            },
+            {
+                axis: "Passes Clés",
+                value: Math.min(stats.passing.key / 3 * 100, 100),
+                raw: stats.passing.key,
+                color: '#eab308'
+            },
+            {
+                axis: "Dribbles",
+                value: Math.min(stats.dribbling.total / 8 * 100, 100),
+                raw: `${stats.dribbling.success}/${stats.dribbling.total}`,
+                color: '#22c55e'
+            },
+            {
+                axis: "xG",
+                value: Math.min(parseFloat(stats.shooting.xg) / 1.0 * 100, 100),
+                raw: stats.shooting.xg,
+                color: '#ef4444'
+            },
+            {
+                axis: "Défense",
+                value: Math.min(stats.defense.total / 10 * 100, 100),
+                raw: stats.defense.total,
+                color: '#8b5cf6'
+            }
         ];
 
-        let html = '';
-        metrics.forEach(m => {
-            html += `
-                <div class="metric-pill">
-                    <div class="metric-pill-icon" style="color: ${m.color};">
-                        <i class="${m.icon}"></i>
-                    </div>
-                    <div class="metric-pill-content">
-                        <div class="metric-pill-value">${m.value}</div>
-                        <div class="metric-pill-label">${m.label}</div>
-                    </div>
-                </div>
-            `;
-        });
+        const svg = d3.select(container)
+            .append("svg")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("viewBox", `0 0 ${this.width} ${this.height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet")
+            .append("g")
+            .attr("transform", `translate(${this.width / 2}, ${this.height / 2})`);
 
-        container.innerHTML = html;
+        const radius = (size / 2) - this.margin;
+        const angleSlice = Math.PI * 2 / data.length;
+        const rScale = d3.scaleLinear()
+            .range([0, radius])
+            .domain([0, 100]);
+
+        // Grille circulaire
+        const levels = 5;
+        for (let i = 1; i <= levels; i++) {
+            const levelValue = (100 / levels) * i;
+
+            svg.append("circle")
+                .attr("r", rScale(levelValue))
+                .attr("fill", "none")
+                .attr("stroke", "rgba(255, 255, 255, 0.1)")
+                .attr("stroke-width", 1);
+
+            // Labels des niveaux
+            if (i === levels) {
+                svg.append("text")
+                    .attr("x", 5)
+                    .attr("y", -rScale(levelValue))
+                    .attr("fill", "rgba(255, 255, 255, 0.4)")
+                    .style("font-size", "9px")
+                    .text(levelValue);
+            }
+        }
+
+        // Axes
+        const axes = svg.selectAll(".axis")
+            .data(data)
+            .enter()
+            .append("g")
+            .attr("class", "axis");
+
+        axes.append("line")
+            .attr("x1", 0)
+            .attr("y1", 0)
+            .attr("x2", (d, i) => rScale(105) * Math.cos(angleSlice * i - Math.PI / 2))
+            .attr("y2", (d, i) => rScale(105) * Math.sin(angleSlice * i - Math.PI / 2))
+            .attr("stroke", "rgba(255, 255, 255, 0.2)")
+            .attr("stroke-width", 1);
+
+        // Labels des axes
+        axes.append("text")
+            .attr("x", (d, i) => rScale(120) * Math.cos(angleSlice * i - Math.PI / 2))
+            .attr("y", (d, i) => rScale(120) * Math.sin(angleSlice * i - Math.PI / 2))
+            .attr("text-anchor", "middle")
+            .attr("dy", "0.35em")
+            .attr("fill", "#cbd5e1")
+            .style("font-size", "10px")
+            .style("font-weight", "600")
+            .text(d => d.axis);
+
+        // Valeurs brutes
+        axes.append("text")
+            .attr("x", (d, i) => rScale(135) * Math.cos(angleSlice * i - Math.PI / 2))
+            .attr("y", (d, i) => rScale(135) * Math.sin(angleSlice * i - Math.PI / 2))
+            .attr("text-anchor", "middle")
+            .attr("dy", "0.35em")
+            .attr("fill", d => d.color)
+            .style("font-size", "11px")
+            .style("font-weight", "700")
+            .text(d => d.raw);
+
+        // Ligne du radar
+        const radarLine = d3.lineRadial()
+            .curve(d3.curveLinearClosed)
+            .radius(d => rScale(d.value))
+            .angle((d, i) => i * angleSlice);
+
+        // Zone du radar avec gradient
+        const radarId = 'radarGradient';
+        const gradient = svg.append('defs')
+            .append('radialGradient')
+            .attr('id', radarId);
+
+        gradient.append('stop')
+            .attr('offset', '0%')
+            .attr('stop-color', '#3b82f6')
+            .attr('stop-opacity', 0.8);
+
+        gradient.append('stop')
+            .attr('offset', '100%')
+            .attr('stop-color', '#3b82f6')
+            .attr('stop-opacity', 0.3);
+
+        svg.append("path")
+            .datum(data)
+            .attr("d", radarLine)
+            .style("fill", `url(#${radarId})`)
+            .style("stroke", "#3b82f6")
+            .style("stroke-width", 2);
+
+        // Points sur le radar
+        svg.selectAll(".radar-point")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("class", "radar-point")
+            .attr("cx", (d, i) => rScale(d.value) * Math.cos(angleSlice * i - Math.PI / 2))
+            .attr("cy", (d, i) => rScale(d.value) * Math.sin(angleSlice * i - Math.PI / 2))
+            .attr("r", 4)
+            .attr("fill", d => d.color)
+            .attr("stroke", "white")
+            .attr("stroke-width", 2)
+            .style("cursor", "pointer")
+            .on("mouseover", function(event, d) {
+                d3.select(this)
+                    .transition()
+                    .duration(200)
+                    .attr("r", 6);
+            })
+            .on("mouseout", function() {
+                d3.select(this)
+                    .transition()
+                    .duration(200)
+                    .attr("r", 4);
+            });
     }
 }
