@@ -11,6 +11,7 @@ import { Timeline } from './timeline.js';
 import { ShotMap } from './shotmap.js';
 import { ZoneAnalysis } from './zoneAnalysis.js';
 import { Dashboard as DashboardView } from './dashboard.js';
+import { ProgressivePasses } from './progressivePasses.js';
 
 class Dashboard {
     constructor() {
@@ -18,7 +19,7 @@ class Dashboard {
         this.currentView = 'heatmap';
         this.currentSlideIndex = 0;
         this.slides = document.querySelectorAll('.carousel-slide');
-
+        
         this.charts = {
             heatmap: null,
             passes: null,
@@ -27,10 +28,9 @@ class Dashboard {
             timeline: null,
             shotmap: null,
             zoneAnalysis: null,
-            progressivePasses: null,
-            defensiveActions: null
+            progressivePasses: null
         };
-
+        
         this.init();
         this.setupLandingPage();
         this.setupScrapingModal();
@@ -165,7 +165,7 @@ class Dashboard {
             if (response.ok && result.success) {
                 // Afficher un résumé détaillé
                 this.showScrapingSuccess(result);
-
+                
                 setTimeout(() => {
                     this.hideLoader();
                     this.showMainApp();
@@ -184,16 +184,16 @@ class Dashboard {
     }
 
     showScrapingSuccess(result) {
-        const matchesText = result.total_matches > 1
-            ? `${result.total_matches} matchs`
+        const matchesText = result.total_matches > 1 
+            ? `${result.total_matches} matchs` 
             : '1 match';
-
+        
         let detailsHtml = `<div style="margin-top: 20px; text-align: left;">`;
-
+        
         if (result.matches && result.matches.length > 0) {
             detailsHtml += `<div style="max-height: 200px; overflow-y: auto; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin-top: 15px;">`;
             detailsHtml += `<strong style="color: #3b82f6;">📋 Matchs scrapés :</strong><br><br>`;
-
+            
             result.matches.forEach((match, idx) => {
                 const date = new Date(match.date).toLocaleDateString('fr-FR');
                 detailsHtml += `<div style="margin-bottom: 10px; padding: 8px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">`;
@@ -201,10 +201,10 @@ class Dashboard {
                 detailsHtml += `<small style="color: #94a3b8;">${match.competition}</small>`;
                 detailsHtml += `</div>`;
             });
-
+            
             detailsHtml += `</div>`;
         }
-
+        
         detailsHtml += `<div style="margin-top: 15px; padding: 15px; background: rgba(34, 197, 94, 0.1); border-radius: 8px; border-left: 4px solid #22c55e;">`;
         detailsHtml += `<strong style="color: #22c55e;">✅ Extraction réussie !</strong><br>`;
         detailsHtml += `• ${matchesText} analysé(s)<br>`;
@@ -212,7 +212,7 @@ class Dashboard {
         detailsHtml += `• Joueur : ${result.player_name}`;
         detailsHtml += `</div>`;
         detailsHtml += `</div>`;
-
+        
         this.updateLoaderStatus(
             '🎉 Scraping terminé !',
             100,
@@ -223,17 +223,17 @@ class Dashboard {
     showLoader(type = 'match', playerName = '') {
         const loader = document.getElementById('loader-overlay');
         loader.classList.add('active');
-
-        const title = type === 'saison complète'
+        
+        const title = type === 'saison complète' 
             ? `🔍 Scraping saison de ${playerName}...`
             : `🔍 Scraping match de ${playerName}...`;
-
+        
         document.getElementById('loader-title').textContent = title;
-
+        
         const statusMsg = type === 'saison complète'
             ? '📡 Connexion à WhoScored (peut prendre 1-2 minutes)...'
             : '📡 Connexion à WhoScored...';
-
+        
         this.updateLoaderStatus(statusMsg, 10, '');
 
         // Animation progressive différente selon le type
@@ -264,12 +264,16 @@ class Dashboard {
         await this.loadFileList();
         this.setupEventListeners();
         this.setupCarousel();
-
+        
         // Initialiser les charts
+        console.log('🔧 Initializing charts...');
         this.charts.dashboard = new DashboardView('dashboard-container');
         this.charts.timeline = new Timeline('timeline-chart');
         this.charts.shotmap = new ShotMap('shotmap-chart', []);
         this.charts.zoneAnalysis = new ZoneAnalysis('zone-analysis');
+        console.log('🔧 Initializing ProgressivePasses...');
+        this.charts.progressivePasses = new ProgressivePasses('progressive-passes');
+        console.log('✅ All charts initialized');
     }
 
     setupEventListeners() {
@@ -278,7 +282,7 @@ class Dashboard {
         if (fileSelect) {
             fileSelect.addEventListener('change', (e) => this.loadData(e.target.value));
         }
-
+        
         // Sliders de temps
         ['time-min', 'time-max'].forEach(id => {
             const el = document.getElementById(id);
@@ -286,13 +290,13 @@ class Dashboard {
                 el.addEventListener('input', () => this.updateFilters());
             }
         });
-
+        
         // Filtres succès/échec
         const filterSuccess = document.getElementById('filter-success');
         const filterFailed = document.getElementById('filter-failed');
         if (filterSuccess) filterSuccess.addEventListener('change', () => this.updateFilters());
         if (filterFailed) filterFailed.addEventListener('change', () => this.updateFilters());
-
+        
         // Filtres d'actions (buts, tirs, dribbles, défense)
         const filterGoals = document.getElementById('filter-goals');
         const filterShots = document.getElementById('filter-shots');
@@ -316,15 +320,15 @@ class Dashboard {
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', (e) => {
                 if (this.currentSlideIndex !== 0) return;
-
+                
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 e.currentTarget.classList.add('active');
                 this.switchPitchView(e.currentTarget.dataset.view);
             });
         });
-
+        
         // Options des sous-filtres
-        ['opt-keypass', 'opt-pass-success', 'opt-pass-fail',
+        ['opt-keypass', 'opt-pass-success', 'opt-pass-fail', 
          'opt-goal', 'opt-shot', 'opt-dribble', 'opt-defense'].forEach(id => {
             const el = document.getElementById(id);
             if (el) {
@@ -336,10 +340,10 @@ class Dashboard {
     setupCarousel() {
         const prevBtn = document.getElementById('prev-slide');
         const nextBtn = document.getElementById('next-slide');
-
+        
         if (prevBtn) prevBtn.addEventListener('click', () => this.changeSlide(-1));
         if (nextBtn) nextBtn.addEventListener('click', () => this.changeSlide(1));
-
+        
         document.querySelectorAll('.indicator').forEach(dot => {
             dot.addEventListener('click', (e) => {
                 const index = parseInt(e.target.dataset.index);
@@ -352,31 +356,31 @@ class Dashboard {
         if (track) {
             let startX = 0;
             let isDragging = false;
-
+            
             track.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
                 isDragging = true;
             });
-
+            
             track.addEventListener('touchend', (e) => {
                 if (!isDragging) return;
                 this.handleSwipe(startX, e.changedTouches[0].clientX);
                 isDragging = false;
             });
-
+            
             track.addEventListener('mousedown', (e) => {
                 startX = e.clientX;
                 isDragging = true;
                 track.style.cursor = 'grabbing';
             });
-
+            
             track.addEventListener('mouseup', (e) => {
                 if (!isDragging) return;
                 this.handleSwipe(startX, e.clientX);
                 isDragging = false;
                 track.style.cursor = 'default';
             });
-
+            
             track.addEventListener('mouseleave', () => {
                 isDragging = false;
                 track.style.cursor = 'default';
@@ -397,46 +401,57 @@ class Dashboard {
     }
 
     goToSlide(index) {
+        console.log('🎯 goToSlide called with index:', index);
         this.currentSlideIndex = index;
-
+        
         this.slides.forEach((s, i) => s.classList.toggle('active', i === index));
 
         // Mettre à jour les données selon le slide
         if (index === 0) {
+            console.log('📍 Slide 0: Analyse Terrain');
             // Analyse Terrain
             this.switchPitchView(this.currentView);
         } else if (index === 1) {
+            console.log('📍 Slide 1: Dashboard');
             // Dashboard
             this.updateFilters();
         } else if (index === 2) {
+            console.log('📍 Slide 2: Timeline');
             // Timeline
             this.updateFilters();
         } else if (index === 3) {
+            console.log('📍 Slide 3: Shot Map');
             // Shot Map
             this.updateFilters();
         } else if (index === 4) {
+            console.log('📍 Slide 4: Zone Analysis');
             // Zone Analysis
             this.updateFilters();
+        } else if (index === 5) {
+            console.log('📍 Slide 5: Progressive Passes');
+            // Progressive Passes
+            this.updateFilters();
         }
+        console.log('✅ goToSlide completed');
     }
 
     async loadFileList() {
         try {
             const res = await fetch('/api/files');
             const files = await res.json();
-
+            
             const select = document.getElementById('fileSelect');
             if (!select) return;
-
+            
             select.innerHTML = '<option value="" disabled selected>Choisir un rapport...</option>';
-
+            
             files.forEach(f => {
                 const opt = document.createElement('option');
                 opt.value = f;
                 opt.textContent = f.replace(/_/g, ' ').replace('.json', '');
                 select.appendChild(opt);
             });
-
+            
             if (files.length > 0) {
                 select.value = files[0];
                 this.loadData(files[0]);
@@ -448,16 +463,16 @@ class Dashboard {
 
     async loadData(filename) {
         if (!filename) return;
-
+        
         try {
             const res = await fetch(`/data/${filename}`);
             const data = await res.json();
-
+            
             this.dataManager.setData(data);
             this.renderMatchSelector();
             this.renderGlobalStats();
             this.updateFilters();
-
+            
             // Forcer le rendu initial de la visualisation
             setTimeout(() => {
                 this.switchPitchView(this.currentView);
@@ -466,14 +481,14 @@ class Dashboard {
             console.error('Erreur lors du chargement des données:', e);
         }
     }
-
+    
     renderMatchSelector() {
         const container = document.getElementById('match-selector-container');
         if (!container) return;
-
+        
         container.innerHTML = '';
         const matches = this.dataManager.getMatches();
-
+        
         // Option "Tout sélectionner"
         const allItem = document.createElement('div');
         allItem.className = 'match-item';
@@ -518,12 +533,12 @@ class Dashboard {
         const tMinEl = document.getElementById('time-min');
         const tMaxEl = document.getElementById('time-max');
         const tValEl = document.getElementById('time-val');
-
+        
         if (!tMinEl || !tMaxEl) return;
-
+        
         const tMin = parseInt(tMinEl.value);
         const tMax = parseInt(tMaxEl.value);
-
+        
         if (tValEl) tValEl.textContent = `${tMin}-${tMax}`;
 
         // Récupérer les matchs sélectionnés
@@ -543,17 +558,17 @@ class Dashboard {
         };
 
         const events = this.dataManager.getFilteredEvents(filters);
-
+        
         this.renderGlobalStats(selectedMatches.length);
         this.updatePitchViews(events);
         this.updateSidebarSummary(events);
         this.updateDetailedMetrics(events);
-
+        
         // Dashboard
         if (this.charts.dashboard) {
             this.charts.dashboard.update(this.dataManager.getStats(events));
         }
-
+        
         if (this.charts.timeline) {
             this.charts.timeline.update(events, filters.timeRange);
         }
@@ -567,16 +582,25 @@ class Dashboard {
         if (this.charts.zoneAnalysis) {
             this.charts.zoneAnalysis.update(events);
         }
+
+        // Progressive Passes
+        console.log('🔍 Checking progressivePasses chart:', this.charts.progressivePasses ? 'EXISTS' : 'NULL');
+        if (this.charts.progressivePasses) {
+            console.log('🚀 Calling progressivePasses.update with', events.length, 'events');
+            this.charts.progressivePasses.update(events);
+        } else {
+            console.warn('⚠️ progressivePasses chart not initialized!');
+        }
     }
 
     updateSubFilters() {
         if (this.currentSlideIndex !== 0) return;
-
+        
         if (this.currentView === 'passes' && this.charts.passes) {
             const optKey = document.getElementById('opt-keypass');
             const optSuccess = document.getElementById('opt-pass-success');
             const optFail = document.getElementById('opt-pass-fail');
-
+            
             this.charts.passes.updateOptions({
                 showKeyPasses: optKey ? optKey.checked : true,
                 showSuccessful: optSuccess ? optSuccess.checked : true,
@@ -587,7 +611,7 @@ class Dashboard {
             const optShot = document.getElementById('opt-shot');
             const optDribble = document.getElementById('opt-dribble');
             const optDefense = document.getElementById('opt-defense');
-
+            
             this.charts.actions.updateOptions({
                 showGoals: optGoal ? optGoal.checked : true,
                 showShots: optShot ? optShot.checked : true,
@@ -604,7 +628,7 @@ class Dashboard {
             const filterShots = document.getElementById('filter-shots');
             const filterDribbles = document.getElementById('filter-dribbles');
             const filterDefensive = document.getElementById('filter-defensive');
-
+            
             this.charts.actions.updateOptions({
                 showGoals: filterGoals ? filterGoals.checked : true,
                 showShots: filterShots ? filterShots.checked : true,
@@ -616,17 +640,17 @@ class Dashboard {
 
     switchPitchView(viewName) {
         this.currentView = viewName;
-
+        
         const container = document.getElementById('viz-container');
         if (container) container.innerHTML = '';
-
+        
         this.charts[viewName] = null;
-
+        
         // Masquer tous les groupes de filtres spécifiques
         const filtersPass = document.getElementById('filters-passes');
         const filtersActions = document.getElementById('filters-actions');
         const actionFiltersGroup = document.getElementById('action-filters-group');
-
+        
         if (filtersPass) filtersPass.style.display = 'none';
         if (filtersActions) filtersActions.style.display = 'none';
         if (actionFiltersGroup) actionFiltersGroup.style.display = 'none';
@@ -641,7 +665,7 @@ class Dashboard {
                 if (actionFiltersGroup) actionFiltersGroup.style.display = 'block';
             }
         }
-
+        
         this.updateFilters();
     }
 
@@ -649,11 +673,11 @@ class Dashboard {
         const id = 'main-pitch';
         const container = document.getElementById('viz-container');
         if (!container) return;
-
+        
         if (container.innerHTML === '') {
             container.innerHTML = `<svg id="${id}" width="100%" height="100%"></svg>`;
         }
-
+        
         if (this.currentView === 'heatmap') {
             if (!this.charts.heatmap) {
                 this.charts.heatmap = new Heatmap(id);
@@ -691,7 +715,7 @@ class Dashboard {
                 </div>
             `;
         }
-
+        
         // KPIs avec données filtrées actuelles
         const tMinEl = document.getElementById('time-min');
         const tMaxEl = document.getElementById('time-max');
@@ -710,14 +734,14 @@ class Dashboard {
                 matchIds: selectedMatches
             })
         );
-
+        
         const kpis = [
             { l: 'Passes', v: s.passing.rate + '%', c: '#3b82f6' },
             { l: 'xG', v: s.shooting.xg, c: '#ef4444' },
             { l: 'Dribbles', v: `${s.dribbling.success}/${s.dribbling.total}`, c: '#22c55e' },
             { l: 'Récup', v: s.defense.total, c: '#8b5cf6' }
         ];
-
+        
         const kpiCont = document.getElementById('kpi-container');
         if (kpiCont) {
             kpiCont.innerHTML = kpis.map(k => `
@@ -731,11 +755,11 @@ class Dashboard {
 
     updateSidebarSummary(events) {
         const passes = events.filter(e => e.type?.displayName === 'Pass');
-        const shots = events.filter(e =>
+        const shots = events.filter(e => 
             ['Goal', 'MissedShots', 'SavedShot', 'ShotOnPost'].includes(e.type?.displayName)
         );
         const dribbles = events.filter(e => e.type?.displayName === 'TakeOn');
-
+        
         const summary = document.getElementById('sidebar-summary');
         if (summary) {
             summary.innerHTML = `
@@ -761,7 +785,7 @@ class Dashboard {
 
     updateDetailedMetrics(events) {
         const stats = this.dataManager.getStats(events);
-
+        
         const metrics = [
             {
                 label: 'Précision passes',
@@ -772,8 +796,8 @@ class Dashboard {
             {
                 label: 'Dribbles réussis',
                 value: `${stats.dribbling.success}/${stats.dribbling.total}`,
-                bar: stats.dribbling.total
-                    ? (stats.dribbling.success / stats.dribbling.total * 100)
+                bar: stats.dribbling.total 
+                    ? (stats.dribbling.success / stats.dribbling.total * 100) 
                     : 0,
                 color: '#22c55e'
             },
@@ -790,7 +814,7 @@ class Dashboard {
                 color: '#8b5cf6'
             }
         ];
-
+        
         const dm = document.getElementById('detailed-metrics');
         if (dm) {
             dm.innerHTML = `

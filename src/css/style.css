@@ -2246,3 +2246,69 @@ input[type="range"]::-webkit-slider-runnable-track {
         grid-row: auto;
     }
 }
+
+/* Style pour les badges dans les tooltips */
+.badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-prog {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.badge-switch {
+    background: rgba(6, 182, 212, 0.2);
+    color: #06b6d4;
+    border: 1px solid rgba(6, 182, 212, 0.4);
+}
+
+.badge-final {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+/* Boutons de filtres pour progressive passes */
+.prog-filter-btn {
+    padding: 8px 16px;
+    background: rgba(51, 65, 85, 0.5);
+    border: 1px solid rgba(71, 85, 105, 0.5);
+    border-radius: 8px;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.prog-filter-btn:hover {
+    background: rgba(71, 85, 105, 0.7);
+    border-color: rgba(100, 116, 139, 0.7);
+}
+
+.prog-filter-btn.active {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border-color: #3b82f6;
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.prog-stats-panel,
+.prog-legend-panel {
+    background: #0d1117;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.stat-block {
+    padding: 12px;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 8px;
+    border-left: 3px solid rgba(59, 130, 246, 0.5);
+}

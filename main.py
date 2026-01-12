@@ -42,6 +42,13 @@ class ScoutingHandler(http.server.SimpleHTTPRequestHandler):
         else:
             # Comportement par défaut (servir les fichiers statiques HTML/JS/CSS)
             super().do_GET()
+    
+    def end_headers(self):
+        # Désactiver le cache pour forcer le rechargement
+        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+        self.send_header('Pragma', 'no-cache')
+        self.send_header('Expires', '0')
+        super().end_headers()
 
     def do_POST(self):
         # API : Lancer le Scraping
