@@ -29,7 +29,7 @@ class ScoutingHandler(http.server.SimpleHTTPRequestHandler):
     
     def do_GET(self):
         # API : Lister les fichiers
-        if self.path == '/api/files':
+        if self.path == './data/files.json':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
