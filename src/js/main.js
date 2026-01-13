@@ -435,29 +435,51 @@ class Dashboard {
         console.log('✅ goToSlide completed');
     }
 
-    async loadFileList() {
+async loadFileList() {
+        let files = [];
+
         try {
+            // 1. Tentative : On demande au serveur (Mode Dev / Python)
             const res = await fetch('/api/files');
-            const files = await res.json();
             
-            const select = document.getElementById('fileSelect');
-            if (!select) return;
-            
-            select.innerHTML = '<option value="" disabled selected>Choisir un rapport...</option>';
-            
-            files.forEach(f => {
-                const opt = document.createElement('option');
-                opt.value = f;
-                opt.textContent = f.replace(/_/g, ' ').replace('.json', '');
-                select.appendChild(opt);
-            });
-            
-            if (files.length > 0) {
-                select.value = files[0];
-                this.loadData(files[0]);
+            // Si ça répond 200 OK, on prend le JSON
+            if (res.ok) {
+                files = await res.json();
+                console.log("✅ Mode API connecté : liste des fichiers chargée dynamiquement.");
+            } else {
+                // Si 404 ou autre erreur, on déclenche le catch
+                throw new Error("API non disponible");
             }
+
         } catch (e) {
-            console.error('Erreur lors du chargement de la liste:', e);
+            // 2. Fallback : Si l'API échoue (Mode Prod / Render), on utilise la liste fixe
+            console.warn("⚠️ API indisponible (c'est normal sur Render), utilisation de la liste statique.");
+            
+            files = [
+                "Azzedine_Ounahi_1765972385.json",
+                "Rayan_Cherki_1765884754.json",
+                "Jérémy_Doku_1765976897.json",
+                "Matheus_Cunha_1765884610.json",
+                "Lamine_Yamal_1765882755.json"
+            ];
+        }
+
+        // 3. Rendu du menu (Code inchangé)
+        const select = document.getElementById('fileSelect');
+        if (!select) return;
+
+        select.innerHTML = '<option value="" disabled selected>Choisir un rapport...</option>';
+
+        files.forEach(f => {
+            const opt = document.createElement('option');
+            opt.value = f;
+            opt.textContent = f.replace(/_/g, ' ').replace('.json', '');
+            select.appendChild(opt);
+        });
+
+        if (files.length > 0) {
+            select.value = files[0];
+            this.loadData(files[0]);
         }
     }
 
