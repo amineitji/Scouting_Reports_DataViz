@@ -437,7 +437,7 @@ class Dashboard {
 
     async loadFileList() {
         try {
-            const res = await fetch('./data/files.json');
+            const res = await fetch('/api/files');
             const files = await res.json();
             
             const select = document.getElementById('fileSelect');
