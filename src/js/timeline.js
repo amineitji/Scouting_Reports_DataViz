@@ -362,8 +362,14 @@ export class Timeline {
       .style('cursor', 'crosshair')
       .on('mousemove', function(event) {
         const [mouseX] = d3.pointer(event, this);
-        const minute = Math.round(xScale.invert(mouseX));
-        const d = data.find(item => item.minute === minute);
+        const minute = xScale.invert(mouseX);
+        
+        // Trouver la minute la plus proche dans les données
+        const d = data.reduce((closest, item) => {
+          const diff = Math.abs(item.minute - minute);
+          const closestDiff = Math.abs(closest.minute - minute);
+          return diff < closestDiff ? item : closest;
+        }, data[0]);
 
         if (d) {
           hoverLine
@@ -497,34 +503,36 @@ export class Timeline {
         .style('cursor', 'pointer');
 
       itemG.append('rect')
-        .attr('width', 12)
-        .attr('height', 12)
-        .attr('rx', 3)
+        .attr('width', 16)
+        .attr('height', 16)
+        .attr('rx', 4)
         .attr('fill', this.colors[item.key])
         .attr('opacity', 0.8);
 
       itemG.append('text')
-        .attr('x', 18)
-        .attr('y', 10)
+        .attr('x', 22)
+        .attr('y', 12)
         .attr('fill', '#e2e8f0')
-        .style('font-size', '11px')
+        .style('font-size', '13px')
         .style('font-weight', '600')
         .text(item.label);
 
       itemG.append('text')
         .attr('x', spacing - 50)
-        .attr('y', 10)
+        .attr('y', 12)
         .attr('fill', this.colors[item.key])
-        .style('font-size', '11px')
+        .style('font-size', '13px')
         .style('font-weight', '700')
         .text(item.value);
 
       itemG.on('mouseenter', function() {
-        itemG.select('rect').transition().duration(200).attr('opacity', 1);
+        itemG.select('rect').transition().duration(200).attr('opacity', 1).attr('width', 18).attr('height', 18);
+        itemG.selectAll('text').transition().duration(200).style('font-size', '14px');
       });
 
       itemG.on('mouseleave', function() {
-        itemG.select('rect').transition().duration(200).attr('opacity', 0.8);
+        itemG.select('rect').transition().duration(200).attr('opacity', 0.8).attr('width', 16).attr('height', 16);
+        itemG.selectAll('text').transition().duration(200).style('font-size', '13px');
       });
     });
   }

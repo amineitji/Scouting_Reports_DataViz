@@ -16,13 +16,23 @@ export class Dashboard {
         
         container.innerHTML = '';
 
-        // Layout moderne en 2×2 avec radar au centre
+        // Layout moderne avec radar à gauche sur toute la hauteur
         const layout = `
             <div class="dashboard-modern">
-                <!-- COLONNE GAUCHE -->
+                <!-- COLONNE GAUCHE - RADAR (toute hauteur) -->
                 <div class="dashboard-left">
-                    <!-- Passes Card -->
-                    <div class="stat-card stat-card-passes">
+                    <div class="radar-card" style="height: 100%;">
+                        <div class="radar-title">
+                            <i class="fas fa-chart-radar"></i>
+                            <span>Profil Performance</span>
+                        </div>
+                        <div class="radar-content" id="dashboard-radar-content"></div>
+                    </div>
+                </div>
+
+                <!-- COLONNE CENTRE - Passes Card -->
+                <div class="dashboard-center">
+                    <div class="stat-card stat-card-passes" style="height: 100%;">
                         <div class="stat-card-header">
                             <div class="stat-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
                                 <i class="fas fa-project-diagram"></i>
@@ -46,9 +56,11 @@ export class Dashboard {
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Tirs Card -->
-                    <div class="stat-card stat-card-shooting">
+                <!-- COLONNE DROITE - Tirs Card -->
+                <div class="dashboard-right">
+                    <div class="stat-card stat-card-shooting" style="height: 100%;">
                         <div class="stat-card-header">
                             <div class="stat-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
                                 <i class="fas fa-bullseye"></i>
@@ -73,83 +85,14 @@ export class Dashboard {
                     </div>
                 </div>
 
-                <!-- CENTRE - RADAR -->
-                <div class="dashboard-center">
-                    <div class="radar-card">
-                        <div class="radar-title">
-                            <i class="fas fa-chart-radar"></i>
-                            <span>Profil Performance</span>
-                        </div>
-                        <div class="radar-content" id="dashboard-radar-content"></div>
-                    </div>
-                </div>
-
-                <!-- COLONNE DROITE -->
-                <div class="dashboard-right">
-                    <!-- Dribbles Card -->
-                    <div class="stat-card stat-card-dribbling">
-                        <div class="stat-card-header">
-                            <div class="stat-icon" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
-                                <i class="fas fa-running"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>Dribbles</h3>
-                                <div class="stat-big">${stats.dribbling.total}</div>
-                            </div>
-                        </div>
-                        <div class="stat-bars-compact">
-                            <div class="stat-bar-compact">
-                                <span>Réussite</span>
-                                <strong style="color: #22c55e;">${stats.dribbling.rate}%</strong>
-                            </div>
-                            <div class="progress-track">
-                                <div class="progress-fill" style="width: ${stats.dribbling.rate}%; background: linear-gradient(90deg, #22c55e, #16a34a);"></div>
-                            </div>
-                            <div class="stat-bar-compact">
-                                <span>Réussis</span>
-                                <strong style="color: #10b981;">${stats.dribbling.success}/${stats.dribbling.total}</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Défense Card -->
-                    <div class="stat-card stat-card-defense">
-                        <div class="stat-card-header">
-                            <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>Défense</h3>
-                                <div class="stat-big">${stats.defense.total}</div>
-                            </div>
-                        </div>
-                        <div class="stat-bars-compact">
-                            <div class="defense-mini-grid">
-                                <div class="defense-mini-item">
-                                    <div class="defense-mini-value">${stats.defense.tackles}</div>
-                                    <div class="defense-mini-label">Tacles</div>
-                                </div>
-                                <div class="defense-mini-item">
-                                    <div class="defense-mini-value">${stats.defense.interceptions}</div>
-                                    <div class="defense-mini-label">Interc.</div>
-                                </div>
-                                <div class="defense-mini-item">
-                                    <div class="defense-mini-value">${stats.defense.recoveries}</div>
-                                    <div class="defense-mini-label">Récup.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BOTTOM - MÉTRIQUES -->
+                <!-- BOTTOM - MÉTRIQUES DÉTAILLÉES (colonnes 2-3) -->
                 <div class="dashboard-bottom">
-                    <div class="metrics-card">
+                    <div class="metrics-card" style="height: 100%;">
                         <div class="metrics-header">
                             <i class="fas fa-chart-bar"></i>
                             <span>Statistiques Détaillées</span>
                         </div>
-                        <div class="metrics-grid-horizontal" id="dashboard-metrics-content"></div>
+                        <div id="dashboard-metrics-content" style="height: calc(100% - 40px);"></div>
                     </div>
                 </div>
             </div>
@@ -172,13 +115,22 @@ export class Dashboard {
             { label: 'Précision', value: `${stats.passing.rate}%`, icon: 'fas fa-crosshairs', color: '#22c55e' },
             { label: 'Passes Clés', value: stats.passing.key, icon: 'fas fa-key', color: '#eab308' },
             { label: 'Dribbles', value: `${stats.dribbling.success}/${stats.dribbling.total}`, icon: 'fas fa-running', color: '#22c55e' },
+            { label: 'Réussite Dribbles', value: `${stats.dribbling.rate}%`, icon: 'fas fa-percent', color: '#10b981' },
             { label: 'Tirs', value: stats.shooting.total, icon: 'fas fa-bullseye', color: '#ef4444' },
             { label: 'Buts', value: stats.shooting.goals, icon: 'fas fa-futbol', color: '#eab308' },
             { label: 'xG', value: stats.shooting.xg, icon: 'fas fa-chart-line', color: '#f59e0b' },
             { label: 'Tacles', value: stats.defense.tackles, icon: 'fas fa-hand-rock', color: '#8b5cf6' },
             { label: 'Interceptions', value: stats.defense.interceptions, icon: 'fas fa-hand-paper', color: '#a78bfa' },
-            { label: 'Récupérations', value: stats.defense.recoveries, icon: 'fas fa-redo', color: '#c4b5fd' }
+            { label: 'Récupérations', value: stats.defense.recoveries, icon: 'fas fa-redo', color: '#c4b5fd' },
+            { label: 'Total Défense', value: stats.defense.total, icon: 'fas fa-shield-alt', color: '#8b5cf6' }
         ];
+
+        // Affichage en grille responsive
+        container.style.display = 'grid';
+        container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(140px, 1fr))';
+        container.style.gap = '8px';
+        container.style.overflowY = 'auto';
+        container.style.padding = '4px';
 
         let html = '';
         metrics.forEach(m => {
