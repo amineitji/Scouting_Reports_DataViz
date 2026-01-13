@@ -105,9 +105,47 @@
             >
             min)</label
           >
-          <div class="slider-container">
-            <input type="range" id="time-min" min="0" max="100" value="0" />
-            <input type="range" id="time-max" min="0" max="100" value="100" />
+          <div class="time-quick-select">
+            <button class="quick-btn" data-min="0" data-max="90">Match</button>
+            <button class="quick-btn" data-min="0" data-max="45">
+              1ère MT
+            </button>
+            <button class="quick-btn" data-min="45" data-max="90">
+              2ème MT
+            </button>
+          </div>
+          <div class="double-range">
+            <!-- Barre de sélection (PAS de fond noir) -->
+            <div class="range-selected" id="range-selected"></div>
+
+            <!-- Indications de temps -->
+            <div class="time-markers">
+              <span class="time-marker" style="left: 0%">0'</span>
+              <span class="time-marker" style="left: 16.67%">15'</span>
+              <span class="time-marker" style="left: 33.33%">30'</span>
+              <span class="time-marker" style="left: 50%">45'</span>
+              <span class="time-marker" style="left: 66.67%">60'</span>
+              <span class="time-marker" style="left: 83.33%">75'</span>
+              <span class="time-marker" style="left: 100%">90'</span>
+            </div>
+
+            <!-- Curseurs -->
+            <input
+              type="range"
+              id="time-min"
+              class="range-slider"
+              min="0"
+              max="90"
+              value="0"
+            />
+            <input
+              type="range"
+              id="time-max"
+              class="range-slider"
+              min="0"
+              max="90"
+              value="90"
+            />
           </div>
         </div>
 
@@ -389,15 +427,43 @@
       const timeMin = document.getElementById("time-min");
       const timeMax = document.getElementById("time-max");
       const timeVal = document.getElementById("time-val");
+      const rangeSelected = document.getElementById("range-selected");
 
-      function updateTimeDisplay() {
-        timeVal.textContent = `${timeMin.value}-${timeMax.value}`;
+      function updateRange() {
+        const min = parseInt(timeMin.value);
+        const max = parseInt(timeMax.value);
+
+        // Empêcher croisement
+        if (min > max - 1) {
+          timeMin.value = max - 1;
+        }
+        if (max < min + 1) {
+          timeMax.value = min + 1;
+        }
+
+        const finalMin = parseInt(timeMin.value);
+        const finalMax = parseInt(timeMax.value);
+
+        // Mise à jour visuelle
+        rangeSelected.style.left = (finalMin / 90) * 100 + "%";
+        rangeSelected.style.width = ((finalMax - finalMin) / 90) * 100 + "%";
+        timeVal.textContent = finalMin + "-" + finalMax;
       }
 
-      if (timeMin && timeMax) {
-        timeMin.addEventListener("input", updateTimeDisplay);
-        timeMax.addEventListener("input", updateTimeDisplay);
-      }
+      timeMin.addEventListener("input", updateRange);
+      timeMax.addEventListener("input", updateRange);
+
+      // Boutons rapides
+      document.querySelectorAll(".quick-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          timeMin.value = btn.dataset.min;
+          timeMax.value = btn.dataset.max;
+          updateRange();
+          timeMin.dispatchEvent(new Event("input"));
+        });
+      });
+
+      updateRange();
 
       document.querySelectorAll(".viz-tab").forEach((tab) => {
         tab.addEventListener("click", function () {

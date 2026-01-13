@@ -283,13 +283,62 @@ class Dashboard {
             fileSelect.addEventListener('change', (e) => this.loadData(e.target.value));
         }
         
-        // Sliders de temps
-        ['time-min', 'time-max'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) {
-                el.addEventListener('input', () => this.updateFilters());
+        // ========================================
+        // DOUBLE RANGE SLIDER - FROM SCRATCH
+        // ========================================
+        const timeMin = document.getElementById('time-min');
+        const timeMax = document.getElementById('time-max');
+        const rangeSelected = document.getElementById('range-selected');
+        const timeVal = document.getElementById('time-val');
+        
+        // Fonction de mise à jour du slider
+        const updateRangeSlider = () => {
+            if (!timeMin || !timeMax || !rangeSelected || !timeVal) return;
+            
+            let min = parseInt(timeMin.value);
+            let max = parseInt(timeMax.value);
+            
+            // Anti-croisement
+            if (min >= max) {
+                if (document.activeElement === timeMin) {
+                    min = max - 1;
+                    timeMin.value = min;
+                } else {
+                    max = min + 1;
+                    timeMax.value = max;
+                }
             }
+            
+            // Calcul position et largeur
+            const minPercent = (min / 90) * 100;
+            const maxPercent = (max / 90) * 100;
+            
+            rangeSelected.style.left = minPercent + '%';
+            rangeSelected.style.width = (maxPercent - minPercent) + '%';
+            
+            // Update label
+            timeVal.textContent = `${min}-${max}`;
+            
+            // Update filtres
+            this.updateFilters();
+        };
+        
+        // Event listeners
+        if (timeMin) timeMin.addEventListener('input', updateRangeSlider);
+        if (timeMax) timeMax.addEventListener('input', updateRangeSlider);
+        
+        // Boutons raccourcis
+        document.querySelectorAll('.quick-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (timeMin) timeMin.value = btn.dataset.min;
+                if (timeMax) timeMax.value = btn.dataset.max;
+                updateRangeSlider();
+            });
         });
+        
+        // Initialisation du slider
+        updateRangeSlider();
+
         
         // Filtres succès/échec
         const filterSuccess = document.getElementById('filter-success');
@@ -435,51 +484,29 @@ class Dashboard {
         console.log('✅ goToSlide completed');
     }
 
-async loadFileList() {
-        let files = [];
-
+    async loadFileList() {
         try {
-            // 1. Tentative : On demande au serveur (Mode Dev / Python)
             const res = await fetch('/api/files');
+            const files = await res.json();
             
-            // Si ça répond 200 OK, on prend le JSON
-            if (res.ok) {
-                files = await res.json();
-                console.log("✅ Mode API connecté : liste des fichiers chargée dynamiquement.");
-            } else {
-                // Si 404 ou autre erreur, on déclenche le catch
-                throw new Error("API non disponible");
+            const select = document.getElementById('fileSelect');
+            if (!select) return;
+            
+            select.innerHTML = '<option value="" disabled selected>Choisir un rapport...</option>';
+            
+            files.forEach(f => {
+                const opt = document.createElement('option');
+                opt.value = f;
+                opt.textContent = f.replace(/_/g, ' ').replace('.json', '');
+                select.appendChild(opt);
+            });
+            
+            if (files.length > 0) {
+                select.value = files[0];
+                this.loadData(files[0]);
             }
-
         } catch (e) {
-            // 2. Fallback : Si l'API échoue (Mode Prod / Render), on utilise la liste fixe
-            console.warn("⚠️ API indisponible (c'est normal sur Render), utilisation de la liste statique.");
-            
-            files = [
-                "Azzedine_Ounahi_1765972385.json",
-                "Rayan_Cherki_1765884754.json",
-                "Jérémy_Doku_1765976897.json",
-                "Matheus_Cunha_1765884610.json",
-                "Lamine_Yamal_1765882755.json"
-            ];
-        }
-
-        // 3. Rendu du menu (Code inchangé)
-        const select = document.getElementById('fileSelect');
-        if (!select) return;
-
-        select.innerHTML = '<option value="" disabled selected>Choisir un rapport...</option>';
-
-        files.forEach(f => {
-            const opt = document.createElement('option');
-            opt.value = f;
-            opt.textContent = f.replace(/_/g, ' ').replace('.json', '');
-            select.appendChild(opt);
-        });
-
-        if (files.length > 0) {
-            select.value = files[0];
-            this.loadData(files[0]);
+            console.error('Erreur lors du chargement de la liste:', e);
         }
     }
 
@@ -552,16 +579,14 @@ async loadFileList() {
     }
 
     updateFilters() {
+        // Récupérer les valeurs des sliders de temps
         const tMinEl = document.getElementById('time-min');
         const tMaxEl = document.getElementById('time-max');
-        const tValEl = document.getElementById('time-val');
         
         if (!tMinEl || !tMaxEl) return;
         
         const tMin = parseInt(tMinEl.value);
         const tMax = parseInt(tMaxEl.value);
-        
-        if (tValEl) tValEl.textContent = `${tMin}-${tMax}`;
 
         // Récupérer les matchs sélectionnés
         const selectedMatches = Array.from(document.querySelectorAll('.match-check:checked'))
@@ -749,7 +774,7 @@ async loadFileList() {
 
         const s = this.dataManager.getStats(
             this.dataManager.getFilteredEvents({
-                timeRange: tMinEl && tMaxEl ? [parseInt(tMinEl.value), parseInt(tMaxEl.value)] : [0, 100],
+                timeRange: tMinEl && tMaxEl ? [parseInt(tMinEl.value), parseInt(tMaxEl.value)] : [0, 90],
                 success: filterSuccess ? filterSuccess.checked : true,
                 failed: filterFailed ? filterFailed.checked : true,
                 zone: activeZone ? activeZone.dataset.zone : 'all',

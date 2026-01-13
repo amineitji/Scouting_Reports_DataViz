@@ -387,6 +387,167 @@ select:focus {
     gap: 8px;
 }
 
+/* ========================================
+   DOUBLE RANGE SLIDER SIMPLE
+   ======================================== */
+.time-quick-select {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.quick-btn {
+    flex: 1;
+    padding: 6px;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quick-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--accent);
+}
+
+/* ========================================
+   DOUBLE RANGE SLIDER - VERSION PROPRE
+   ======================================== */
+.double-range {
+    position: relative;
+    height: 50px;
+    padding-top: 10px;
+}
+
+/* Barre de sélection UNIQUEMENT (pas de fond noir) */
+.range-selected {
+    position: absolute;
+    top: 20px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    pointer-events: none;
+    transition: all 0.15s ease;
+}
+
+/* Indications de temps */
+.time-markers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.time-marker {
+    position: absolute;
+    top: 28px;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.time-marker[style*="left: 50%"] {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Curseurs */
+.range-slider {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    pointer-events: none;
+    outline: none;
+}
+
+/* Thumbs WebKit */
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--text-main);
+    border: 2px solid var(--accent);
+    cursor: pointer;
+    pointer-events: all;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.15s ease;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.range-slider::-webkit-slider-thumb:active {
+    cursor: grabbing;
+}
+
+/* Thumbs Firefox */
+.range-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--text-main);
+    border: 2px solid var(--accent);
+    cursor: pointer;
+    pointer-events: all;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.15s ease;
+}
+
+.range-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+}
+
+.range-slider::-moz-range-thumb:active {
+    cursor: grabbing;
+}
+
+/* Z-index */
+#time-min {
+    z-index: 1;
+}
+
+#time-max {
+    z-index: 2;
+}
+
+/* IMPORTANT : Masquer la track par défaut pour nos sliders */
+.range-slider {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.range-slider::-webkit-slider-runnable-track {
+    background: transparent !important;
+    border: none !important;
+    height: 0 !important;
+}
+
+.range-slider::-moz-range-track {
+    background: transparent !important;
+    border: none !important;
+    height: 0 !important;
+}
+
+
 input[type="range"] {
     height: 6px;
     background: var(--border);
@@ -1903,63 +2064,52 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 /* ==========================================================================
-   DASHBOARD MODERNE - LAYOUT OPTIMISÉ ET RESPONSIVE
+   DASHBOARD MODERNE - LAYOUT ÉQUILIBRÉ
    ========================================================================== */
 .dashboard-modern {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr auto;
-    gap: 10px;
-    padding: 10px;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 15px;
+    padding: 15px;
     height: 100%;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .dashboard-left {
-    grid-column: 1;
-    grid-row: 1 / 3;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    min-height: 0;
+    gap: 15px;
 }
 
 .dashboard-center {
-    grid-column: 2;
-    grid-row: 1;
-    min-height: 0;
+    grid-row: 1 / 2;
 }
 
 .dashboard-right {
-    grid-column: 3;
-    grid-row: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    min-height: 0;
+    gap: 15px;
 }
 
 .dashboard-bottom {
-    grid-column: 2 / 4;
-    grid-row: 2 / 4;
-    overflow: visible;
+    grid-column: 1 / 4;
 }
 
 /* Stat Cards */
 .stat-card {
     background: linear-gradient(135deg, rgba(22, 27, 34, 0.8), rgba(13, 17, 23, 0.9));
     border: 1px solid rgba(59, 130, 246, 0.2);
-    border-radius: 10px;
-    padding: 12px;
+    border-radius: 12px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     flex: 1;
     overflow: hidden;
-    min-height: 0;
 }
 
 .stat-card:hover {
@@ -1975,13 +2125,13 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 .stat-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: white;
     flex-shrink: 0;
 }
@@ -1992,7 +2142,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 .stat-big {
@@ -2007,16 +2157,15 @@ input[type="range"]::-webkit-slider-runnable-track {
 .stat-bars-compact {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
     flex: 1;
-    min-height: 0;
 }
 
 .stat-bar-compact {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .stat-bar-compact span {
@@ -2026,32 +2175,31 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 .stat-bar-compact strong {
     font-weight: 700;
-    font-size: 0.9rem;
 }
 
 .dual-mini-stats {
     display: flex;
-    gap: 8px;
+    gap: 12px;
 }
 
 .mini-stat {
     flex: 1;
     text-align: center;
-    padding: 8px;
+    padding: 12px;
     background: rgba(255, 255, 255, 0.03);
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .mini-stat-value {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 900;
     line-height: 1;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .mini-stat-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -2060,14 +2208,14 @@ input[type="range"]::-webkit-slider-runnable-track {
 .defense-mini-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+    gap: 8px;
 }
 
 .defense-mini-item {
     text-align: center;
-    padding: 10px 6px;
+    padding: 10px;
     background: rgba(139, 92, 246, 0.1);
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
@@ -2076,7 +2224,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     font-weight: 900;
     color: #a78bfa;
     line-height: 1;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .defense-mini-label {
@@ -2089,31 +2237,30 @@ input[type="range"]::-webkit-slider-runnable-track {
 .radar-card {
     background: linear-gradient(135deg, rgba(22, 27, 34, 0.8), rgba(13, 17, 23, 0.9));
     border: 1px solid rgba(59, 130, 246, 0.3);
-    border-radius: 10px;
-    padding: 12px;
+    border-radius: 12px;
+    padding: 16px;
     height: 100%;
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
-    min-height: 0;
 }
 
 .radar-title {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
     border-bottom: 1px solid rgba(59, 130, 246, 0.2);
     color: var(--text-main);
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
 }
 
 .radar-title i {
     color: var(--accent);
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .radar-content {
@@ -2121,47 +2268,41 @@ input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    min-height: 0;
 }
 
 /* Metrics Bottom Bar */
 .metrics-card {
     background: linear-gradient(135deg, rgba(22, 27, 34, 0.8), rgba(13, 17, 23, 0.9));
     border: 1px solid rgba(245, 158, 11, 0.2);
-    border-radius: 10px;
-    padding: 10px 12px;
+    border-radius: 12px;
+    padding: 14px;
     backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
 }
 
 .metrics-header {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-bottom: 8px;
+    gap: 8px;
+    margin-bottom: 12px;
     color: var(--text-main);
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .metrics-header i {
     color: #f59e0b;
-    font-size: 0.9rem;
 }
 
 .metrics-grid-horizontal {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 2px 0;
+    padding: 4px 0;
 }
 
 .metrics-grid-horizontal::-webkit-scrollbar {
-    height: 5px;
+    height: 6px;
 }
 
 .metrics-grid-horizontal::-webkit-scrollbar-track {
@@ -2181,12 +2322,12 @@ input[type="range"]::-webkit-slider-runnable-track {
 .metric-pill {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
+    gap: 10px;
+    padding: 10px 14px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    min-width: 120px;
+    border-radius: 10px;
+    min-width: 140px;
     flex-shrink: 0;
     transition: all 0.3s ease;
 }
@@ -2198,7 +2339,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 .metric-pill-icon {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     flex-shrink: 0;
 }
 
@@ -2209,89 +2350,38 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 .metric-pill-value {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 900;
     color: var(--text-main);
     line-height: 1;
 }
 
 .metric-pill-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
     font-weight: 600;
     line-height: 1;
 }
 
 /* Responsive */
-@media (max-width: 1600px) {
+@media (max-width: 1400px) {
     .dashboard-modern {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
-        gap: 10px;
     }
 
     .dashboard-left {
         grid-column: 1;
-        grid-row: 1 / 3;
-    }
-
-    .dashboard-center {
-        grid-column: 2;
         grid-row: 1;
     }
 
     .dashboard-right {
         grid-column: 2;
-        grid-row: 2;
-    }
-
-    .dashboard-bottom {
-        grid-column: 1 / 3;
-        grid-row: 3;
-    }
-}
-
-@media (max-width: 1200px) {
-    .dashboard-modern {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-        gap: 8px;
-        padding: 8px;
-    }
-
-    .stat-big {
-        font-size: 1.7rem;
-    }
-
-    .mini-stat-value {
-        font-size: 1.4rem;
-    }
-
-    .stat-bar-compact {
-        font-size: 0.8rem;
-    }
-
-    .stat-bar-compact strong {
-        font-size: 0.85rem;
-    }
-
-    .metric-pill-value {
-        font-size: 1.1rem;
-    }
-
-    .dashboard-left {
-        grid-column: 1 / 3;
         grid-row: 1;
-        min-height: 350px;
     }
 
     .dashboard-center {
-        grid-column: 1;
-        grid-row: 2;
-    }
-
-    .dashboard-right {
-        grid-column: 2;
+        grid-column: 1 / 3;
         grid-row: 2;
     }
 
@@ -2305,37 +2395,16 @@ input[type="range"]::-webkit-slider-runnable-track {
     .dashboard-modern {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        gap: 8px;
-        padding: 8px;
+        gap: 12px;
+        padding: 12px;
     }
 
     .dashboard-left,
-    .dashboard-center,
     .dashboard-right,
+    .dashboard-center,
     .dashboard-bottom {
         grid-column: 1;
         grid-row: auto;
-    }
-
-    .dashboard-left {
-        min-height: 300px;
-    }
-
-    .metrics-card {
-        max-height: none;
-    }
-
-    .metric-pill {
-        min-width: 100px;
-        padding: 6px 10px;
-    }
-
-    .stat-card {
-        padding: 10px;
-    }
-
-    .radar-card {
-        padding: 10px;
     }
 }
 
