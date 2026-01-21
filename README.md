@@ -340,27 +340,6 @@ Le dashboard s'ouvre automatiquement sur `http://localhost:8000`
 | **Amir**     | Visualizations Specialist  | Pass Map, Shot Map, Heatmap, Progressive Passes, Dashboard, Radar Chart |
 | **Joubrane** | DevOps & Quality Assurance | Timeline, Zone Analysis, Tests, Déploiement Render, Documentation       |
 
-### Méthodologie
-
-**Communication**
-
-- GitHub Projects pour gestion des tâches (Issues, Pull Requests)
-- Discord pour communication quotidienne
-- Google Drive pour documentation partagée
-
-**Sessions de Travail**
-
-- Mardis 14h-16h : Développement collaboratif
-- Jeudis 18h-20h : Code review et tests d'intégration
-- Dimanches matin : Intégration et préparation déploiements
-
-**Workflow Git**
-
-- Branches feature pour chaque module
-- Pull Requests avec review obligatoire
-- Conventions de commit : feat/fix/docs/style/refactor/test
-- Protection de la branche main
-
 ### Répartition des Contributions
 
 ```
@@ -369,153 +348,13 @@ Frontend & Design (Youssef)          : 25%
 Visualisations D3.js (Amir)          : 25%
 DevOps & Documentation (Joubrane)    : 25%
 ```
-
----
-
-## Roadmap
-
-### Version 1.0 - Soutenance (13/01/2026)
-
-- Système de scraping fonctionnel et robuste
-- 7 visualisations interactives complètes
-- Filtres multi-critères opérationnels
-- Interface responsive et moderne
-- Déploiement production sur Render
-- Documentation exhaustive
-
-### Version 1.5 - Post-Soutenance (Q1 2026)
-
-- Module Actions Défensives détaillé
-- Comparaison côte-à-côte multi-joueurs
-- Export PDF des rapports personnalisés
-- Thèmes de couleurs personnalisables
-- Système de favoris et bookmarks
-
-### Version 2.0 - Future (Q2 2026)
-
-- Replay animé des actions (timeline playback)
-- Suggestions ML par similarité de profil
-- Analyse de tendances multi-saisons
-- API publique pour développeurs externes
-- Application mobile native
-
----
-
-## Limitations et Perspectives
-
-### Limitations Actuelles
-
-**Données**
-
-- Dépendance à la structure HTML de WhoScored (scraping fragile)
-- Couverture limitée aux compétitions présentes sur la plateforme
-- Pas d'accès aux données de tracking physique (GPS, vitesse)
-
-**Fonctionnalités**
-
-- Module Actions Défensives non finalisé
-- Absence de comparaison directe entre joueurs
-- Export limité (pas de PDF automatique)
-
-**Performance**
-
-- Temps de scraping variable (10-30s selon match)
-- Visualisations lourdes sur datasets volumineux (100+ matchs)
-- Pas de mise en cache navigateur optimisée
-
-### Perspectives d'Amélioration
-
-**Court Terme**
-
-- Optimisation du parsing HTML avec sélecteurs plus robustes
-- Implémentation cache Redis pour accélérer chargements
-- Ajout d'indicateurs de progression durant scraping
-
-**Moyen Terme**
-
-- Intégration de sources de données complémentaires (Opta, StatsBomb)
-- Système de notifications pour nouveaux matchs scrapés
-- Mode hors-ligne avec Service Workers
-
-**Long Terme**
-
-- Modèle ML pour prédiction de performances futures
-- Plateforme collaborative avec annotations partagées
-- Monétisation via abonnements pour clubs amateurs
-
-## Contexte Académique
-
-**Université Claude Bernard Lyon 1**  
-Master 2 Intelligence Artificielle  
-UE : Visualisation Interactive de Données  
-Année Universitaire : 2025-2026
-
-**Lien vers le cours :** [http://masters.sif.univ-lyon1.fr/visualisation](http://masters.sif.univ-lyon1.fr/visualisation)
-
-### Notation
-
-| Critère                       | Pondération |
-| ----------------------------- | ----------- |
-| Veille individuelle           | 5%          |
-| Cadrage, suivi, peer-review   | 15%         |
-| Présentation et démonstration | 40%         |
-| Réalisation technique         | 40%         |
-
-### Jalons Respectés
-
-- 05/11 : Lancement du projet
-- 12/11 : Constitution du groupe (4 membres)
-- 09/12 : Repository GitHub et document de cadrage
-- 16/12 & 06/01 : TPs banalisés avec retours
-- 13/01 : Soutenance (10 minutes)
-- 23/01 : Rendu final
-
-## Crédits et Licence
-
+  
 ### Sources de Données
 
 **WhoScored** ([https://www.whoscored.com/](https://www.whoscored.com/))  
-Données événementielles utilisées dans un cadre strictement éducatif et académique.
 
 **Photos Joueurs**  
-Sources publiques via APIs tierces (usage éducatif).
-
-### Inspirations Techniques
-
-- **D3.js Gallery** : Patterns de visualisation avancés
-- **Friends of Tracking** : Méthodologie d'analyse football
-- **FC Python** : Techniques de traitement de données sportives
-- **Soccermatics** : Approche scientifique de l'analytics
-
-### Design et Ressources
-
-- **Glassmorphism.com** : Inspiration design interface moderne
-- **Font Awesome** : Bibliothèque d'icônes
-- **Google Fonts** (Inter) : Police de caractères
-
-### Licence
-
-Ce projet est réalisé dans un cadre académique à l'Université Claude Bernard Lyon 1.  
-Le code source est disponible sous licence MIT pour usage éducatif.
-
-Les données appartiennent à leurs propriétaires respectifs et sont utilisées conformément aux conditions d'utilisation de WhoScored pour un usage non-commercial et éducatif.
-
-## Contact
-
-**Équipe de Développement**
-
-- **Amine** - Backend & Data
-- **Youssef** - Frontend & Design
-- **Amir** - Visualizations
-- **Joubrane** - DevOps & QA
-
-**Formation**  
-Master 2 Intelligence Artificielle  
-Université Claude Bernard Lyon 1  
-2025-2026
-
-**Repository GitHub**  
-[https://github.com/[USERNAME]/Scouting_Reports_DataViz](https://github.com/[USERNAME]/Scouting_Reports_DataViz)
+Sources publiques via scraping TransferMarkt.
 
 **Démo Live**  
 [https://scouting-reports-dataviz.onrender.com/](https://scouting-reports-dataviz.onrender.com/)
