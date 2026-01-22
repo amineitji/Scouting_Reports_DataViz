@@ -16,7 +16,10 @@ except ImportError:
     WhoScoredScraper = None
 
 # Configuration
-PORT = 8000
+# --- MODIFICATION POUR RENDER ---
+# Récupère le port défini par Render (variable d'env) ou utilise 8000 par défaut (local)
+PORT = int(os.environ.get("PORT", 8000))
+
 DATA_DIR = "data"
 os.makedirs(DATA_DIR, exist_ok=True)
 
@@ -145,26 +148,32 @@ def start_server():
     print(f"\n--- SERVEUR SCOUTING PRO ACTIF SUR LE PORT {PORT} ---")
     
     # S'assurer qu'on est dans le bon dossier racine
+    # Note : Sur Render, le chemin peut varier, mais os.path.dirname(__file__) reste sûr
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     
     # Permet de redémarrer le serveur rapidement sans erreur "Address already in use"
     socketserver.TCPServer.allow_reuse_address = True
     
     try:
+        # Écoute sur 0.0.0.0 (nécessaire pour Render) via ""
         with socketserver.TCPServer(("", PORT), ScoutingHandler) as httpd:
             url = f"http://localhost:{PORT}"
             print(f"✅ Dashboard accessible ici : {url}")
-            print("🌐 Ouvrez cette adresse dans votre navigateur.")
+            
+            # L'ouverture du navigateur peut échouer sur un serveur headless (Render), on ignore l'erreur
+            try:
+                if "RENDER" not in os.environ: # Évite d'essayer d'ouvrir le navigateur sur Render
+                    print("🌐 Ouvrez cette adresse dans votre navigateur.")
+                    webbrowser.open(url)
+            except:
+                pass
+
             print("⌨️  Appuyez sur Ctrl+C pour arrêter le serveur.")
-            
-            # Ouverture automatique
-            webbrowser.open(url)
-            
             httpd.serve_forever()
     except OSError as e:
         if e.errno == 98:
             print(f"❌ Erreur : Le port {PORT} est déjà utilisé.")
-            print("👉 Solution : Changez la variable PORT dans main.py ou fermez l'autre instance.")
+            print("👉 Solution : Changez la variable PORT ou fermez l'autre instance.")
         else:
             raise
 
